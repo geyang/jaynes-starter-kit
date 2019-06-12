@@ -1,0 +1,61 @@
+version: 0
+
+mounts:
+  - !mounts.LocalCode &local_code
+    source_path: .
+    pypath: true
+    excludes: "--exclude='data' --exclude='results' --exclude='analysis' --exclude='*__pycache__' --exclude='*.git' --exclude='*.idea' --exclude='*.egg-info' --exclude='*.pkl'"
+
+runners:
+  - !runners.SlurmBatch &debug_slurm
+    envs: >-
+      LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/nvidia-opengl
+    setup: |
+      source /private/home/erikwijmans/miniconda3/etc/profile.d/conda.sh
+      conda activate jaynes
+      export MASTER_ADDR=$(srun --ntasks=1 hostname 2>&1 | tail -n1)
+    startup: export LC_CTYPE=en_US.UTF-8
+    pypath: "{mounts[0].host_path}"
+    partition: "dev"
+    time_limit: "6:0:0"
+    cpus_per_task: 10
+    mem_per_cpu: 5625MB
+    nodes: 1
+    n_gpu: 1
+    name: etw_debug-{run.now:%H.%M.%S.%f}
+    launch_directory: ""
+    sbatch_directory: "./sandbox"
+  - !runners.SlurmBatch &learnfair
+    envs: >-
+      LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/nvidia-opengl
+    setup: |
+      source /private/home/erikwijmans/miniconda3/etc/profile.d/conda.sh
+      conda activate jaynes
+      export MASTER_ADDR=$(srun --ntasks=1 hostname 2>&1 | tail -n1)
+    startup: export LC_CTYPE=en_US.UTF-8
+    pypath: "{mounts[0].host_path}"
+    partition: "learnfair"
+    time_limit: "72:0:0"
+    cpus_per_task: 10
+    mem_per_cpu: 5625MB
+    nodes: 8
+    n_gpu: 8
+    name: jaynes
+    launch_directory: ""
+    sbatch_directory: "./sandbox"
+
+launch: &local_launch
+  type: local
+  dry: False
+
+modes:
+  debug:
+    mounts:
+      - *local_code
+    runner: *debug_slurm
+    launch: *local_launch
+  learnfair:
+    mounts:
+      - *local_code
+    runner: *learnfair
+    launch: *local_launch
