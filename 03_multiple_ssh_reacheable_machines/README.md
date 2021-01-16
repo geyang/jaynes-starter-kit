@@ -1,11 +1,10 @@
 # Launching on Remote Server via SSH with `Jaynes`
 
-This folder contains a working example for launching jobs with docker on multiple remote 
-work stations via ssh, with subscription to all of the tty pipe-backs.
+<a href="./figures/output.png" target="_blank"><img src="./figures/output.png" alt="single_launch" align="right" width="600px" style="top:20px"></a>
 
-result looks like:
+This folder contains a working example for launching jobs without docker on multiple remote work stations via ssh, with subscription to all of the tty pipe-backs.
 
-<img src="./figures/output.png" alt="./figures/output.png" style="zoom:33%;" />
+result looks like figure to the right: 👉
 
 ## Getting Started
 
@@ -14,8 +13,6 @@ This example assumes that you can assess a remote Linux machine via a username a
 ```bash
 pip install jaynes==0.6.0-rc14
 ```
-
- 
 
 This folder is structured as:
 
