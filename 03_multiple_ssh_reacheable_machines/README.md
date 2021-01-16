@@ -23,8 +23,8 @@ This folder is structured as:
 03_multiple_ssh_reacheable_machines
 ├── README.md
 ├── figures
-└── launch_entry.py
-
+├── launch_entry.py
+└── multi_launch.py
 ```
 
 Where the main file contains the following
@@ -46,8 +46,6 @@ if __name__ == "__main__":
     jaynes.listen(200)
 
 ```
-
-
 
 ### Mode 1: Plain Password
 
@@ -73,3 +71,51 @@ If you access the machine using a privte key instead change the `.jaynes.yml` fi
     launch_dir: {env.JYNS_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}
 ```
 
+## Managing Python Environments on Server
+
+Setup a conda environment on the server, and then install jaynes in that python environment: we use `jaynes.entry` module to bootstrap the python runtime. In this example, we use the `base` environment that comes with each conda installation.
+
+```bash
+conda activate base
+pip install jaynes
+```
+
+The launch `.jaynes.yml` file contains the following values for configuring the remote python runtime:
+
+```yaml
+setup: |
+  . $HOME/lfgr.env
+  conda activate base
+envs: >-
+  LANG=utf-8
+  LC_CTYPE=en_US.UTF-8
+  LD_LIBRARY_PATH=$HOME/.mujoco/mujoco200/bin:$LD_LIBREARY_PATH
+  PYTHONPATH=`which python`:$PYTHONPATH
+pypath: "{mounts[0].host_path}"
+work_dir: "{mounts[0].host_path}"
+```
+
+## Overriding the Config File (and Launch Across Machines)
+
+In the [./multi_launch.py](./multi_launch.py) script, we automatically distribute the launch across multiple machines. This script shows the pattern for overwriding the configuration file:
+
+```python
+#! ./multi_launch.py
+import jaynes
+from launch_entry import train_fn
+
+if __name__ == "__main__":
+    for i in range(3):
+        jaynes.config(verbose=False, runner=dict(host=f"vision{i:02d}"))
+        jaynes.run(train_fn)
+
+    jaynes.listen(200)
+```
+
+You should see the output stream from all three machines combined in the stdout.
+
+
+
+## Issues and Questions?
+
+Please report issues or error messages in the issues page of the main `jaynes` repo: [jaynes/issues](https://github.com/geyang/jaynes/issues). Happy Researching!  :heart:

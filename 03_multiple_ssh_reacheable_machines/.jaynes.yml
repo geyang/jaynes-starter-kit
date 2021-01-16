@@ -26,12 +26,12 @@ runners:
     name: "jaynes-demo"  # only for docker
     setup: |
       . $HOME/lfgr.env
-      conda activate lfgr
+        conda activate your-env
     envs: >-
       LANG=utf-8
       LC_CTYPE=en_US.UTF-8
-      LD_LIBRARY_PATH=/h/bstadie/.mujoco/mujoco200/bin:$LD_LIBREARY_PATH
-      PYTHONPATH=/h/bstadie/.local/lib/python3.6/site-packages:$PYTHONPATH
+      LD_LIBRARY_PATH=$HOME/.mujoco/mujoco200/bin:$LD_LIBREARY_PATH
+      PYTHONPATH=`which python`:$PYTHONPATH
     pypath: "{mounts[0].host_path}"
     work_dir: "{mounts[0].host_path}"
 modes: # todo: add support to modes.
