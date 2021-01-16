@@ -9,7 +9,7 @@ result looks like:
 
 ## Getting Started
 
-This example assumes that you can assess a remote Linux machine via a username and a password. First, install jaynes. This tutorial is written w.r.t version: [v0.6.0-rc14](./releases/v0.6.0-rc14)
+This example assumes that you can assess a remote Linux machine via a username and a password. First, install jaynes. This tutorial is written w.r.t version: [v0.6.0-rc14](https://github.com/geyang/jaynes/releases/tag/v0.6.0-rc14)
 
 ```bash
 pip install jaynes==0.6.0-rc14
@@ -118,4 +118,6 @@ You should see the output stream from all three machines combined in the stdout.
 
 ## Issues and Questions?
 
-Please report issues or error messages in the issues page of the main `jaynes` repo: [jaynes/issues](https://github.com/geyang/jaynes/issues). Happy Researching!  :heart:
+Please report issues or error messages in the issues page of the main `jaynes` repo: [jaynes/issues](https://github.com/geyang/jaynes/issues). 
+
+Happy Researching!  :heart:
