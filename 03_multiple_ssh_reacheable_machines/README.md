@@ -9,37 +9,29 @@ result looks like:
 
 ## Getting Started
 
-You need to have `awscli` installed on your computer, plus `jaynes`. `boto3` is needed for launching `ec2` jobs, but it is not needed in this example.
+This example assumes that you can assess a remote Linux machine via a username and a password. 
+
+### Mode 1: Plain Password
+
+Set the following environment parameters in your `~/.bashrc` file:
+
 ```bash
-pip install awscli jaynes
+export JYNS_USERNAME=/*your username*/
+export JYNS_PASSWORD='/*your password*/'  # use '' if contain [!]
+export JYNS_DIR=/*path to the NFS you have access to*/
 ```
 
-The experiment script looks like the following:
+### Mode 2: Private Key
 
-```python
-import jaynes
+If you access the machine using a privte key instead change the `.jaynes.yml` file by replacing the `host.password` field with `host.pem: /*path to your pem key*/;` instead.
 
-if __name__ == "__main__":
-
-    jaynes.config(mode='hodor')
-    jaynes.run(launch)
-
-    # try below
-    jaynes.config(mode='oberyn')
-    jaynes.run(launch)
-
-    # try run locally!
-    jaynes.config(mode='local')
-    jaynes.run(launch)
-
-    # this line allows you to keep the pipe open and hear back from the remote instance.
-    jaynes.listen()
+```yaml
+  vision01: &vision01
+    ip: vision01
+    username: "{env.JYNS_USERNAME}"
+    # remove this line from the config file
+    # password: "{env.JYNS_PASSWORD}"
+    pem: ~/.ssh/your-public-key
+    launch_dir: {env.JYNS_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}
 ```
-
-`hodor` and `oberyn` are two different machines. As you can see in the 
-screenshot bellow, the local result gets print first. Then then hodor:
-
-![./figures/multi-ssh-mode.png](./figures/multi-ssh-mode.png)
-
-Because `oberyn` is down, the ssh remote call failed for that instance.
 

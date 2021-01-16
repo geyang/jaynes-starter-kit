@@ -29,17 +29,7 @@ def launch():
 
 
 if __name__ == "__main__":
-
-    jaynes.config(mode='hodor')
+    jaynes.config(verbose=True)
     jaynes.run(launch)
 
-    # try below
-    jaynes.config(mode='oberyn')
-    jaynes.run(launch)
-
-    # try run locally!
-    jaynes.config(mode='local')
-    jaynes.run(launch)
-
-    # this line allows you to keep the pipe open and hear back from the remote instance.
-    jaynes.listen()
+    jaynes.listen(200)
