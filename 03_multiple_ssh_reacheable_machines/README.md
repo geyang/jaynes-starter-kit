@@ -9,7 +9,45 @@ result looks like:
 
 ## Getting Started
 
-This example assumes that you can assess a remote Linux machine via a username and a password. 
+This example assumes that you can assess a remote Linux machine via a username and a password. First, install jaynes. This tutorial is written w.r.t version: [v0.6.0-rc14](./releases/v0.6.0-rc14)
+
+```bash
+pip install jaynes==0.6.0-rc14
+```
+
+ 
+
+This folder is structured as:
+
+```bash
+03_multiple_ssh_reacheable_machines
+├── README.md
+├── figures
+└── launch_entry.py
+
+```
+
+Where the main file contains the following
+
+```python
+import jaynes
+
+def train_fn():
+    from time import sleep
+
+    for i in range(10):
+        print(f"step: {i}"); sleep(0.1)
+    print('Finished!')
+
+if __name__ == "__main__":
+    jaynes.config(verbose=False)
+    jaynes.run(train_fn)
+
+    jaynes.listen(200)
+
+```
+
+
 
 ### Mode 1: Plain Password
 
