@@ -16,6 +16,10 @@ project.
 
 1 directory, 4 files
 ```
+## Reporting Issues (on the [Jaynes Repo/issues](https://github.com/geyang/jaynes/issues))
+
+Let's collect all issues on the [main `jaynes` repo's issue page](https://github.com/geyang/jaynes/issues), so that
+people can search for things more easily!
 
 ## How to Debug
 
