@@ -5,7 +5,7 @@ work stations via ssh, with subscription to all of the tty pipe-backs.
 
 result looks like:
 
-![./figures/output.png](./figures/output.png)
+<img src="./figures/output.png" alt="./figures/output.png" style="zoom:33%;" />
 
 ## Getting Started
 
