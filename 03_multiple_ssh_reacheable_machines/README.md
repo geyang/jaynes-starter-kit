@@ -5,7 +5,7 @@ work stations via ssh, with subscription to all of the tty pipe-backs.
 
 result looks like:
 
-![./figures/multi-ssh-mode.png](./figures/multi-ssh-mode.png)
+![./figures/output.png](./figures/output.png)
 
 ## Getting Started
 
