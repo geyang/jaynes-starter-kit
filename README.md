@@ -1,4 +1,30 @@
-# Example Projects for Jaynes
+# Jaynes Examples: Cross Provider ComputING at Scale
+
+This repository is an up-t0-date collection of minimal jaynes usage examples. You can mix and match configurations between these use cases for your particular infrastructure.
+
+## To Get Started
+
+First let's install Jaynes! This tutorial is written w.r.t version: [v0.6.0-rc14](https://github.com/geyang/jaynes/releases/tag/v0.6.0-rc15)
+
+```bash
+pip install jaynes==0.6.0-rc15
+```
+
+I would also recommend taking a look at [params-proto](https://github.com/geyang/params_proto), which is a pythonic  hyperparameter + argparsing library that makes parameter management declaritive and error-free. To install params-proto, run
+
+```bash
+pip install params-proto waterbear
+```
+
+## Table of Contents
+
+For detailed documentation on each usecases, refer to the in-dept tutorial bellow: 
+
+3. [**Multiple SSH Reacheable Machines**](03_multiple_ssh_reacheable_machines)
+4. [**Compute at Scale with SLRUM & Jaynes**](04_slurm_configuration)
+5. [**Advanced Multi-mode Example**](05_muti-mode_advanced_config)
+4. [**SSH Docker Configuration**](01_ssh_docker_configuration)
+5. [**EC2 Docker Configuration**](02_ec2_docker_configuration)
 
 In this folder, we provide a collection of example configurations. Each example sits
 within its own folder. To run, follow the instruction in the README in that example
@@ -10,15 +36,8 @@ project.
 ├── launch_entry.py
 └── jaynes.yml
 ```
+
 ## Table of Contents
-
-For detailed documentation on each usecases, refer to the in-dept tutorial bellow: 
-
-3. [**Multiple SSH Reacheable Machines**](03_multiple_ssh_reacheable_machines)
-4. [**Compute at Scale with SLRUM & Jaynes**](04_slurm_configuration)
-5. [**Advanced Multi-mode Example**](05_muti-mode_advanced_config)
-4. [**SSH Docker Configuration**](01_ssh_docker_configuration)
-5. [**EC2 Docker Configuration**](02_ec2_docker_configuration)
 
 ## Reporting Issues (on the [Jaynes Repo/issues](https://github.com/geyang/jaynes/issues))
 
