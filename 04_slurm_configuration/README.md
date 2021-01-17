@@ -1,4 +1,4 @@
-<a href="./figures/slurm_stdout_3.png" target="_blank"><img src="./figures/slurm_stdout_3.png" alt="slurm_stdout" align="right" width="600px" style="top:20px"></a>
+<img src="./figures/slurm_stdout_3.png" alt="slurm_stdout" align="right" width="600px" style="top:20px">
 
 # SLURM Setup [via SSH]
 
@@ -10,7 +10,7 @@ In this tutorial, we will provide guide on the [ssh] launch model. For the clien
 
 ## Getting Started
 
-This example assumes that you can assess a remote SLURM cluster via ssh. **First let's make sure ssh works**:
+This example assumes that you can access a remote SLURM cluster via ssh. **First let's make sure ssh works**:
 
 ```bash
 ssh $JYNS_USERNAME@$JYNS_SLURM_HOST -i $JYNS_SLURM_PEM
