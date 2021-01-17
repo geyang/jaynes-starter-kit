@@ -4,7 +4,7 @@ This repository is an up-to-date collection of minimal jaynes usage examples. Yo
 
 ## To Get Started
 
-First let's install Jaynes! This tutorial is written w.r.t version: [v0.6.0-rc14](https://github.com/geyang/jaynes/releases/tag/v0.6.0-rc15)
+First let's install Jaynes! This tutorial is written w.r.t version: [v0.6.0-rc15](https://github.com/geyang/jaynes/releases/tag/v0.6.0-rc15)
 
 ```bash
 pip install jaynes==0.6.0-rc15
