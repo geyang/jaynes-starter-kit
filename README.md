@@ -1,6 +1,6 @@
 # Jaynes Examples: Cross-Provider Computation at Scale
 
-This repository is an up-t0-date collection of minimal jaynes usage examples. You can mix and match configurations between these use cases for your particular infrastructure.
+This repository is an up-to-date collection of minimal jaynes usage examples. You can mix and match configurations between these included usecases for your particular infrastructure.
 
 ## To Get Started
 
