@@ -54,6 +54,9 @@ to see the error messages.
 1. **Turn on verbose mode**, by setting `verbose=True` in the jaynes call
 
   ```python
+  #! launch_entry.py
+  import jaynes
+  
   jaynes.config(verbose=True)
   ```
 
@@ -69,7 +72,10 @@ to see the error messages.
 2. **Launch**
 
   ```python
-  jaynes.run(train_fn)
+  #! launch_entry.py
+  
+  if __name__ == "__main__":
+      jaynes.run(train_fn, *args, **kwargs)
   # if in SLURM or SSH mode:
   jaynes.listen()  # to listen to the stdout/stderr pipe-back
   ```
