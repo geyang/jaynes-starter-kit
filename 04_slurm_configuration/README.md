@@ -10,10 +10,10 @@ In this tutorial, we will provide guide on the [ssh] launch model. For the clien
 
 ## Getting Started
 
-First make sure that you can access the login node of your cluster:
+This example assumes that you can assess a remote SLURM cluster via ssh. **First let's make sure ssh works**:
 
 ```bash
-ssh $JYNS_USERNAME@$JYNS_SLURM_HOST -i $JYNS_PEM
+ssh $JYNS_USERNAME@$JYNS_SLURM_HOST -i $JYNS_SLURM_PEM
 ```
 
 to do so, you need to configure these in your environment script `./bashrc`
@@ -27,23 +27,12 @@ export JYNS_SLURM_DIR=/home/gridsan/geyang/jaynes-mount
 
 > password login are usually disabled on managed SLURM clusters.
 
-### Main Script
+###  
 
-```python
-import jaynes
+**Second, install `jaynes`.** This tutorial is written w.r.t version: [v0.6.0-rc15](https://github.com/geyang/jaynes/releases/tag/v0.6.0-rc15).
 
-def train_fn():
-    from time import sleep
-
-    for i in range(10):
-        print(f"step: {i}"); sleep(0.1)
-    print('Finished!')
-
-if __name__ == "__main__":
-    jaynes.config(verbose=False)
-    jaynes.run(train_fn)
-
-    jaynes.listen(200)
+```bash
+pip install jaynes==0.6.0-rc15
 ```
 
 ## Managing Python Environment on A SLURM Cluster
@@ -70,7 +59,44 @@ The launch `.jaynes.yml` file contains the following values for configuring the 
     source activate base;
 ```
 
-## Launchiong Multiple Jobs
+This folder is structured as:
+
+```bash
+04_slurm_configuration
+├── README.md
+├── figures
+└── launch_entry.py
+```
+
+Where the main file contains the following
+
+### Main Script
+
+```python
+import jaynes
+
+def train_fn(seed=100):
+    from time import sleep
+
+    print(f'[seed: {seed}] See real-time pipe-back from the server:')
+    for i in range(3):
+        print(f"[seed: {seed}] step: {i}")
+        sleep(0.1)
+
+    print(f'[seed: {seed}] Finished!')
+
+if __name__ == "__main__":
+    jaynes.config(verbose=False)
+    jaynes.run(train_fn)
+
+    jaynes.listen(200)
+```
+
+when you run this script, it should print out
+
+<p><img src="./figures/slurm_stdout_single.png" alt="slurm_stdout_single" width="900px" style="top:20px"></p>
+
+## Launching Multiple Jobs
 
 Just call `jaynes.run` with multiple copies of the function:
 

@@ -8,10 +8,10 @@ result looks like figure to the right: 👉
 
 ## Getting Started
 
-This example assumes that you can assess a remote Linux machine via a username and a password. First, install jaynes. This tutorial is written w.r.t version: [v0.6.0-rc14](https://github.com/geyang/jaynes/releases/tag/v0.6.0-rc14)
+This example assumes that you can assess a remote Linux machine via a username and a password. First, install jaynes. This tutorial is written w.r.t version: [v0.6.0-rc14](https://github.com/geyang/jaynes/releases/tag/v0.6.0-rc15)
 
 ```bash
-pip install jaynes==0.6.0-rc14
+pip install jaynes==0.6.0-rc15
 ```
 
 This folder is structured as:
