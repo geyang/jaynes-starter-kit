@@ -20,7 +20,7 @@ pip install params-proto waterbear
 
 For detailed documentation on each usecases, refer to the in-dept tutorial bellow: 
 
-3. [**Multiple SSH Reacheable Machines**](03_multiple_ssh_reacheable_machines)
+1. [**Multiple SSH Reacheable Machines**](03_multiple_ssh_reacheable_machines)
 4. [**Compute at Scale with SLRUM & Jaynes**](04_slurm_configuration)
 5. [**Advanced Multi-mode Example**](05_muti-mode_advanced_config)
 4. [**SSH Docker Configuration**](01_ssh_docker_configuration)
