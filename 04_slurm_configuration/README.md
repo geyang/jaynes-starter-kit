@@ -1,6 +1,5 @@
-<img src="./figures/slurm_stdout_3.png" alt="slurm_stdout" align="right" width="600px" style="top:20px">
-
 # SLURM Setup [via SSH]
+<img src="./figures/slurm_stdout_3.png" alt="slurm_stdout" align="right" width="600px" style="top:20px">
 
 `jaynes` supports two SLURM launch modes. In the first mode, `jaynes` ssh tunnel through each time when you call `jaynes.run(train_fn)`. In the second model, we setup a `jaynes.server` instance on the SLURM cluster's login node, which we can control via TCP/IP callls. 
 
