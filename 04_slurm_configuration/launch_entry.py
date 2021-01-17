@@ -1,34 +1,22 @@
 import jaynes
 
+green = lambda s: f"\x1b[32m{s}\x1b[0m"
 
-def launch():
-    s = """
-    # The Awesome ML-Logger
-    
-    You can run the following code with ml-logger:
-    
-    ```python
-    from ml_logger import logger
-    
-    logger.log(lr=0, clip range=0.200, step=0, timestamp='2018-11-16T00:09:27.198142', reward=-109.43)
-    logger.flush()
-    ```
-    ╒════════════════════╤════════════════════════════╕
-    │         lr         │           0.000            │
-    ├────────────────────┼────────────────────────────┤
-    │     clip range     │           0.200            │
-    ├────────────────────┼────────────────────────────┤
-    │        step        │             0              │
-    ├────────────────────┼────────────────────────────┤
-    │      timestamp     │'2018-11-16T00:09:27.198142'│
-    ├────────────────────┼────────────────────────────┤
-    │       reward       │          -109.43           │
-    ╘════════════════════╧════════════════════════════╛
-    """
-    print(s)
+
+def train_fn(seed=100):
+    from time import sleep
+
+    print(f'[seed: {seed}] See real-time pipe-back from the server:')
+    for i in range(3):
+        print(f"[seed: {seed}] step: {i}")
+        sleep(0.1)
+
+    print(green(f'[seed: {seed}] Finished!'))
 
 
 if __name__ == "__main__":
-    jaynes.config(mode='fair')
-    jaynes.run(launch)
-    jaynes.listen()
+    jaynes.config(verbose=False)
+    for i in range(4):
+        jaynes.run(train_fn, seed=i * 100)
+
+    jaynes.listen(200)

@@ -1,0 +1,46 @@
+version: 0
+hosts:
+  gaia: &login_node !host
+    ip: "{env.JYNS_SLURM_HOST}"
+    username: "{env.JYNS_USERNAME}"
+    pem: "{env.JYNS_PEM}"
+mounts: # mount configurations Available keys: NOW, UUID,
+  - !mounts.SSHCode &code_mount
+    local_path: .
+    # host_path: $JYNMNT/latent-planning/latent-planning
+    local_tar: /tmp/{now:%Y-%m-%d}/{now:%H%M%S.%f}-jaynes-demo.tar
+    host_path: "{env.JYNS_SLURM_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}-jaynes_demo"
+    remote_tar: "{env.JYNS_SLURM_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}-jaynes_demo.tar"
+    pypath: true
+    excludes: >-
+      --exclude='data' --exclude='samples' --exclude='images' --exclude='videos'
+      --exclude='figures' --exclude='results' --exclude='analysis' --exclude='*.ipynb'
+      --exclude='*__pycache__' --exclude='*.git' --exclude='*.png' --exclude='*.gif'
+      --exclude='*.mp4' --exclude='*.idea' --exclude='*.egg-info' --exclude='*.pkl'
+      --exclude='*.log*'
+    compress: true
+runners:
+  - !runners.Slurm &slurm
+    envs: >-
+      LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US
+    startup: >-
+      source ~/.bashrc;
+      module load cuda/11.0;
+      module load anaconda/2020b;
+      source activate base;
+    pypath: "{mounts[0].host_path}/rl:{mounts[0].host_path}/imitation:{mounts[0].host_path}/rl_maml_tf"
+    work_dir: "{mounts[0].host_path}"
+    partition: normal # not clear what the partition is like
+    time_limit: "0:0:20"
+    n_cpu: 2
+    n_gpu: 0
+
+run:
+  host: !host
+    <<: *login_node
+  mounts:
+    - *code_mount
+  runner: *slurm
+  launch:
+    type: ssh
+    <<: *login_node

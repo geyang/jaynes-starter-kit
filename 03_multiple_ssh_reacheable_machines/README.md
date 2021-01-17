@@ -41,7 +41,6 @@ if __name__ == "__main__":
     jaynes.run(train_fn)
 
     jaynes.listen(200)
-
 ```
 
 ### Mode 1: Plain Password
@@ -70,7 +69,7 @@ If you access the machine using a privte key instead change the `.jaynes.yml` fi
 
 ## Managing Python Environments on Server
 
-Setup a conda environment on the server, and then install jaynes in that python environment: we use `jaynes.entry` module to bootstrap the python runtime. In this example, we use the `base` environment that comes with each conda installation.
+Setup a conda environment on the server, and then install jaynes in that python environment: we use `jaynes.entry` module to bootstrap the python runtime. In this example, we use the `base` environment that comes with each conda installation.
 
 ```bash
 conda activate base
@@ -117,4 +116,4 @@ You should see the output stream from all three machines combined in the stdout.
 
 Please report issues or error messages in the issues page of the main `jaynes` repo: [jaynes/issues](https://github.com/geyang/jaynes/issues). 
 
-Happy Researching!  :heart:
+Happy Researching!  :heart:
