@@ -19,10 +19,10 @@ ssh $JYNS_USERNAME@$JYNS_SLURM_HOST -i $JYNS_PEM
 to do so, you need to configure these in your environment script `./bashrc`
 
 ```bash
-export JYNS_SLURM_HOST=/*your username*/
+export JYNS_SLURM_HOST=/*your slurm cluster login node*/
 export JYNS_USERNAME=/*your username*/
-export JYNS_PEM=~/.ssh//*your rsa key*/
-export JYNS_DIR=/*path to the NFS you have access to*/
+export JYNS_SLURM_PEM=~/.ssh//*your rsa key*/
+export JYNS_SLURM_DIR=/home/gridsan/geyang/jaynes-mount
 ```
 
 > password login are usually disabled on managed SLURM clusters.
