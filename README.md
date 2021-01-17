@@ -34,7 +34,7 @@ project.
 01_ssh_docker_configuration
 ├── README.md
 ├── launch_entry.py
-└── jaynes.yml
+└── .jaynes.yml
 ```
 
 ## Table of Contents
