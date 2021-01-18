@@ -37,8 +37,6 @@ project.
 └── .jaynes.yml
 ```
 
-## Table of Contents
-
 ## Reporting Issues (on the [Jaynes Repo/issues](https://github.com/geyang/jaynes/issues))
 
 Let's collect all issues on the [main `jaynes` repo's issue page](https://github.com/geyang/jaynes/issues), so that
