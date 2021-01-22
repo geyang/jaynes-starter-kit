@@ -128,6 +128,19 @@ if __name__ == "__main__":
 
 You should see the output stream from all three machines combined in the stdout.
 
+## On Running Tensorflow
+
+In rare occations (for example at CSAIL), if you install tensorflow via `pip` sometimes it gives `Illegal Instructions` fault during import. If this happens for any reason, you should switch to a conda installation. This nasty issue raises its head here and [there](https://github.com/tensorflow/tensorflow/issues/40978) without a clear solution except the following:
+
+**First, make sure you remove tensorflow from everywhere possible**. This includes `~/.local`, **and** your conda's `site-packages`. (some times it is installed at both locations). After manually checking for these locations, install using conda. Note that conda installation can be quite slow:
+
+```bash
+yes | pip uninstall tensorflow
+conda install --use-local tensorflow=2.3.1  # notice only one "="
+```
+
+
+
 
 
 ## Issues and Questions?
