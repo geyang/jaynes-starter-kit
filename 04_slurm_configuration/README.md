@@ -28,17 +28,17 @@ export JYNS_SLURM_DIR=/home/gridsan/geyang/jaynes-mount
 
 ###  
 
-**Second, install `jaynes`.** This tutorial is written w.r.t version: [v0.6.0-rc15](https://github.com/geyang/jaynes/releases/tag/v0.6.0-rc15).
+**Second, install `jaynes`.** This tutorial is written w.r.t version: [v0.6.0-rc16](https://github.com/geyang/jaynes/releases/tag/v0.6.0-rc16).
 
 ```bash
-pip install jaynes==0.6.0-rc15
+pip install jaynes==0.6.0-rc16
 ```
 
 ## Managing Python Environment on A SLURM Cluster
 
 Docker are usually not supported on managed HPC clusters, where a shared, NFS offer direct access to common python environments across machines. We assume that you have installed conda, and there is a `base` environment available.
 
-First, let's installl `jaynes`, this is because jaynes use the `jaynes.entry` module to bootstrap the launch after the job starts. In most cases, you want to install all packages in your user space, which is why we pass in the `--user` flag.
+First, let's installl `jaynes`, this is because jaynes use the `jaynes.entry` module to bootstrap the launch after the job starts. In most cases, you want to install all packages in your user space, which is why we pass in the `--user` flag.
 
 ```bash
 conda activate base

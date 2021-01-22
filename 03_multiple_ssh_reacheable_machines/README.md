@@ -8,11 +8,29 @@ result looks like figure to the right: 👉
 
 ## Getting Started
 
-This example assumes that you can assess a remote Linux machine via a username and a password. First, install jaynes. This tutorial is written w.r.t version: [v0.6.0-rc14](https://github.com/geyang/jaynes/releases/tag/v0.6.0-rc15)
+This example assumes that you can assess a remote Linux machine via a username and a password. 
+
+**First, install miniconda, and python 3.7 (or below)**. The cloundpickle module supports python 3.7 and below, which is different from the latest miniconda distribution. So you can install using this url
 
 ```bash
-pip install jaynes==0.6.0-rc15
+curl -O https://repo.anaconda.com/miniconda/Miniconda3-py37_4.8.3-Linux-x86_64.sh
+bash Miniconda3-py37_4.8.3-Linux-x86_64.sh
 ```
+
+Follow the instruction, then verify that it as installed successfully via
+
+```bash
+conda env
+>> *base     $HOME/your-username/miniconda3
+```
+
+**Second, install jaynes** and other dependencies you need for your project. This tutorial is written w.r.t version: [v0.6.0-rc14](https://github.com/geyang/jaynes/releases/tag/v0.6.0-rc15)
+
+```bash
+pip install jaynes==0.6.0-rc16
+```
+
+## Overview of This Example
 
 This folder is structured as:
 
