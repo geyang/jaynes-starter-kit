@@ -66,38 +66,30 @@ and
 #!/bin/bash
 # to allow process substitution
 set +o posix
-mkdir -p ~/debug-outputs
+
+mkdir -p /afs/csail.mit.edu/u/g/geyang/jaynes-demo/2021-02-17/122900.578234
+JAYNES_LAUNCH_DIR=/afs/csail.mit.edu/u/g/geyang/jaynes-demo/2021-02-17/122900.578234
+
 {
-    # clear main_log
-    truncate -s 0 ~/debug-outputs/jaynes-launch.log
-    truncate -s 0 ~/debug-outputs/jaynes-launch.err.log
+# upload_script from within the host.
+# todo: include this inside the runner script.
 
-    if ! type aws > /dev/null; then
-        pip install awscli --upgrade --user
-    fi
+            # sudo service docker start # this is optional.
+            # docker pull python:3.7
 
-    # remote_setup
+            # export PATH=/usr/local/bin/:$PATH  # this is needed on mac osx hosts.
+            echo `which docker`
+            
+            echo -ne 'kill running instances '
+            docker kill jaynes-docker-demo
+            echo -ne 'remove existing container '
+            LANG=utf-8 docker rm jaynes-docker-demo
+            
+            echo 'Now run docker'
+            LANG=utf-8 docker run -i  --ipc=host -v '/afs/csail.mit.edu/u/g/geyang/jaynes-demo/2021-02-17/122900.578234-jaynes_demo':'/Users/ge/mit/jaynes-starter-kit/01_ssh_docker_configuration/.' --name 'jaynes-docker-demo' \
+            python:3.7 /bin/bash -c 'echo "Running in docker";yes | pip install jaynes==0.6.0rc16 ml-logger cloudpickle==1.3.0 -q;export PYTHONPATH=$PYTHONPATH:/Users/ge/mit/jaynes-starter-kit/01_ssh_docker_configuration/.;cd '/Users/ge/mit/jaynes-starter-kit/01_ssh_docker_configuration';JAYNES_PARAMS_KEY=gASVqQIAAAAAAAB9lCiMBXRodW5rlIwXY2xvdWRwaWNrbGUuY2xvdWRwaWNrbGWUjA5fZmlsbF9mdW5jdGlvbpSTlChoAowPX21ha2Vfc2tlbF9mdW5jlJOUaAKMDV9idWlsdGluX3R5cGWUk5SMCENvZGVUeXBllIWUUpQoSwJLAEsCSwVLQ0ModABkAXwBmwBkAnwAmwCdBIMBAQB0AGQDgwEBAHQAZASDAQEAZABTAJQoTowPdHJhaW5pbmcgbW9kZWwglIwGIHdpdGgglIwDLi4ulIwRVGhpcyBpcyB3b3JraW5nISGUdJSMBXByaW50lIWUjAJscpSMCm1vZGVsX25hbWWUhpSMTC9Vc2Vycy9nZS9taXQvamF5bmVzLXN0YXJ0ZXIta2l0LzAxX3NzaF9kb2NrZXJfY29uZmlndXJhdGlvbi9sYXVuY2hfZW50cnkucHmUjAZsYXVuY2iUSwFDBgABFAEIAZQpKXSUUpRK/////32UKIwLX19wYWNrYWdlX1+UTowIX19uYW1lX1+UjAhfX21haW5fX5SMCF9fZmlsZV9flIxML1VzZXJzL2dlL21pdC9qYXluZXMtc3RhcnRlci1raXQvMDFfc3NoX2RvY2tlcl9jb25maWd1cmF0aW9uL2xhdW5jaF9lbnRyeS5weZR1h5RSlH2UKIwHZ2xvYmFsc5R9lIwIZGVmYXVsdHOUjAVMZU5ldJSFlIwEZGljdJR9lIwOY2xvc3VyZV92YWx1ZXOUTowGbW9kdWxllGgfjARuYW1llGgYjANkb2OUTowXX2Nsb3VkcGlja2xlX3N1Ym1vZHVsZXOUXZSMCHF1YWxuYW1llGgYjAprd2RlZmF1bHRzlE51dFKMBGFyZ3OUKYwGa3dhcmdzlH2UaBRHP1BiTdLxqfxzdS4= python -u -m jaynes.entry'
 
-        aws s3 cp 's3://ge-bair/jaynes-debug/3e95eff1-e180-49a4-ae6c-b88cdaa965d6.tar' '/tmp/3e95eff1-e180-49a4-ae6c-b88cdaa965d6.tar' --no-sign-request
-        mkdir -p '/home/ubuntu/jaynes-mounts/2019-01-04/213434.826353'
-        tar -zxf '/tmp/3e95eff1-e180-49a4-ae6c-b88cdaa965d6.tar' -C '/home/ubuntu/jaynes-mounts/2019-01-04/213434.826353'
-
-    # upload_script
-
-    # todo: include this inside the runner script.
-
-    # sudo service docker start # this is optional.
-    # docker pull episodeyang/super-expert
-
-    echo 'kill running instances'
-    docker kill some-job
-    echo 'remove existing container with name'
-    LANG=utf-8 docker rm some-job
-    echo 'Now run docker'
-    LANG=utf-8 docker run -i  --ipc=host -v '/home/ubuntu/jaynes-mounts/2019-01-04/213434.826353':'/Users/geyang/berkeley/packages/jaynes/example_projects/01_ssh_docker_configuration/.' --name 'some-job' \
-    episodeyang/super-expert /bin/bash -c 'echo "Running in docker";yes | pip install jaynes ml-logger -q;export PYTHONPATH=$PYTHONPATH:/Users/geyang/berkeley/packages/jaynes/example_projects/01_ssh_docker_configuration/.;cd '/Users/geyang/berkeley/packages/jaynes/example_projects/01_ssh_docker_configuration/.';JAYNES_PARAMS_KEY=gASVsQcAAAAAAAB9lCiMBXRodW5rlIwXY2xvdWRwaWNrbGUuY2xvdWRwaWNrbGWUjA5fZmlsbF9mdW5jdGlvbpSTlChoAowPX21ha2Vfc2tlbF9mdW5jlJOUaAKMDV9idWlsdGluX3R5cGWUk5SMCENvZGVUeXBllIWUUpQoSwBLAEsBSwJLQ0MQZAF9AHQAfACDAQEAZABTAJROWP4FAAAKICAgICMgVGhlIEF3ZXNvbWUgTUwtTG9nZ2VyCiAgICAKICAgIFlvdSBjYW4gcnVuIHRoZSBmb2xsb3dpbmcgY29kZSB3aXRoIG1sLWxvZ2dlcjoKICAgIAogICAgYGBgcHl0aG9uCiAgICBmcm9tIG1sX2xvZ2dlciBpbXBvcnQgbG9nZ2VyCiAgICAKICAgIGxvZ2dlci5sb2cobHI9MCwgY2xpcCByYW5nZT0wLjIwMCwgc3RlcD0wLCB0aW1lc3RhbXA9JzIwMTgtMTEtMTZUMDA6MDk6MjcuMTk4MTQyJywgcmV3YXJkPS0xMDkuNDMpCiAgICBsb2dnZXIuZmx1c2goKQogICAgYGBgCiAgICDilZLilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilaTilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZUKICAgIOKUgiAgICAgICAgIGxyICAgICAgICAg4pSCICAgICAgICAgICAwLjAwMCAgICAgICAgICAgIOKUggogICAg4pSc4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pS84pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSkCiAgICDilIIgICAgIGNsaXAgcmFuZ2UgICAgIOKUgiAgICAgICAgICAgMC4yMDAgICAgICAgICAgICDilIIKICAgIOKUnOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUvOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUpAogICAg4pSCICAgICAgICBzdGVwICAgICAgICDilIIgICAgICAgICAgICAgMCAgICAgICAgICAgICAg4pSCCiAgICDilJzilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilLzilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilKQKICAgIOKUgiAgICAgIHRpbWVzdGFtcCAgICAg4pSCJzIwMTgtMTEtMTZUMDA6MDk6MjcuMTk4MTQyJ+KUggogICAg4pSc4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pS84pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSkCiAgICDilIIgICAgICAgcmV3YXJkICAgICAgIOKUgiAgICAgICAgICAtMTA5LjQzICAgICAgICAgICDilIIKICAgIOKVmOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVp+KVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVmwogICAglIaUjAVwcmludJSFlIwBc5SFlIxlL1VzZXJzL2dleWFuZy9iZXJrZWxleS9wYWNrYWdlcy9qYXluZXMvZXhhbXBsZV9wcm9qZWN0cy8wMV9zc2hfZG9ja2VyX2NvbmZpZ3VyYXRpb24vZXhhbXBsZV9sYXVuY2gucHmUjAZsYXVuY2iUSwRDBAAXBAGUKSl0lFKUSv////+MCF9fbWFpbl9flIeUUpR9lCiMB2dsb2JhbHOUfZSMCGRlZmF1bHRzlE6MBGRpY3SUfZSMDmNsb3N1cmVfdmFsdWVzlE6MBm1vZHVsZZRoGIwEbmFtZZRoFIwDZG9jlE6MCHF1YWxuYW1llGgUdXRSjARhcmdzlCmMBmt3YXJnc5R9lHUu python -u -m jaynes.entry'
-
-} > >(tee -a ~/debug-outputs/jaynes-launch.log) 2> >(tee -a ~/debug-outputs/jaynes-launch.err.log >&2)
+}  > >(tee -a /afs/csail.mit.edu/u/g/geyang/jaynes-demo/2021-02-17/122900.578234/jaynes-launch.log) 2> >(tee -a /afs/csail.mit.edu/u/g/geyang/jaynes-demo/2021-02-17/122900.578234/jaynes-launch.err.log >&2)
 ```
 
 Then when you call `jaynes.run(fn, **keyword_arguments)`, `jaynes` sends the remote script to your remote host (the computer on which you want to run the job), and executes this script.
