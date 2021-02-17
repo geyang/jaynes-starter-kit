@@ -2,49 +2,16 @@
 
 This folder contains a working example for launching jobs with docker on a remote work station via ssh.
 
-The code is first uploaded to `S3`.
-
 result looks like:
 
 ![running instance screenshot](./figures/jaynes-output-ssh.png)
 
 ## Getting Started
 
-You need to have `awscli` installed on your computer. To do so, run
-```bash
-pip install awscli
-```
+[will finish after lunch]
 
-## Setting up your AWS Bucket
-
-Take a look at the configuration file below, you need to have replace the following configurations for your machine:
-```yaml
-version: 0
-mounts:
-  - !mounts.S3Code
-    s3_prefix: s3://ge-bair/jaynes-debug
-    local_path: .
-    host_path: /home/ubuntu/jaynes-mounts/{NOW:%Y-%m-%d}/{NOW:%H%M%S.%f}
-    # container_path: /Users/geyang/learning-to-learn
-    pypath: true
-    excludes: "--exclude='*__pycache__' --exclude='*.git' --exclude='*.idea' --exclude='*.egg-info' --exclude='*.pkl'"
-    compress: true
-runner:
-  !runners.Docker
-  name: "some-job"  # only for docker
-  image: "episodeyang/super-expert"
-  startup: yes | pip install jaynes ml-logger -q
-  envs: "LANG=utf-8"
-  pypath: "{mounts[0].container_path}"
-  launch_directory: "{mounts[0].container_path}"
-  ipc: host
-  use_gpu: false
-launch:
-  type: ssh
-  ip: oberyn.banatao.berkeley.edu
-  username: ubuntu
-  pem: ~/.ssh/incrementium-berkeley
-```
+1. install `jaynes==0.6.0rc19`, cloudpickle on both your local computer (where you run jaynes), and the docker image. This script installs these automatically, but you can comment that out if it is already installed.
+2. run `lanch_entry.py`. 
 
 When you run the [./example_launch.py](launch_entry.py) script, it generates two pieces of script:
 
