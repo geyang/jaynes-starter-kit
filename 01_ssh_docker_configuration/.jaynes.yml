@@ -24,14 +24,14 @@ runner:
   !runners.Docker &ssh-docker
   # you want to remove this, so that the container uses uuid4
   name: "jaynes-docker-demo"
-  image: python:3.7
+  image: python:3.6
   setup: |
     # export PATH=/usr/local/bin/:$PATH  # this is needed on mac osx hosts.
     echo `which docker`
   startup: yes | pip install jaynes==0.6.0rc19 ml-logger cloudpickle==1.3.0 -q
   envs: "LANG=utf-8"
   pypath: "{mounts[0].container_path}"
-  launch_directory: "{mounts[0].container_path}"
+  work_dir: "{mounts[0].container_path}"
   ipc: host
   use_gpu: false
 run:
