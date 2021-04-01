@@ -116,11 +116,18 @@ In the [./multi_launch.py](./multi_launch.py) script, we automatically distribut
 ```python
 #! ./multi_launch.py
 import jaynes
+
 from launch_entry import train_fn
 
 if __name__ == "__main__":
-    for i in range(3):
-        jaynes.config(verbose=False, runner=dict(host=f"vision{i:02d}"))
+    hosts = [
+        'visiongpu001',
+        'visiongpu002',
+        'visiongpu003',
+    ]
+
+    for host in hosts:
+        jaynes.config(verbose=False, launch=dict(ip=host))
         jaynes.run(train_fn)
 
     jaynes.listen(200)
@@ -132,7 +139,7 @@ You should see the output stream from all three machines combined in the stdout.
 
 In rare occations (for example at CSAIL), if you install tensorflow via `pip` sometimes it gives `Illegal Instructions` fault during import. If this happens for any reason, you should switch to a conda installation. This nasty issue raises its head here and [there](https://github.com/tensorflow/tensorflow/issues/40978) without a clear solution except the following:
 
-**First, make sure you remove tensorflow from everywhere possible**. This includes `~/.local`, **and** your conda's `site-packages`. (some times it is installed at both locations). After manually checking for these locations, install using conda. Note that conda installation can be quite slow:
+**First, make sure you remove tensorflow from everywhere possible**. This includes `~/.local`, **and** your conda's `site-packages`. (some times it is installed at both locations). After manually checking for these locations, install using conda. Note that conda installation can be quite slow:
 
 ```bash
 yes | pip uninstall tensorflow

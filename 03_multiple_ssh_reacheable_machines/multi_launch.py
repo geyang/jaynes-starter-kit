@@ -3,8 +3,14 @@ import jaynes
 from launch_entry import train_fn
 
 if __name__ == "__main__":
-    for i in range(3):
-        jaynes.config(verbose=False, runner=dict(host=f"visiongpu0{i}"))
+    hosts = [
+        'visiongpu001',
+        'visiongpu002',
+        'visiongpu003',
+    ]
+
+    for host in hosts:
+        jaynes.config(verbose=False, launch=dict(ip=host))
         jaynes.run(train_fn)
 
     jaynes.listen(200)

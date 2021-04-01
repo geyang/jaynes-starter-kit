@@ -27,6 +27,7 @@ runners:
     setup: |
       . $HOME/.bashrc
       conda activate
+      echo running inside `hostname`
     envs: >-
       LANG=utf-8
       LC_CTYPE=en_US.UTF-8
