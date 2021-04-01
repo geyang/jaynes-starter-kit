@@ -24,10 +24,10 @@ conda env
 >> *base     $HOME/your-username/miniconda3
 ```
 
-**Second, install jaynes** and other dependencies you need for your project. This tutorial is written w.r.t version: [v0.6.0-rc14](https://github.com/geyang/jaynes/releases/tag/v0.6.0-rc15)
+**Second, install jaynes** and other dependencies you need for your project. This tutorial is written w.r.t version: [v0.6.4](https://github.com/geyang/jaynes/releases/tag/v0.6.4)
 
 ```bash
-pip install jaynes==0.6.0-rc16
+pip install jaynes==0.6.4
 ```
 
 ## Overview of This Example

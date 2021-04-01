@@ -11,7 +11,7 @@ result looks like:
 You need to have `awscli` installed on your computer, as well as `jaynes`.
 ```bash
 yes | pip install awscli boto3
-yes | pip install jaynes
+yes | pip install jaynes==0.6.4
 ```
 
 ## Setting up your AWS Bucket
