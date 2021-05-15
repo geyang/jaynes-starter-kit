@@ -25,9 +25,7 @@ pip install boto3
 pip install jaynes
 ```
 
-### AWS Profile and Credentials
-
-First, install your AWS cli according to these instructions: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html. You can verify that it is now installed via
+Then install your AWS cli according to these instructions: https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html. You can verify that it is now installed via
 
 ```bash
 $ which aws
@@ -35,6 +33,8 @@ $ which aws
 $ aws --version
 aws-cli/2.2.4 Python/3.8.8 Darwin/20.3.0 exe/x86_64 prompt/off
 ```
+
+## AWS Profile and Credentials
 
 Now to configure your aws credentials, follow the tutorials here: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html. You need to obtain your access key and secrete access key from your ec2 dashboard through this guide https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html.
 
@@ -131,7 +131,8 @@ Details of the s3api could be found @[create  bucket](https://docs.aws.amazon.co
         max_bandwidth = 300MB/s
         addressing_style = path
     ```
-## ## Setting Up AWS Profiles and Keys
+
+## Setting Up AWS Instance Profiles and Keys
 
 We include these detailed setup and expectations as a list.
 
@@ -147,8 +148,6 @@ We include these detailed setup and expectations as a list.
    export JYNS_AWS_S3_BUCKET=$USER-jaynes-<your-org>
    export JYNS_AWS_INSTANCE_PROFILE=arn:aws:iam::<your-org-account>:instance-profile/ge-jaynes-worker-profile
    ```
-
-   
 
 2. A list of Deep Learning AMI `image_ids`, one for each region is listed [./scripts/ec2_image_ids.csv](./scripts/ec2_image_ids.csv)
 
