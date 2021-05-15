@@ -1,0 +1,42 @@
+version: 0
+run:
+  mounts:
+  - !mounts.S3Code
+    s3_prefix: "s3://{env.JYNS_AWS_S3_BUCKET}/jaynes-debug"
+    local_path: .
+    host_path: "/home/ubuntu/jaynes-mounts/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
+    pypath: true
+    excludes: >-
+      --exclude='*__pycache__' --exclude='*.git' --exclude='*.idea' --exclude='*.egg-info'
+      --exclude='*.pkl'
+    compress: true
+  runner: !runners.Docker
+    name: "jaynes-demo"  # only for docker
+    image: "episodeyang/jaynes"
+    # Install Docker like this.
+    # setup: |
+    #   sudo yum update -y
+    #   sudo amazon-linux-extras install docker
+    #   sudo yum install docker
+    #   sudo service docker start
+    #   sudo usermod -a -G docker $USER
+    # docker_cmd: sudo docker
+    startup: yes | pip install jaynes ml-logger -q
+    envs: LANG=utf-8
+    pypath: "{mounts[0].container_path}"
+    launch_directory: "{mounts[0].container_path}"
+    ipc: host
+  launch: !ENV
+    # use AWS_PROFILE to select the access key and access secrete.
+    # post a feature request under issues, if you want more ways to customize this.
+    type: ec2
+    region: &region us-east-1
+    image_id: ami-0c5f0a577c97b13a8
+    iam_instance_profile_arn: "{env.JYNS_AWS_INSTANCE_PROFILE}"
+    security_group: ge-jaynes-sg
+    instance_type: g4dn.4xlarge
+    key_name: ge-us-east-1
+    spot_price: 0.4
+  host:
+    region: *region
+    terminate_after: true

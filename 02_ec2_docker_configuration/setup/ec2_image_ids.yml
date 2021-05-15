@@ -1,0 +1,48 @@
+ap-northeast-1:
+  image_id: ami-0c0e137eb96fcec44
+  name: Deep Learning AMI (Amazon Linux) Version 44.1
+  region: ap-northeast-1
+ap-northeast-2:
+  image_id: ami-0bbc5115b8bab3b02
+  name: Deep Learning AMI (Amazon Linux) Version 44.1
+  region: ap-northeast-2
+ap-south-1:
+  image_id: ami-0fb6238e606fbadf8
+  name: Deep Learning AMI (Amazon Linux) Version 44.1
+  region: ap-south-1
+ap-southeast-1:
+  image_id: ami-0ba1614bbcc249f4b
+  name: Deep Learning AMI (Amazon Linux) Version 44.1
+  region: ap-southeast-1
+ap-southeast-2:
+  image_id: ami-069dac0ee54855944
+  name: Deep Learning AMI (Amazon Linux) Version 44.1
+  region: ap-southeast-2
+eu-central-1:
+  image_id: ami-0f06ff3e6c127ad45
+  name: Deep Learning AMI (Amazon Linux) Version 44.1
+  region: eu-central-1
+eu-west-1:
+  image_id: ami-05c2951a7e0123999
+  name: Deep Learning AMI (Amazon Linux) Version 44.1
+  region: eu-west-1
+sa-east-1:
+  image_id: ami-02049815b31982d90
+  name: Deep Learning AMI (Amazon Linux) Version 44.1
+  region: sa-east-1
+us-east-1:
+  image_id: ami-0c5f0a577c97b13a8
+  name: Deep Learning AMI (Amazon Linux) Version 44.1
+  region: us-east-1
+us-east-2:
+  image_id: ami-067146664e0b80d8b
+  name: Deep Learning AMI (Amazon Linux) Version 44.1
+  region: us-east-2
+us-west-1:
+  image_id: ami-0e32a3ff68ac83e10
+  name: Deep Learning AMI (Amazon Linux) Version 44.1
+  region: us-west-1
+us-west-2:
+  image_id: ami-0cf77af10d63c7969
+  name: Deep Learning AMI (Amazon Linux) Version 44.1
+  region: us-west-2

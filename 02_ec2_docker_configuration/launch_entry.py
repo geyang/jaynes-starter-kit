@@ -1,34 +1,22 @@
 import jaynes
 
 
-def launch(some_key_word=None):
-    s = f"""
-    # The Awesome ML-Logger
-    
-    You can run the following code with ml-logger:
-    
-    ```python
+def launch(root, seed=None):
     from ml_logger import logger
-    
-    logger.log(lr=0, clip range=0.200, step=0, timestamp='2018-11-16T00:09:27.198142', reward={some_key_word})
-    logger.flush()
-    ```
-    ╒════════════════════╤════════════════════════════╕
-    │         lr         │           0.000            │
-    ├────────────────────┼────────────────────────────┤
-    │     clip range     │           0.200            │
-    ├────────────────────┼────────────────────────────┤
-    │        step        │             0              │
-    ├────────────────────┼────────────────────────────┤
-    │      timestamp     │'2018-11-16T00:09:27.198142'│
-    ├────────────────────┼────────────────────────────┤
-    │       reward       │ {    some_key_word:^26   } │
-    ╘════════════════════╧════════════════════════════╛
-    """
-    print(s)
+
+    logger.configure(root_dir=root,
+                     prefix=f"geyang/jaynes-demo/seed-{seed}",
+                     register_experiment=True)
+    logger.print("this has be ran")
 
 
 if __name__ == "__main__":
-    jaynes.config(verbose=True, launch=dict(name="test-jaynes-launch"))
-    jaynes.run(launch)
-    jaynes.listen(10)
+    import os
+    logger_server = os.environ.get("ML_LOGGER_ROOT")
+
+    for seed in range(4):
+        # set the verbose to True to see everything
+        jaynes.config(verbose=False,
+                      launch=dict(name=f"test-jaynes-launch-{seed}"))
+        jaynes.run(launch, root=logger_server, seed=seed)
+    jaynes.listen(100)
