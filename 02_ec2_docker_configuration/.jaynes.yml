@@ -27,9 +27,10 @@ run:
     launch_directory: "{mounts[0].container_path}"
     ipc: host
   launch: !ENV
-    # use AWS_PROFILE to select the access key and access secrete.
+    # use AWS_PROFILE to select the access key and access .secrete.
     # post a feature request under issues, if you want more ways to customize this.
     type: ec2
+    launch_dir: /home/ec2-user/jaynes-mounts
     region: &region us-east-1
     image_id: ami-0c5f0a577c97b13a8
     iam_instance_profile_arn: "{env.JYNS_AWS_INSTANCE_PROFILE}"

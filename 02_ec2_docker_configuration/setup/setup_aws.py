@@ -10,7 +10,8 @@ SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 REPO_DIR = os.path.dirname(SCRIPT_DIR)
 CONFIG_DIR = REPO_DIR
 
-PREFIX = f"{os.environ['USER']}-jaynes"
+USER = os.environ['USER']
+PREFIX = f"{USER}-jaynes"
 SECURITY_GROUP_NAME = f"{PREFIX}-sg"
 INSTANCE_PROFILE_NAME = f"{PREFIX}-worker"
 INSTANCE_ROLE_NAME = f"{PREFIX}-role"
@@ -122,7 +123,7 @@ def setup_key_pairs(region, key_name):
         else:
             raise e
 
-    key_pair_folder_path = os.path.join(CONFIG_DIR, "secrete")
+    key_pair_folder_path = os.path.join(CONFIG_DIR, ".secrete")
     file_name = os.path.join(key_pair_folder_path, "%s.pem" % key_name)
 
     cprint(f"Saving key pair {key_name}", "green", end="\r")
@@ -183,4 +184,4 @@ if __name__ == "__main__":
     remove_instance_profile()
     setup_instance_profile()
     sg_ids = list(map(setup_security_groups, AWS_REGIONS))
-    [setup_key_pairs(region, f"ge-{region}") for region in AWS_REGIONS]
+    [setup_key_pairs(region, f"{USER}-{region}") for region in AWS_REGIONS]

@@ -146,7 +146,7 @@ We include these detailed setup and expectations as a list.
    
    export AWS_PROFILE=<your-org>
    export JYNS_AWS_S3_BUCKET=$USER-jaynes-<your-org>
-   export JYNS_AWS_INSTANCE_PROFILE=arn:aws:iam::<your-org-account>:instance-profile/ge-jaynes-worker-profile
+   export JYNS_AWS_INSTANCE_PROFILE=arn:aws:iam::<your-org-account>:instance-profile/ge-jaynes-worker
    ```
 
 2. A list of Deep Learning AMI `image_ids`, one for each region is listed [./setup/ec2_image_ids.csv](./setup/ec2_image_ids.csv)
@@ -167,9 +167,9 @@ We include these detailed setup and expectations as a list.
    us-west-2, ami-0cf77af10d63c7969, Deep Learning AMI (Amazon Linux) Version 44.1
    ```
 
-3. pem key, one for each region: You need to generate this for yourself. Please run the [./setup/setup_aws.py](./setup/setup_aws.py) script from inside that folder.
+3. pem key, one for each region: You need to generate this for yourself. Please run the [./ec2_setup/setup_aws.py](./ec2_setup/setup_aws.py) script from inside that folder.
     ```bash
-    cd setup
+    cd ec2_setup
     python setup_aws.py
     ```
     This should **first generate a set of access key pairs**, inside the [./private](./private) folder.

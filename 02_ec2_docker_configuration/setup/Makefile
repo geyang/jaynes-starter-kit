@@ -1,9 +1,9 @@
 .EXPORT_ALL_VARIABLES:
-AWS_PROFILE=improbable-ai
-AWS_PAGER=""
-ROLE_NAME=ge-jaynes-worker-role
+#AWS_PROFILE=improbable
+#AWS_PAGER=""
+ROLE_NAME=${USER}-jaynes-worker-role
 POLICY_NAME=TagAndTermination
-INSTANCE_PROFILE=ge-jaynes-worker-profile
+INSTANCE_PROFILE=${USER}-jaynes-worker-profile
 INSTANCE_TAGS=Key=Jaynes,Value=Worker
 
 list_instance_profiles:
@@ -11,10 +11,10 @@ list_instance_profiles:
 	cat private.yml
 create_s3_bucket:
 	aws s3api create-bucket --acl public-read-write --bucket $$USER-jaynes-improbable --region us-east-1
-	aws s3api create-bucket --acl public-read-write --bucket $$USER-data-improbable-demo --region us-east-1
+	aws s3api create-bucket --acl public-read-write --bucket $$USER-data-improbable --region us-east-1
 remove_s3_bucket:
 	aws s3api delete-bucket --bucket $$USER-jaynes-improbable
-	aws s3api delete-bucket --bucket $$USER-data-improbable-demo
+	aws s3api delete-bucket --bucket $$USER-data-improbable
 create_iam_role:
 	aws iam create-role --role-name $$ROLE_NAME --assume-role-policy-document file://role-policy.json
 	aws iam attach-role-policy --role-name $$ROLE_NAME --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess

@@ -3,6 +3,6 @@ build
 __pycache__
 
 .idea
-secrete
+.secrete
 private
 
