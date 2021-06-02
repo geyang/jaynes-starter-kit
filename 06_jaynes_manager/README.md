@@ -59,7 +59,15 @@ export JYNS_MANAGER_HOME=/home/<your-username>
 
 And then you should be able to run the `launch.py` script!!
 
+## Important Notes
 
+1. This manager launch mode synchronously listens to the `stdout` and `stderr` of the launched jobs, therefore if your job takes a while to finish (which is pretty much all of our jobs), the call back will be blocking. So the `jaynes.run` function under this `manager` mode is also blocking.
+
+   For this reason, we add a timeout, so that we can launch multiple jobs one after another.
+
+2. The manager server has an issue with too many pipe-backs hanging connected to the server instance. This is an experimental implementation.
+
+3. SSH tunnels are typically allowed on managed clusters, but reverse tunnels are trickier. In the future, we will add jasonwebtoken (JWT) based authentication scheme to `jaynes.manager`. It will make this setup more secure.
 
 Happy Researching! It is fun.
 
