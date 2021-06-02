@@ -1,7 +1,5 @@
 version: 0
 run:
-  host: &manager !host
-    host: "{env.JYNS_MANAGER_HOST}"
   mounts:
   - !mounts.TarMount
     local_path: .
@@ -25,5 +23,5 @@ run:
     n_gpu: 1
   launch:
     type: manager
-    <<: *manager
+    host: "{env.JYNS_MANAGER_HOST}"
     launch_dir: "{env.JYNS_MANAGER_HOME}/jaynes-mount/geometric_vision/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
