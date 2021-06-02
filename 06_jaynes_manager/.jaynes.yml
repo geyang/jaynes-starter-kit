@@ -1,0 +1,29 @@
+version: 0
+run:
+  host: &manager !host
+    host: "{env.JYNS_MANAGER_HOST}"
+  mounts:
+  - !mounts.TarMount
+    local_path: .
+    local_tar: /tmp/{now:%Y-%m-%d}/{now:%H%M%S.%f}-geometric_vision.tar
+    host_path: "{env.JYNS_MANAGER_HOME}/jaynes-mount/geometric_vision/{now:%Y-%m-%d}/{now:%H%M%S.%f}/geometric_vision"
+    remote_tar: "{env.JYNS_MANAGER_HOME}/jaynes-mount/geometric_vision/{now:%Y-%m-%d}/{now:%H%M%S.%f}/geometric_vision.tar"
+    pypath: true
+    excludes: --exclude=.git --exclude=.idea --exclude='checkpoints' --exclude='__pycache__'
+    compress: true
+  runner: !runners.Slurm
+    name: dmcgen
+    envs: >-
+      LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US
+    startup: >-
+      source ~/.bashrc;
+      conda activate torch;
+    pypath: "{mounts[0].host_path}"
+    work_dir: "{mounts[0].host_path}"
+    mem: 100000
+    n_cpu: 8
+    n_gpu: 1
+  launch:
+    type: manager
+    <<: *manager
+    launch_dir: "{env.JYNS_MANAGER_HOME}/jaynes-mount/geometric_vision/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
