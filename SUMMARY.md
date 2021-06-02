@@ -7,4 +7,4 @@ For detailed documentation on each usecases, refer to the in-dept tutorial bello
 5. [**3. Advanced Multi-mode Example**](05_muti-mode_advanced_config/README.md)
 4. [**4. SSH Docker Configuration**](01_ssh_docker_configuration/README.md)
 5. [**5. EC2 Docker Configuration**](02_ec2_docker_configuration/README.md)
-
+6. [**6. Jaynes Manager Server**](06_jaynes_manager/README.md)
