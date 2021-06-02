@@ -1,11 +1,5 @@
 version: 0
 verbose: false
-hosts:
-  vision01: &vision01
-    ip: "vision01"
-    username: "{env.JYNS_USERNAME}"
-    password: "{env.JYNS_PASSWORD}"
-    launch_dir: "{env.JYNS_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
 mounts: # mount configurations Available keys: NOW, UUID,
   - !mounts.SSHCode &code_mount
     local_path: .
@@ -37,12 +31,13 @@ runners:
     work_dir: "{mounts[0].host_path}"
 modes: # todo: add support to modes.
   vision01: &default
-    host: !host
-      <<: *vision01
     mounts:
       - *code_mount
     runner: *ssh_runner
-    launch:
+    launch: !ENV
       type: ssh
-      <<: *vision01
+      ip: "vision01"
+      username: "{env.JYNS_USERNAME}"
+      password: "{env.JYNS_PASSWORD}"
+      launch_dir: "{env.JYNS_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
 run: *default

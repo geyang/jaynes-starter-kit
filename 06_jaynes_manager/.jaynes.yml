@@ -21,7 +21,7 @@ run:
     mem: 100000
     n_cpu: 8
     n_gpu: 1
-  launch:
+  launch: !ENV
     type: manager
     host: "{env.JYNS_MANAGER_HOST}"
     launch_dir: "{env.JYNS_MANAGER_HOME}/jaynes-mount/jaynes_demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}"

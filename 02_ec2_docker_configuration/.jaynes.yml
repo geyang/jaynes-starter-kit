@@ -31,13 +31,11 @@ run:
     # post a feature request under issues, if you want more ways to customize this.
     type: ec2
     launch_dir: /home/ec2-user/jaynes-mounts
-    region: &region us-east-1
+    region: us-east-1
     image_id: ami-0c5f0a577c97b13a8
     iam_instance_profile_arn: "{env.JYNS_AWS_INSTANCE_PROFILE}"
     security_group: ge-jaynes-sg
     instance_type: g4dn.4xlarge
     key_name: ge-us-east-1
     spot_price: 0.4
-  host:
-    region: *region
     terminate_after: true

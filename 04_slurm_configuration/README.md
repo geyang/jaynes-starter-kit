@@ -28,10 +28,10 @@ export JYNS_SLURM_DIR=/home/gridsan/geyang/jaynes-mount
 
 ###  
 
-**Second, install `jaynes`.** This tutorial is written w.r.t version: [0.6.4](https://github.com/geyang/jaynes/releases/tag/0.6.4).
+**Second, install `jaynes`.** This tutorial is written w.r.t version: [0.7.0](https://github.com/geyang/jaynes/releases/tag/0.7.0).
 
 ```bash
-pip install jaynes==0.6.4
+pip install jaynes==0.7.0
 ```
 
 ## Managing Python Environment on A SLURM Cluster
@@ -42,7 +42,7 @@ First, let's installl `jaynes`, this is because jaynes use the `jaynes.entry` mo
 
 ```bash
 conda activate base
-pip install --user jaynes==0.6.4
+pip install --user jaynes==0.7.0
 ```
 
 The launch `.jaynes.yml` file contains the following values for configuring the remote python runtime. You can tweak this until your code runs.

@@ -1,11 +1,5 @@
 version: 0
 verbose: true
-hosts:
-  vision01: &vision-entry
-    ip: "visiongpu50"
-    username: "{env.JYNS_USERNAME}"
-    password: "{env.JYNS_PASSWORD}"
-    launch_dir: "{env.JYNS_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
 mounts: # mount configurations Available keys: NOW, UUID,
   - !mounts.SSHCode &code_mount
     local_path: .
@@ -33,14 +27,14 @@ runner:
   pypath: "{mounts[0].container_path}"
   work_dir: "{mounts[0].container_path}"
   ipc: host
-  use_gpu: false
+  # gpus: all
 run:
-  host: !host
-    root_config: echo root_config
-    <<: *vision-entry
   mounts:
     - *code_mount
   runner: *ssh-docker
-  launch:
+  launch: !ENV
     type: ssh
-    <<: *vision-entry
+    ip: "visiongpu50"
+    username: "{env.JYNS_USERNAME}"
+    password: "{env.JYNS_PASSWORD}"
+    launch_dir: "{env.JYNS_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}"

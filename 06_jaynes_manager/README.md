@@ -2,7 +2,7 @@
 
 From within a firewall protected server, launch the manager server `jaynes.server` then use ssh reverse tunnel to expose the local point via a public IP.
 
-1. On aws server: modify the ssh deamon's config file, to expose the local tunnel directly as publica gateways
+1. On aws server: modify the ssh deamon's config file, to expose the local tunnel directly as public gateways
 
 
 ```bash

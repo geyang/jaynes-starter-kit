@@ -1,9 +1,4 @@
 version: 0
-hosts:
-  gaia: &login_node !host
-    ip: "{env.JYNS_SLURM_HOST}"
-    username: "{env.JYNS_USERNAME}"
-    pem: "{env.JYNS_SLURM_PEM}"
 mounts: # mount configurations Available keys: NOW, UUID,
   - !mounts.SSHCode &code_mount
     local_path: .
@@ -37,11 +32,11 @@ runners:
     n_gpu: 0
 
 run:
-  host: !host
-    <<: *login_node
   mounts:
     - *code_mount
   runner: *slurm
-  launch:
+  launch: !ENV
     type: ssh
-    <<: *login_node
+    ip: "{env.JYNS_SLURM_HOST}"
+    username: "{env.JYNS_USERNAME}"
+    pem: "{env.JYNS_SLURM_PEM}"

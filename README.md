@@ -4,10 +4,10 @@ This repository is an up-to-date collection of minimal jaynes usage examples. Yo
 
 ## To Get Started
 
-First let's install Jaynes! This tutorial is written w.r.t version: [0.6.4](https://github.com/geyang/jaynes/releases/tag/0.6.4)
+First let's install Jaynes! This tutorial is written w.r.t version: [0.7.0](https://github.com/geyang/jaynes/releases/tag/0.7.0)
 
 ```bash
-pip install jaynes==0.6.4
+pip install jaynes==0.7.0
 ```
 
 I would also recommend taking a look at [params-proto](https://github.com/geyang/params_proto), which is a pythonic  hyperparameter + argparsing library that makes parameter management declaritive and error-free. We use params-proto and its sweep utility, `params_proto.hyper` in our parameter sweep example. To install params-proto, run
