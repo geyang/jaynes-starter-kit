@@ -1,0 +1,835 @@
+region us-west-2
+-------------------------------------------------------------------------------------------------------------
+|                                             ListServiceQuotas                                             |
++------------+-------------+--------------------------------------------------------------------+-----------+
+| Adjustable |    Code     |                               Name                                 |   Value   |
++------------+-------------+--------------------------------------------------------------------+-----------+
+|  True      |  L-88CF9481 |  All F Spot Instance Requests                                      |  128.0    |
+|  True      |  L-3819A6DF |  All G Spot Instance Requests                                      |  12800.0  |
+|  True      |  L-B5D1601B |  All Inf Spot Instance Requests                                    |  480.0    |
+|  True      |  L-7212CCBC |  All P Spot Instance Requests                                      |  12800.0  |
+|  True      |  L-34B43A08 |  All Standard (A, C, D, H, I, M, R, T, Z) Spot Instance Requests   |  12800.0  |
+|  True      |  L-E3A00192 |  All X Spot Instance Requests                                      |  151.0    |
+|  True      |  L-949445B0 |  Running Dedicated a1 Hosts                                        |  2.0      |
+|  True      |  L-8D142A2E |  Running Dedicated c3 Hosts                                        |  2.0      |
+|  True      |  L-E4BF28E0 |  Running Dedicated c4 Hosts                                        |  2.0      |
+|  True      |  L-81657574 |  Running Dedicated c5 Hosts                                        |  2.0      |
+|  True      |  L-C93F66A2 |  Running Dedicated c5d Hosts                                       |  2.0      |
+|  True      |  L-20F13EBD |  Running Dedicated c5n Hosts                                       |  1.0      |
+|  True      |  L-A749B537 |  Running Dedicated c6g Hosts                                       |  2.0      |
+|  True      |  L-545AED39 |  Running Dedicated c6gd Hosts                                      |  2.0      |
+|  True      |  L-5E3A299D |  Running Dedicated c6gn Hosts                                      |  2.0      |
+|  True      |  L-8B27377A |  Running Dedicated d2 Hosts                                        |  2.0      |
+|  True      |  L-4FB7FF5D |  Customer gateways per region                                      |  50.0     |
+|  True      |  L-CEED54BB |  EC2-Classic Elastic IPs                                           |  5.0      |
+|  True      |  L-0263D0A3 |  EC2-VPC Elastic IPs                                               |  5.0      |
+|  True      |  L-D0B7243C |  New Reserved Instances per month                                  |  20.0     |
+|  True      |  L-5C4CD236 |  Running Dedicated f1 Hosts                                        |  2.0      |
+|  True      |  L-74BBB7CB |  Running Dedicated g2 Hosts                                        |  2.0      |
+|  True      |  L-DE82EABA |  Running Dedicated g3 Hosts                                        |  2.0      |
+|  True      |  L-9675FDCD |  Running Dedicated g3s Hosts                                       |  2.0      |
+|  True      |  L-FD8E9B9A |  Running Dedicated g4ad Hosts                                      |  2.0      |
+|  True      |  L-CAE24619 |  Running Dedicated g4dn Hosts                                      |  2.0      |
+|  True      |  L-84391ECC |  Running Dedicated h1 Hosts                                        |  2.0      |
+|  True      |  L-6222C1B6 |  Running Dedicated i2 Hosts                                        |  2.0      |
+|  True      |  L-8E60B0B1 |  Running Dedicated i3 Hosts                                        |  2.0      |
+|  True      |  L-77EE2B11 |  Running Dedicated i3en Hosts                                      |  2.0      |
+|  True      |  L-5480EFD2 |  Running Dedicated inf Hosts                                       |  2.0      |
+|  True      |  L-3C82F907 |  Running Dedicated m3 Hosts                                        |  2.0      |
+|  True      |  L-EF30B25E |  Running Dedicated m4 Hosts                                        |  2.0      |
+|  True      |  L-8B7BF662 |  Running Dedicated m5 Hosts                                        |  2.0      |
+|  True      |  L-B10F70D6 |  Running Dedicated m5a Hosts                                       |  2.0      |
+|  True      |  L-74F41837 |  Running Dedicated m5ad Hosts                                      |  2.0      |
+|  True      |  L-8CCBD91B |  Running Dedicated m5d Hosts                                       |  2.0      |
+|  True      |  L-DA07429F |  Running Dedicated m5dn Hosts                                      |  2.0      |
+|  True      |  L-24D7D4AD |  Running Dedicated m5n Hosts                                       |  2.0      |
+|  True      |  L-BD9BD803 |  Running Dedicated m5zn Hosts                                      |  2.0      |
+|  True      |  L-D50A37FA |  Running Dedicated m6g Hosts                                       |  2.0      |
+|  True      |  L-84FB37AA |  Running Dedicated m6gd Hosts                                      |  2.0      |
+|  True      |  L-A8448DC5 |  Running Dedicated mac1 Hosts                                      |  3.0      |
+|  True      |  L-2753CF59 |  Running Dedicated p2 Hosts                                        |  2.0      |
+|  True      |  L-A0A19F79 |  Running Dedicated p3 Hosts                                        |  1.0      |
+|  True      |  L-B601B3B6 |  Running Dedicated p3dn Hosts                                      |  0.0      |
+|  True      |  L-86A789C3 |  Running Dedicated p4d Hosts                                       |  0.0      |
+|  True      |  L-B7208018 |  Running Dedicated r3 Hosts                                        |  2.0      |
+|  True      |  L-313524BA |  Running Dedicated r4 Hosts                                        |  2.0      |
+|  True      |  L-EA4FD6CF |  Running Dedicated r5 Hosts                                        |  2.0      |
+|  True      |  L-8FE30D52 |  Running Dedicated r5a Hosts                                       |  2.0      |
+|  True      |  L-EC7178B6 |  Running Dedicated r5ad Hosts                                      |  2.0      |
+|  True      |  L-A2D59C67 |  Running Dedicated r5b Hosts                                       |  1.0      |
+|  True      |  L-8814B54F |  Running Dedicated r5d Hosts                                       |  2.0      |
+|  True      |  L-4AB14223 |  Running Dedicated r5dn Hosts                                      |  2.0      |
+|  True      |  L-52EF324A |  Running Dedicated r5n Hosts                                       |  2.0      |
+|  True      |  L-B6D6065D |  Running Dedicated r6g Hosts                                       |  2.0      |
+|  True      |  L-EF284EFB |  Running Dedicated r6gd Hosts                                      |  2.0      |
+|  True      |  L-D6994875 |  Running Dedicated u-12tb1 Hosts                                   |  0.0      |
+|  True      |  L-89870E8E |  Running Dedicated u-6tb1 Hosts                                    |  0.0      |
+|  True      |  L-98E1FFAC |  Running Dedicated u-9tb1 Hosts                                    |  0.0      |
+|  True      |  L-DE3D9563 |  Running Dedicated x1 Hosts                                        |  1.0      |
+|  True      |  L-DEF8E115 |  Running Dedicated x1e Hosts                                       |  0.0      |
+|  True      |  L-5CC9EA82 |  Running Dedicated x2gd Hosts                                      |  2.0      |
+|  True      |  L-F035E935 |  Running Dedicated z1d Hosts                                       |  2.0      |
+|  True      |  L-74FC7D96 |  Running On-Demand F instances                                     |  128.0    |
+|  True      |  L-DB2E81BA |  Running On-Demand G instances                                     |  1200.0   |
+|  True      |  L-43DA4232 |  Running On-Demand High Memory instances                           |  0.0      |
+|  True      |  L-1945791B |  Running On-Demand Inf instances                                   |  32.0     |
+|  True      |  L-417A185B |  Running On-Demand P instances                                     |  400.0    |
+|  True      |  L-1216C47A |  Running On-Demand Standard (A, C, D, H, I, M, R, T, Z) instances  |  117.0    |
+|  True      |  L-7295265B |  Running On-Demand X instances                                     |  0.0      |
+|  True      |  L-B91E5754 |  VPN connections per VGW                                           |  10.0     |
+|  True      |  L-3E6EC3A3 |  VPN connections per region                                        |  50.0     |
+|  True      |  L-7029FAB6 |  Virtual private gateways per region                               |  5.0      |
++------------+-------------+--------------------------------------------------------------------+-----------+
+region us-west-1
+-------------------------------------------------------------------------------------------------------------
+|                                             ListServiceQuotas                                             |
++------------+-------------+--------------------------------------------------------------------+-----------+
+| Adjustable |    Code     |                               Name                                 |   Value   |
++------------+-------------+--------------------------------------------------------------------+-----------+
+|  True      |  L-88CF9481 |  All F Spot Instance Requests                                      |  128.0    |
+|  True      |  L-3819A6DF |  All G Spot Instance Requests                                      |  12800.0  |
+|  True      |  L-B5D1601B |  All Inf Spot Instance Requests                                    |  32.0     |
+|  True      |  L-7212CCBC |  All P Spot Instance Requests                                      |  12800.0  |
+|  True      |  L-34B43A08 |  All Standard (A, C, D, H, I, M, R, T, Z) Spot Instance Requests   |  512.0    |
+|  True      |  L-E3A00192 |  All X Spot Instance Requests                                      |  0.0      |
+|  True      |  L-8D142A2E |  Running Dedicated c3 Hosts                                        |  2.0      |
+|  True      |  L-E4BF28E0 |  Running Dedicated c4 Hosts                                        |  2.0      |
+|  True      |  L-81657574 |  Running Dedicated c5 Hosts                                        |  2.0      |
+|  True      |  L-C93F66A2 |  Running Dedicated c5d Hosts                                       |  2.0      |
+|  True      |  L-20F13EBD |  Running Dedicated c5n Hosts                                       |  1.0      |
+|  True      |  L-A749B537 |  Running Dedicated c6g Hosts                                       |  2.0      |
+|  True      |  L-545AED39 |  Running Dedicated c6gd Hosts                                      |  2.0      |
+|  True      |  L-8B27377A |  Running Dedicated d2 Hosts                                        |  2.0      |
+|  True      |  L-74BBB7CB |  Running Dedicated g2 Hosts                                        |  2.0      |
+|  True      |  L-DE82EABA |  Running Dedicated g3 Hosts                                        |  2.0      |
+|  True      |  L-4FB7FF5D |  Customer gateways per region                                      |  50.0     |
+|  True      |  L-CEED54BB |  EC2-Classic Elastic IPs                                           |  5.0      |
+|  True      |  L-0263D0A3 |  EC2-VPC Elastic IPs                                               |  5.0      |
+|  True      |  L-D0B7243C |  New Reserved Instances per month                                  |  20.0     |
+|  True      |  L-CAE24619 |  Running Dedicated g4dn Hosts                                      |  2.0      |
+|  True      |  L-6222C1B6 |  Running Dedicated i2 Hosts                                        |  2.0      |
+|  True      |  L-8E60B0B1 |  Running Dedicated i3 Hosts                                        |  2.0      |
+|  True      |  L-77EE2B11 |  Running Dedicated i3en Hosts                                      |  2.0      |
+|  True      |  L-5480EFD2 |  Running Dedicated inf Hosts                                       |  2.0      |
+|  True      |  L-3C82F907 |  Running Dedicated m3 Hosts                                        |  2.0      |
+|  True      |  L-EF30B25E |  Running Dedicated m4 Hosts                                        |  2.0      |
+|  True      |  L-8B7BF662 |  Running Dedicated m5 Hosts                                        |  2.0      |
+|  True      |  L-B10F70D6 |  Running Dedicated m5a Hosts                                       |  2.0      |
+|  True      |  L-74F41837 |  Running Dedicated m5ad Hosts                                      |  2.0      |
+|  True      |  L-8CCBD91B |  Running Dedicated m5d Hosts                                       |  2.0      |
+|  True      |  L-BD9BD803 |  Running Dedicated m5zn Hosts                                      |  2.0      |
+|  True      |  L-D50A37FA |  Running Dedicated m6g Hosts                                       |  2.0      |
+|  True      |  L-84FB37AA |  Running Dedicated m6gd Hosts                                      |  2.0      |
+|  True      |  L-B7208018 |  Running Dedicated r3 Hosts                                        |  2.0      |
+|  True      |  L-313524BA |  Running Dedicated r4 Hosts                                        |  2.0      |
+|  True      |  L-EA4FD6CF |  Running Dedicated r5 Hosts                                        |  2.0      |
+|  True      |  L-8FE30D52 |  Running Dedicated r5a Hosts                                       |  2.0      |
+|  True      |  L-EC7178B6 |  Running Dedicated r5ad Hosts                                      |  2.0      |
+|  True      |  L-8814B54F |  Running Dedicated r5d Hosts                                       |  2.0      |
+|  True      |  L-52EF324A |  Running Dedicated r5n Hosts                                       |  2.0      |
+|  True      |  L-B6D6065D |  Running Dedicated r6g Hosts                                       |  2.0      |
+|  True      |  L-EF284EFB |  Running Dedicated r6gd Hosts                                      |  2.0      |
+|  True      |  L-F035E935 |  Running Dedicated z1d Hosts                                       |  2.0      |
+|  True      |  L-74FC7D96 |  Running On-Demand F instances                                     |  128.0    |
+|  True      |  L-DB2E81BA |  Running On-Demand G instances                                     |  160.0    |
+|  True      |  L-43DA4232 |  Running On-Demand High Memory instances                           |  0.0      |
+|  True      |  L-1945791B |  Running On-Demand Inf instances                                   |  32.0     |
+|  True      |  L-417A185B |  Running On-Demand P instances                                     |  320.0    |
+|  True      |  L-1216C47A |  Running On-Demand Standard (A, C, D, H, I, M, R, T, Z) instances  |  50.0     |
+|  True      |  L-7295265B |  Running On-Demand X instances                                     |  0.0      |
+|  True      |  L-B91E5754 |  VPN connections per VGW                                           |  10.0     |
+|  True      |  L-3E6EC3A3 |  VPN connections per region                                        |  50.0     |
+|  True      |  L-7029FAB6 |  Virtual private gateways per region                               |  5.0      |
++------------+-------------+--------------------------------------------------------------------+-----------+
+region us-east-2
+-------------------------------------------------------------------------------------------------------------
+|                                             ListServiceQuotas                                             |
++------------+-------------+--------------------------------------------------------------------+-----------+
+| Adjustable |    Code     |                               Name                                 |   Value   |
++------------+-------------+--------------------------------------------------------------------+-----------+
+|  True      |  L-88CF9481 |  All F Spot Instance Requests                                      |  128.0    |
+|  True      |  L-3819A6DF |  All G Spot Instance Requests                                      |  1600.0   |
+|  True      |  L-B5D1601B |  All Inf Spot Instance Requests                                    |  480.0    |
+|  True      |  L-7212CCBC |  All P Spot Instance Requests                                      |  500.0    |
+|  True      |  L-34B43A08 |  All Standard (A, C, D, H, I, M, R, T, Z) Spot Instance Requests   |  12800.0  |
+|  True      |  L-E3A00192 |  All X Spot Instance Requests                                      |  151.0    |
+|  True      |  L-949445B0 |  Running Dedicated a1 Hosts                                        |  2.0      |
+|  True      |  L-E4BF28E0 |  Running Dedicated c4 Hosts                                        |  2.0      |
+|  True      |  L-81657574 |  Running Dedicated c5 Hosts                                        |  2.0      |
+|  True      |  L-C93F66A2 |  Running Dedicated c5d Hosts                                       |  2.0      |
+|  True      |  L-20F13EBD |  Running Dedicated c5n Hosts                                       |  1.0      |
+|  True      |  L-A749B537 |  Running Dedicated c6g Hosts                                       |  2.0      |
+|  True      |  L-545AED39 |  Running Dedicated c6gd Hosts                                      |  2.0      |
+|  True      |  L-5E3A299D |  Running Dedicated c6gn Hosts                                      |  2.0      |
+|  True      |  L-8B27377A |  Running Dedicated d2 Hosts                                        |  2.0      |
+|  True      |  L-DE82EABA |  Running Dedicated g3 Hosts                                        |  2.0      |
+|  True      |  L-9675FDCD |  Running Dedicated g3s Hosts                                       |  2.0      |
+|  True      |  L-4FB7FF5D |  Customer gateways per region                                      |  50.0     |
+|  True      |  L-0263D0A3 |  EC2-VPC Elastic IPs                                               |  5.0      |
+|  True      |  L-D0B7243C |  New Reserved Instances per month                                  |  20.0     |
+|  True      |  L-CAE24619 |  Running Dedicated g4dn Hosts                                      |  2.0      |
+|  True      |  L-84391ECC |  Running Dedicated h1 Hosts                                        |  2.0      |
+|  True      |  L-6222C1B6 |  Running Dedicated i2 Hosts                                        |  2.0      |
+|  True      |  L-8E60B0B1 |  Running Dedicated i3 Hosts                                        |  2.0      |
+|  True      |  L-77EE2B11 |  Running Dedicated i3en Hosts                                      |  2.0      |
+|  True      |  L-5480EFD2 |  Running Dedicated inf Hosts                                       |  2.0      |
+|  True      |  L-EF30B25E |  Running Dedicated m4 Hosts                                        |  2.0      |
+|  True      |  L-8B7BF662 |  Running Dedicated m5 Hosts                                        |  2.0      |
+|  True      |  L-B10F70D6 |  Running Dedicated m5a Hosts                                       |  2.0      |
+|  True      |  L-74F41837 |  Running Dedicated m5ad Hosts                                      |  2.0      |
+|  True      |  L-8CCBD91B |  Running Dedicated m5d Hosts                                       |  2.0      |
+|  True      |  L-DA07429F |  Running Dedicated m5dn Hosts                                      |  2.0      |
+|  True      |  L-24D7D4AD |  Running Dedicated m5n Hosts                                       |  2.0      |
+|  True      |  L-BD9BD803 |  Running Dedicated m5zn Hosts                                      |  2.0      |
+|  True      |  L-D50A37FA |  Running Dedicated m6g Hosts                                       |  2.0      |
+|  True      |  L-84FB37AA |  Running Dedicated m6gd Hosts                                      |  2.0      |
+|  True      |  L-A8448DC5 |  Running Dedicated mac1 Hosts                                      |  3.0      |
+|  True      |  L-2753CF59 |  Running Dedicated p2 Hosts                                        |  2.0      |
+|  True      |  L-A0A19F79 |  Running Dedicated p3 Hosts                                        |  1.0      |
+|  True      |  L-86A789C3 |  Running Dedicated p4d Hosts                                       |  0.0      |
+|  True      |  L-B7208018 |  Running Dedicated r3 Hosts                                        |  2.0      |
+|  True      |  L-313524BA |  Running Dedicated r4 Hosts                                        |  2.0      |
+|  True      |  L-EA4FD6CF |  Running Dedicated r5 Hosts                                        |  2.0      |
+|  True      |  L-8FE30D52 |  Running Dedicated r5a Hosts                                       |  2.0      |
+|  True      |  L-EC7178B6 |  Running Dedicated r5ad Hosts                                      |  2.0      |
+|  True      |  L-A2D59C67 |  Running Dedicated r5b Hosts                                       |  1.0      |
+|  True      |  L-8814B54F |  Running Dedicated r5d Hosts                                       |  2.0      |
+|  True      |  L-4AB14223 |  Running Dedicated r5dn Hosts                                      |  2.0      |
+|  True      |  L-52EF324A |  Running Dedicated r5n Hosts                                       |  2.0      |
+|  True      |  L-B6D6065D |  Running Dedicated r6g Hosts                                       |  2.0      |
+|  True      |  L-EF284EFB |  Running Dedicated r6gd Hosts                                      |  2.0      |
+|  True      |  L-DE3D9563 |  Running Dedicated x1 Hosts                                        |  1.0      |
+|  True      |  L-DEF8E115 |  Running Dedicated x1e Hosts                                       |  0.0      |
+|  True      |  L-5CC9EA82 |  Running Dedicated x2gd Hosts                                      |  2.0      |
+|  True      |  L-F035E935 |  Running Dedicated z1d Hosts                                       |  2.0      |
+|  True      |  L-74FC7D96 |  Running On-Demand F instances                                     |  128.0    |
+|  True      |  L-DB2E81BA |  Running On-Demand G instances                                     |  1200.0   |
+|  True      |  L-43DA4232 |  Running On-Demand High Memory instances                           |  0.0      |
+|  True      |  L-1945791B |  Running On-Demand Inf instances                                   |  32.0     |
+|  True      |  L-417A185B |  Running On-Demand P instances                                     |  160.0    |
+|  True      |  L-1216C47A |  Running On-Demand Standard (A, C, D, H, I, M, R, T, Z) instances  |  800.0    |
+|  True      |  L-7295265B |  Running On-Demand X instances                                     |  0.0      |
+|  True      |  L-B91E5754 |  VPN connections per VGW                                           |  10.0     |
+|  True      |  L-3E6EC3A3 |  VPN connections per region                                        |  50.0     |
+|  True      |  L-7029FAB6 |  Virtual private gateways per region                               |  5.0      |
++------------+-------------+--------------------------------------------------------------------+-----------+
+region us-east-1
+------------------------------------------------------------------------------------------------------------
+|                                             ListServiceQuotas                                            |
++------------+-------------+--------------------------------------------------------------------+----------+
+| Adjustable |    Code     |                               Name                                 |  Value   |
++------------+-------------+--------------------------------------------------------------------+----------+
+|  True      |  L-88CF9481 |  All F Spot Instance Requests                                      |  328.0   |
+|  True      |  L-3819A6DF |  All G Spot Instance Requests                                      |  368.0   |
+|  True      |  L-B5D1601B |  All Inf Spot Instance Requests                                    |  2080.0  |
+|  True      |  L-7212CCBC |  All P Spot Instance Requests                                      |  600.0   |
+|  True      |  L-34B43A08 |  All Standard (A, C, D, H, I, M, R, T, Z) Spot Instance Requests   |  4096.0  |
+|  True      |  L-E3A00192 |  All X Spot Instance Requests                                      |  653.0   |
+|  True      |  L-949445B0 |  Running Dedicated a1 Hosts                                        |  2.0     |
+|  True      |  L-8D142A2E |  Running Dedicated c3 Hosts                                        |  2.0     |
+|  True      |  L-E4BF28E0 |  Running Dedicated c4 Hosts                                        |  2.0     |
+|  True      |  L-81657574 |  Running Dedicated c5 Hosts                                        |  2.0     |
+|  True      |  L-C93F66A2 |  Running Dedicated c5d Hosts                                       |  2.0     |
+|  True      |  L-20F13EBD |  Running Dedicated c5n Hosts                                       |  1.0     |
+|  True      |  L-A749B537 |  Running Dedicated c6g Hosts                                       |  2.0     |
+|  True      |  L-545AED39 |  Running Dedicated c6gd Hosts                                      |  2.0     |
+|  True      |  L-5E3A299D |  Running Dedicated c6gn Hosts                                      |  2.0     |
+|  True      |  L-8B27377A |  Running Dedicated d2 Hosts                                        |  2.0     |
+|  True      |  L-4FB7FF5D |  Customer gateways per region                                      |  50.0    |
+|  True      |  L-CEED54BB |  EC2-Classic Elastic IPs                                           |  5.0     |
+|  True      |  L-0263D0A3 |  EC2-VPC Elastic IPs                                               |  5.0     |
+|  True      |  L-D0B7243C |  New Reserved Instances per month                                  |  20.0    |
+|  True      |  L-5C4CD236 |  Running Dedicated f1 Hosts                                        |  2.0     |
+|  True      |  L-74BBB7CB |  Running Dedicated g2 Hosts                                        |  2.0     |
+|  True      |  L-DE82EABA |  Running Dedicated g3 Hosts                                        |  2.0     |
+|  True      |  L-9675FDCD |  Running Dedicated g3s Hosts                                       |  2.0     |
+|  True      |  L-FD8E9B9A |  Running Dedicated g4ad Hosts                                      |  2.0     |
+|  True      |  L-CAE24619 |  Running Dedicated g4dn Hosts                                      |  2.0     |
+|  True      |  L-84391ECC |  Running Dedicated h1 Hosts                                        |  2.0     |
+|  True      |  L-6222C1B6 |  Running Dedicated i2 Hosts                                        |  2.0     |
+|  True      |  L-8E60B0B1 |  Running Dedicated i3 Hosts                                        |  2.0     |
+|  True      |  L-77EE2B11 |  Running Dedicated i3en Hosts                                      |  2.0     |
+|  True      |  L-5480EFD2 |  Running Dedicated inf Hosts                                       |  2.0     |
+|  True      |  L-3C82F907 |  Running Dedicated m3 Hosts                                        |  2.0     |
+|  True      |  L-EF30B25E |  Running Dedicated m4 Hosts                                        |  2.0     |
+|  True      |  L-8B7BF662 |  Running Dedicated m5 Hosts                                        |  2.0     |
+|  True      |  L-B10F70D6 |  Running Dedicated m5a Hosts                                       |  2.0     |
+|  True      |  L-74F41837 |  Running Dedicated m5ad Hosts                                      |  2.0     |
+|  True      |  L-8CCBD91B |  Running Dedicated m5d Hosts                                       |  2.0     |
+|  True      |  L-DA07429F |  Running Dedicated m5dn Hosts                                      |  2.0     |
+|  True      |  L-24D7D4AD |  Running Dedicated m5n Hosts                                       |  2.0     |
+|  True      |  L-BD9BD803 |  Running Dedicated m5zn Hosts                                      |  2.0     |
+|  True      |  L-D50A37FA |  Running Dedicated m6g Hosts                                       |  2.0     |
+|  True      |  L-84FB37AA |  Running Dedicated m6gd Hosts                                      |  2.0     |
+|  True      |  L-A8448DC5 |  Running Dedicated mac1 Hosts                                      |  3.0     |
+|  True      |  L-2753CF59 |  Running Dedicated p2 Hosts                                        |  2.0     |
+|  True      |  L-A0A19F79 |  Running Dedicated p3 Hosts                                        |  1.0     |
+|  True      |  L-B601B3B6 |  Running Dedicated p3dn Hosts                                      |  0.0     |
+|  True      |  L-86A789C3 |  Running Dedicated p4d Hosts                                       |  0.0     |
+|  True      |  L-B7208018 |  Running Dedicated r3 Hosts                                        |  2.0     |
+|  True      |  L-313524BA |  Running Dedicated r4 Hosts                                        |  2.0     |
+|  True      |  L-EA4FD6CF |  Running Dedicated r5 Hosts                                        |  2.0     |
+|  True      |  L-8FE30D52 |  Running Dedicated r5a Hosts                                       |  2.0     |
+|  True      |  L-EC7178B6 |  Running Dedicated r5ad Hosts                                      |  2.0     |
+|  True      |  L-A2D59C67 |  Running Dedicated r5b Hosts                                       |  1.0     |
+|  True      |  L-8814B54F |  Running Dedicated r5d Hosts                                       |  2.0     |
+|  True      |  L-4AB14223 |  Running Dedicated r5dn Hosts                                      |  2.0     |
+|  True      |  L-52EF324A |  Running Dedicated r5n Hosts                                       |  2.0     |
+|  True      |  L-B6D6065D |  Running Dedicated r6g Hosts                                       |  2.0     |
+|  True      |  L-EF284EFB |  Running Dedicated r6gd Hosts                                      |  2.0     |
+|  True      |  L-D6994875 |  Running Dedicated u-12tb1 Hosts                                   |  0.0     |
+|  True      |  L-89870E8E |  Running Dedicated u-6tb1 Hosts                                    |  0.0     |
+|  True      |  L-98E1FFAC |  Running Dedicated u-9tb1 Hosts                                    |  0.0     |
+|  True      |  L-DE3D9563 |  Running Dedicated x1 Hosts                                        |  1.0     |
+|  True      |  L-DEF8E115 |  Running Dedicated x1e Hosts                                       |  0.0     |
+|  True      |  L-5CC9EA82 |  Running Dedicated x2gd Hosts                                      |  2.0     |
+|  True      |  L-F035E935 |  Running Dedicated z1d Hosts                                       |  2.0     |
+|  True      |  L-74FC7D96 |  Running On-Demand F instances                                     |  128.0   |
+|  True      |  L-DB2E81BA |  Running On-Demand G instances                                     |  1200.0  |
+|  True      |  L-43DA4232 |  Running On-Demand High Memory instances                           |  0.0     |
+|  True      |  L-1945791B |  Running On-Demand Inf instances                                   |  32.0    |
+|  True      |  L-417A185B |  Running On-Demand P instances                                     |  320.0   |
+|  True      |  L-1216C47A |  Running On-Demand Standard (A, C, D, H, I, M, R, T, Z) instances  |  150.0   |
+|  True      |  L-7295265B |  Running On-Demand X instances                                     |  0.0     |
+|  True      |  L-B91E5754 |  VPN connections per VGW                                           |  10.0    |
+|  True      |  L-3E6EC3A3 |  VPN connections per region                                        |  50.0    |
+|  True      |  L-7029FAB6 |  Virtual private gateways per region                               |  5.0     |
++------------+-------------+--------------------------------------------------------------------+----------+
+region sa-east-1
+-----------------------------------------------------------------------------------------------------------
+|                                            ListServiceQuotas                                            |
++------------+-------------+--------------------------------------------------------------------+---------+
+| Adjustable |    Code     |                               Name                                 |  Value  |
++------------+-------------+--------------------------------------------------------------------+---------+
+|  True      |  L-88CF9481 |  All F Spot Instance Requests                                      |  128.0  |
+|  True      |  L-3819A6DF |  All G Spot Instance Requests                                      |  32.0   |
+|  True      |  L-B5D1601B |  All Inf Spot Instance Requests                                    |  32.0   |
+|  True      |  L-7212CCBC |  All P Spot Instance Requests                                      |  32.0   |
+|  True      |  L-34B43A08 |  All Standard (A, C, D, H, I, M, R, T, Z) Spot Instance Requests   |  512.0  |
+|  True      |  L-E3A00192 |  All X Spot Instance Requests                                      |  0.0    |
+|  True      |  L-8D142A2E |  Running Dedicated c3 Hosts                                        |  2.0    |
+|  True      |  L-E4BF28E0 |  Running Dedicated c4 Hosts                                        |  2.0    |
+|  True      |  L-81657574 |  Running Dedicated c5 Hosts                                        |  2.0    |
+|  True      |  L-C93F66A2 |  Running Dedicated c5d Hosts                                       |  2.0    |
+|  True      |  L-20F13EBD |  Running Dedicated c5n Hosts                                       |  1.0    |
+|  True      |  L-A749B537 |  Running Dedicated c6g Hosts                                       |  2.0    |
+|  True      |  L-CAE24619 |  Running Dedicated g4dn Hosts                                      |  2.0    |
+|  True      |  L-8E60B0B1 |  Running Dedicated i3 Hosts                                        |  2.0    |
+|  True      |  L-77EE2B11 |  Running Dedicated i3en Hosts                                      |  2.0    |
+|  True      |  L-5480EFD2 |  Running Dedicated inf Hosts                                       |  2.0    |
+|  True      |  L-3C82F907 |  Running Dedicated m3 Hosts                                        |  2.0    |
+|  True      |  L-4FB7FF5D |  Customer gateways per region                                      |  50.0   |
+|  True      |  L-CEED54BB |  EC2-Classic Elastic IPs                                           |  5.0    |
+|  True      |  L-0263D0A3 |  EC2-VPC Elastic IPs                                               |  5.0    |
+|  True      |  L-EF30B25E |  Running Dedicated m4 Hosts                                        |  2.0    |
+|  True      |  L-8B7BF662 |  Running Dedicated m5 Hosts                                        |  2.0    |
+|  True      |  L-B10F70D6 |  Running Dedicated m5a Hosts                                       |  2.0    |
+|  True      |  L-74F41837 |  Running Dedicated m5ad Hosts                                      |  2.0    |
+|  True      |  L-8CCBD91B |  Running Dedicated m5d Hosts                                       |  2.0    |
+|  True      |  L-BD9BD803 |  Running Dedicated m5zn Hosts                                      |  2.0    |
+|  True      |  L-D50A37FA |  Running Dedicated m6g Hosts                                       |  2.0    |
+|  True      |  L-B7208018 |  Running Dedicated r3 Hosts                                        |  2.0    |
+|  True      |  L-313524BA |  Running Dedicated r4 Hosts                                        |  2.0    |
+|  True      |  L-EA4FD6CF |  Running Dedicated r5 Hosts                                        |  2.0    |
+|  True      |  L-8FE30D52 |  Running Dedicated r5a Hosts                                       |  2.0    |
+|  True      |  L-EC7178B6 |  Running Dedicated r5ad Hosts                                      |  2.0    |
+|  True      |  L-8814B54F |  Running Dedicated r5d Hosts                                       |  2.0    |
+|  True      |  L-52EF324A |  Running Dedicated r5n Hosts                                       |  2.0    |
+|  True      |  L-B6D6065D |  Running Dedicated r6g Hosts                                       |  2.0    |
+|  True      |  L-DE3D9563 |  Running Dedicated x1 Hosts                                        |  1.0    |
+|  True      |  L-DEF8E115 |  Running Dedicated x1e Hosts                                       |  0.0    |
+|  True      |  L-74FC7D96 |  Running On-Demand F instances                                     |  128.0  |
+|  True      |  L-DB2E81BA |  Running On-Demand G instances                                     |  32.0   |
+|  True      |  L-43DA4232 |  Running On-Demand High Memory instances                           |  0.0    |
+|  True      |  L-1945791B |  Running On-Demand Inf instances                                   |  32.0   |
+|  True      |  L-417A185B |  Running On-Demand P instances                                     |  32.0   |
+|  True      |  L-1216C47A |  Running On-Demand Standard (A, C, D, H, I, M, R, T, Z) instances  |  512.0  |
+|  True      |  L-7295265B |  Running On-Demand X instances                                     |  0.0    |
+|  True      |  L-B91E5754 |  VPN connections per VGW                                           |  10.0   |
+|  True      |  L-3E6EC3A3 |  VPN connections per region                                        |  50.0   |
+|  True      |  L-7029FAB6 |  Virtual private gateways per region                               |  5.0    |
++------------+-------------+--------------------------------------------------------------------+---------+
+region eu-west-1
+-----------------------------------------------------------------------------------------------------------
+|                                            ListServiceQuotas                                            |
++------------+-------------+--------------------------------------------------------------------+---------+
+| Adjustable |    Code     |                               Name                                 |  Value  |
++------------+-------------+--------------------------------------------------------------------+---------+
+|  True      |  L-88CF9481 |  All F Spot Instance Requests                                      |  128.0  |
+|  True      |  L-3819A6DF |  All G Spot Instance Requests                                      |  32.0   |
+|  True      |  L-B5D1601B |  All Inf Spot Instance Requests                                    |  32.0   |
+|  True      |  L-7212CCBC |  All P Spot Instance Requests                                      |  32.0   |
+|  True      |  L-34B43A08 |  All Standard (A, C, D, H, I, M, R, T, Z) Spot Instance Requests   |  512.0  |
+|  True      |  L-E3A00192 |  All X Spot Instance Requests                                      |  0.0    |
+|  True      |  L-949445B0 |  Running Dedicated a1 Hosts                                        |  2.0    |
+|  True      |  L-8D142A2E |  Running Dedicated c3 Hosts                                        |  2.0    |
+|  True      |  L-E4BF28E0 |  Running Dedicated c4 Hosts                                        |  2.0    |
+|  True      |  L-81657574 |  Running Dedicated c5 Hosts                                        |  2.0    |
+|  True      |  L-C93F66A2 |  Running Dedicated c5d Hosts                                       |  2.0    |
+|  True      |  L-20F13EBD |  Running Dedicated c5n Hosts                                       |  1.0    |
+|  True      |  L-A749B537 |  Running Dedicated c6g Hosts                                       |  2.0    |
+|  True      |  L-545AED39 |  Running Dedicated c6gd Hosts                                      |  2.0    |
+|  True      |  L-5E3A299D |  Running Dedicated c6gn Hosts                                      |  2.0    |
+|  True      |  L-8B27377A |  Running Dedicated d2 Hosts                                        |  2.0    |
+|  True      |  L-4FB7FF5D |  Customer gateways per region                                      |  50.0   |
+|  True      |  L-CEED54BB |  EC2-Classic Elastic IPs                                           |  5.0    |
+|  True      |  L-0263D0A3 |  EC2-VPC Elastic IPs                                               |  5.0    |
+|  True      |  L-D0B7243C |  New Reserved Instances per month                                  |  20.0   |
+|  True      |  L-5C4CD236 |  Running Dedicated f1 Hosts                                        |  2.0    |
+|  True      |  L-74BBB7CB |  Running Dedicated g2 Hosts                                        |  2.0    |
+|  True      |  L-DE82EABA |  Running Dedicated g3 Hosts                                        |  2.0    |
+|  True      |  L-9675FDCD |  Running Dedicated g3s Hosts                                       |  2.0    |
+|  True      |  L-FD8E9B9A |  Running Dedicated g4ad Hosts                                      |  2.0    |
+|  True      |  L-CAE24619 |  Running Dedicated g4dn Hosts                                      |  2.0    |
+|  True      |  L-84391ECC |  Running Dedicated h1 Hosts                                        |  2.0    |
+|  True      |  L-6222C1B6 |  Running Dedicated i2 Hosts                                        |  2.0    |
+|  True      |  L-8E60B0B1 |  Running Dedicated i3 Hosts                                        |  2.0    |
+|  True      |  L-77EE2B11 |  Running Dedicated i3en Hosts                                      |  2.0    |
+|  True      |  L-5480EFD2 |  Running Dedicated inf Hosts                                       |  2.0    |
+|  True      |  L-3C82F907 |  Running Dedicated m3 Hosts                                        |  2.0    |
+|  True      |  L-EF30B25E |  Running Dedicated m4 Hosts                                        |  2.0    |
+|  True      |  L-8B7BF662 |  Running Dedicated m5 Hosts                                        |  2.0    |
+|  True      |  L-B10F70D6 |  Running Dedicated m5a Hosts                                       |  2.0    |
+|  True      |  L-74F41837 |  Running Dedicated m5ad Hosts                                      |  2.0    |
+|  True      |  L-8CCBD91B |  Running Dedicated m5d Hosts                                       |  2.0    |
+|  True      |  L-DA07429F |  Running Dedicated m5dn Hosts                                      |  2.0    |
+|  True      |  L-24D7D4AD |  Running Dedicated m5n Hosts                                       |  2.0    |
+|  True      |  L-BD9BD803 |  Running Dedicated m5zn Hosts                                      |  2.0    |
+|  True      |  L-D50A37FA |  Running Dedicated m6g Hosts                                       |  2.0    |
+|  True      |  L-84FB37AA |  Running Dedicated m6gd Hosts                                      |  2.0    |
+|  True      |  L-A8448DC5 |  Running Dedicated mac1 Hosts                                      |  3.0    |
+|  True      |  L-2753CF59 |  Running Dedicated p2 Hosts                                        |  2.0    |
+|  True      |  L-A0A19F79 |  Running Dedicated p3 Hosts                                        |  1.0    |
+|  True      |  L-B601B3B6 |  Running Dedicated p3dn Hosts                                      |  2.0    |
+|  True      |  L-86A789C3 |  Running Dedicated p4d Hosts                                       |  0.0    |
+|  True      |  L-B7208018 |  Running Dedicated r3 Hosts                                        |  2.0    |
+|  True      |  L-313524BA |  Running Dedicated r4 Hosts                                        |  2.0    |
+|  True      |  L-EA4FD6CF |  Running Dedicated r5 Hosts                                        |  2.0    |
+|  True      |  L-8FE30D52 |  Running Dedicated r5a Hosts                                       |  2.0    |
+|  True      |  L-EC7178B6 |  Running Dedicated r5ad Hosts                                      |  2.0    |
+|  True      |  L-8814B54F |  Running Dedicated r5d Hosts                                       |  2.0    |
+|  True      |  L-4AB14223 |  Running Dedicated r5dn Hosts                                      |  2.0    |
+|  True      |  L-52EF324A |  Running Dedicated r5n Hosts                                       |  2.0    |
+|  True      |  L-B6D6065D |  Running Dedicated r6g Hosts                                       |  2.0    |
+|  True      |  L-EF284EFB |  Running Dedicated r6gd Hosts                                      |  2.0    |
+|  True      |  L-D6994875 |  Running Dedicated u-12tb1 Hosts                                   |  0.0    |
+|  True      |  L-89870E8E |  Running Dedicated u-6tb1 Hosts                                    |  0.0    |
+|  True      |  L-98E1FFAC |  Running Dedicated u-9tb1 Hosts                                    |  0.0    |
+|  True      |  L-DE3D9563 |  Running Dedicated x1 Hosts                                        |  1.0    |
+|  True      |  L-DEF8E115 |  Running Dedicated x1e Hosts                                       |  0.0    |
+|  True      |  L-5CC9EA82 |  Running Dedicated x2gd Hosts                                      |  2.0    |
+|  True      |  L-F035E935 |  Running Dedicated z1d Hosts                                       |  2.0    |
+|  True      |  L-74FC7D96 |  Running On-Demand F instances                                     |  128.0  |
+|  True      |  L-DB2E81BA |  Running On-Demand G instances                                     |  32.0   |
+|  True      |  L-43DA4232 |  Running On-Demand High Memory instances                           |  0.0    |
+|  True      |  L-1945791B |  Running On-Demand Inf instances                                   |  32.0   |
+|  True      |  L-417A185B |  Running On-Demand P instances                                     |  32.0   |
+|  True      |  L-1216C47A |  Running On-Demand Standard (A, C, D, H, I, M, R, T, Z) instances  |  512.0  |
+|  True      |  L-7295265B |  Running On-Demand X instances                                     |  0.0    |
+|  True      |  L-B91E5754 |  VPN connections per VGW                                           |  10.0   |
+|  True      |  L-3E6EC3A3 |  VPN connections per region                                        |  50.0   |
+|  True      |  L-7029FAB6 |  Virtual private gateways per region                               |  5.0    |
++------------+-------------+--------------------------------------------------------------------+---------+
+region eu-central-1
+-----------------------------------------------------------------------------------------------------------
+|                                            ListServiceQuotas                                            |
++------------+-------------+--------------------------------------------------------------------+---------+
+| Adjustable |    Code     |                               Name                                 |  Value  |
++------------+-------------+--------------------------------------------------------------------+---------+
+|  True      |  L-88CF9481 |  All F Spot Instance Requests                                      |  128.0  |
+|  True      |  L-3819A6DF |  All G Spot Instance Requests                                      |  32.0   |
+|  True      |  L-B5D1601B |  All Inf Spot Instance Requests                                    |  32.0   |
+|  True      |  L-7212CCBC |  All P Spot Instance Requests                                      |  32.0   |
+|  True      |  L-34B43A08 |  All Standard (A, C, D, H, I, M, R, T, Z) Spot Instance Requests   |  512.0  |
+|  True      |  L-E3A00192 |  All X Spot Instance Requests                                      |  0.0    |
+|  True      |  L-949445B0 |  Running Dedicated a1 Hosts                                        |  2.0    |
+|  True      |  L-8D142A2E |  Running Dedicated c3 Hosts                                        |  2.0    |
+|  True      |  L-E4BF28E0 |  Running Dedicated c4 Hosts                                        |  2.0    |
+|  True      |  L-81657574 |  Running Dedicated c5 Hosts                                        |  2.0    |
+|  True      |  L-C93F66A2 |  Running Dedicated c5d Hosts                                       |  2.0    |
+|  True      |  L-20F13EBD |  Running Dedicated c5n Hosts                                       |  1.0    |
+|  True      |  L-A749B537 |  Running Dedicated c6g Hosts                                       |  2.0    |
+|  True      |  L-545AED39 |  Running Dedicated c6gd Hosts                                      |  2.0    |
+|  True      |  L-8B27377A |  Running Dedicated d2 Hosts                                        |  2.0    |
+|  True      |  L-74BBB7CB |  Running Dedicated g2 Hosts                                        |  2.0    |
+|  True      |  L-DE82EABA |  Running Dedicated g3 Hosts                                        |  2.0    |
+|  True      |  L-4FB7FF5D |  Customer gateways per region                                      |  50.0   |
+|  True      |  L-0263D0A3 |  EC2-VPC Elastic IPs                                               |  5.0    |
+|  True      |  L-D0B7243C |  New Reserved Instances per month                                  |  20.0   |
+|  True      |  L-9675FDCD |  Running Dedicated g3s Hosts                                       |  2.0    |
+|  True      |  L-CAE24619 |  Running Dedicated g4dn Hosts                                      |  2.0    |
+|  True      |  L-6222C1B6 |  Running Dedicated i2 Hosts                                        |  2.0    |
+|  True      |  L-8E60B0B1 |  Running Dedicated i3 Hosts                                        |  2.0    |
+|  True      |  L-77EE2B11 |  Running Dedicated i3en Hosts                                      |  2.0    |
+|  True      |  L-5480EFD2 |  Running Dedicated inf Hosts                                       |  2.0    |
+|  True      |  L-3C82F907 |  Running Dedicated m3 Hosts                                        |  2.0    |
+|  True      |  L-EF30B25E |  Running Dedicated m4 Hosts                                        |  2.0    |
+|  True      |  L-8B7BF662 |  Running Dedicated m5 Hosts                                        |  2.0    |
+|  True      |  L-B10F70D6 |  Running Dedicated m5a Hosts                                       |  2.0    |
+|  True      |  L-74F41837 |  Running Dedicated m5ad Hosts                                      |  2.0    |
+|  True      |  L-8CCBD91B |  Running Dedicated m5d Hosts                                       |  2.0    |
+|  True      |  L-DA07429F |  Running Dedicated m5dn Hosts                                      |  2.0    |
+|  True      |  L-24D7D4AD |  Running Dedicated m5n Hosts                                       |  2.0    |
+|  True      |  L-BD9BD803 |  Running Dedicated m5zn Hosts                                      |  2.0    |
+|  True      |  L-D50A37FA |  Running Dedicated m6g Hosts                                       |  2.0    |
+|  True      |  L-84FB37AA |  Running Dedicated m6gd Hosts                                      |  2.0    |
+|  True      |  L-2753CF59 |  Running Dedicated p2 Hosts                                        |  2.0    |
+|  True      |  L-A0A19F79 |  Running Dedicated p3 Hosts                                        |  1.0    |
+|  True      |  L-86A789C3 |  Running Dedicated p4d Hosts                                       |  0.0    |
+|  True      |  L-B7208018 |  Running Dedicated r3 Hosts                                        |  2.0    |
+|  True      |  L-313524BA |  Running Dedicated r4 Hosts                                        |  2.0    |
+|  True      |  L-EA4FD6CF |  Running Dedicated r5 Hosts                                        |  2.0    |
+|  True      |  L-8FE30D52 |  Running Dedicated r5a Hosts                                       |  2.0    |
+|  True      |  L-EC7178B6 |  Running Dedicated r5ad Hosts                                      |  2.0    |
+|  True      |  L-A2D59C67 |  Running Dedicated r5b Hosts                                       |  1.0    |
+|  True      |  L-8814B54F |  Running Dedicated r5d Hosts                                       |  2.0    |
+|  True      |  L-4AB14223 |  Running Dedicated r5dn Hosts                                      |  2.0    |
+|  True      |  L-52EF324A |  Running Dedicated r5n Hosts                                       |  2.0    |
+|  True      |  L-B6D6065D |  Running Dedicated r6g Hosts                                       |  2.0    |
+|  True      |  L-EF284EFB |  Running Dedicated r6gd Hosts                                      |  2.0    |
+|  True      |  L-D6994875 |  Running Dedicated u-12tb1 Hosts                                   |  0.0    |
+|  True      |  L-89870E8E |  Running Dedicated u-6tb1 Hosts                                    |  0.0    |
+|  True      |  L-98E1FFAC |  Running Dedicated u-9tb1 Hosts                                    |  0.0    |
+|  True      |  L-DE3D9563 |  Running Dedicated x1 Hosts                                        |  1.0    |
+|  True      |  L-DEF8E115 |  Running Dedicated x1e Hosts                                       |  0.0    |
+|  True      |  L-F035E935 |  Running Dedicated z1d Hosts                                       |  2.0    |
+|  True      |  L-74FC7D96 |  Running On-Demand F instances                                     |  128.0  |
+|  True      |  L-DB2E81BA |  Running On-Demand G instances                                     |  32.0   |
+|  True      |  L-43DA4232 |  Running On-Demand High Memory instances                           |  0.0    |
+|  True      |  L-1945791B |  Running On-Demand Inf instances                                   |  32.0   |
+|  True      |  L-417A185B |  Running On-Demand P instances                                     |  32.0   |
+|  True      |  L-1216C47A |  Running On-Demand Standard (A, C, D, H, I, M, R, T, Z) instances  |  512.0  |
+|  True      |  L-7295265B |  Running On-Demand X instances                                     |  0.0    |
+|  True      |  L-B91E5754 |  VPN connections per VGW                                           |  10.0   |
+|  True      |  L-3E6EC3A3 |  VPN connections per region                                        |  50.0   |
+|  True      |  L-7029FAB6 |  Virtual private gateways per region                               |  5.0    |
++------------+-------------+--------------------------------------------------------------------+---------+
+region ap-southeast-2
+-----------------------------------------------------------------------------------------------------------
+|                                            ListServiceQuotas                                            |
++------------+-------------+--------------------------------------------------------------------+---------+
+| Adjustable |    Code     |                               Name                                 |  Value  |
++------------+-------------+--------------------------------------------------------------------+---------+
+|  True      |  L-88CF9481 |  All F Spot Instance Requests                                      |  128.0  |
+|  True      |  L-3819A6DF |  All G Spot Instance Requests                                      |  32.0   |
+|  True      |  L-B5D1601B |  All Inf Spot Instance Requests                                    |  32.0   |
+|  True      |  L-7212CCBC |  All P Spot Instance Requests                                      |  32.0   |
+|  True      |  L-34B43A08 |  All Standard (A, C, D, H, I, M, R, T, Z) Spot Instance Requests   |  512.0  |
+|  True      |  L-E3A00192 |  All X Spot Instance Requests                                      |  0.0    |
+|  True      |  L-949445B0 |  Running Dedicated a1 Hosts                                        |  2.0    |
+|  True      |  L-8D142A2E |  Running Dedicated c3 Hosts                                        |  2.0    |
+|  True      |  L-E4BF28E0 |  Running Dedicated c4 Hosts                                        |  2.0    |
+|  True      |  L-81657574 |  Running Dedicated c5 Hosts                                        |  2.0    |
+|  True      |  L-C93F66A2 |  Running Dedicated c5d Hosts                                       |  2.0    |
+|  True      |  L-20F13EBD |  Running Dedicated c5n Hosts                                       |  1.0    |
+|  True      |  L-A749B537 |  Running Dedicated c6g Hosts                                       |  2.0    |
+|  True      |  L-545AED39 |  Running Dedicated c6gd Hosts                                      |  2.0    |
+|  True      |  L-8B27377A |  Running Dedicated d2 Hosts                                        |  2.0    |
+|  True      |  L-5C4CD236 |  Running Dedicated f1 Hosts                                        |  2.0    |
+|  True      |  L-4FB7FF5D |  Customer gateways per region                                      |  50.0   |
+|  True      |  L-CEED54BB |  EC2-Classic Elastic IPs                                           |  5.0    |
+|  True      |  L-0263D0A3 |  EC2-VPC Elastic IPs                                               |  5.0    |
+|  True      |  L-D0B7243C |  New Reserved Instances per month                                  |  20.0   |
+|  True      |  L-74BBB7CB |  Running Dedicated g2 Hosts                                        |  2.0    |
+|  True      |  L-DE82EABA |  Running Dedicated g3 Hosts                                        |  2.0    |
+|  True      |  L-9675FDCD |  Running Dedicated g3s Hosts                                       |  2.0    |
+|  True      |  L-CAE24619 |  Running Dedicated g4dn Hosts                                      |  2.0    |
+|  True      |  L-6222C1B6 |  Running Dedicated i2 Hosts                                        |  2.0    |
+|  True      |  L-8E60B0B1 |  Running Dedicated i3 Hosts                                        |  2.0    |
+|  True      |  L-77EE2B11 |  Running Dedicated i3en Hosts                                      |  2.0    |
+|  True      |  L-5480EFD2 |  Running Dedicated inf Hosts                                       |  2.0    |
+|  True      |  L-3C82F907 |  Running Dedicated m3 Hosts                                        |  2.0    |
+|  True      |  L-EF30B25E |  Running Dedicated m4 Hosts                                        |  2.0    |
+|  True      |  L-8B7BF662 |  Running Dedicated m5 Hosts                                        |  2.0    |
+|  True      |  L-B10F70D6 |  Running Dedicated m5a Hosts                                       |  2.0    |
+|  True      |  L-74F41837 |  Running Dedicated m5ad Hosts                                      |  2.0    |
+|  True      |  L-8CCBD91B |  Running Dedicated m5d Hosts                                       |  2.0    |
+|  True      |  L-D50A37FA |  Running Dedicated m6g Hosts                                       |  2.0    |
+|  True      |  L-84FB37AA |  Running Dedicated m6gd Hosts                                      |  2.0    |
+|  True      |  L-2753CF59 |  Running Dedicated p2 Hosts                                        |  2.0    |
+|  True      |  L-A0A19F79 |  Running Dedicated p3 Hosts                                        |  1.0    |
+|  True      |  L-B7208018 |  Running Dedicated r3 Hosts                                        |  2.0    |
+|  True      |  L-313524BA |  Running Dedicated r4 Hosts                                        |  2.0    |
+|  True      |  L-EA4FD6CF |  Running Dedicated r5 Hosts                                        |  2.0    |
+|  True      |  L-8FE30D52 |  Running Dedicated r5a Hosts                                       |  2.0    |
+|  True      |  L-EC7178B6 |  Running Dedicated r5ad Hosts                                      |  2.0    |
+|  True      |  L-8814B54F |  Running Dedicated r5d Hosts                                       |  2.0    |
+|  True      |  L-52EF324A |  Running Dedicated r5n Hosts                                       |  2.0    |
+|  True      |  L-B6D6065D |  Running Dedicated r6g Hosts                                       |  2.0    |
+|  True      |  L-EF284EFB |  Running Dedicated r6gd Hosts                                      |  2.0    |
+|  True      |  L-DE3D9563 |  Running Dedicated x1 Hosts                                        |  1.0    |
+|  True      |  L-DEF8E115 |  Running Dedicated x1e Hosts                                       |  0.0    |
+|  True      |  L-F035E935 |  Running Dedicated z1d Hosts                                       |  2.0    |
+|  True      |  L-74FC7D96 |  Running On-Demand F instances                                     |  128.0  |
+|  True      |  L-DB2E81BA |  Running On-Demand G instances                                     |  32.0   |
+|  True      |  L-43DA4232 |  Running On-Demand High Memory instances                           |  0.0    |
+|  True      |  L-1945791B |  Running On-Demand Inf instances                                   |  32.0   |
+|  True      |  L-417A185B |  Running On-Demand P instances                                     |  32.0   |
+|  True      |  L-1216C47A |  Running On-Demand Standard (A, C, D, H, I, M, R, T, Z) instances  |  512.0  |
+|  True      |  L-7295265B |  Running On-Demand X instances                                     |  0.0    |
+|  True      |  L-B91E5754 |  VPN connections per VGW                                           |  10.0   |
+|  True      |  L-3E6EC3A3 |  VPN connections per region                                        |  50.0   |
+|  True      |  L-7029FAB6 |  Virtual private gateways per region                               |  5.0    |
++------------+-------------+--------------------------------------------------------------------+---------+
+region ap-southeast-1
+-----------------------------------------------------------------------------------------------------------
+|                                            ListServiceQuotas                                            |
++------------+-------------+--------------------------------------------------------------------+---------+
+| Adjustable |    Code     |                               Name                                 |  Value  |
++------------+-------------+--------------------------------------------------------------------+---------+
+|  True      |  L-88CF9481 |  All F Spot Instance Requests                                      |  128.0  |
+|  True      |  L-3819A6DF |  All G Spot Instance Requests                                      |  32.0   |
+|  True      |  L-B5D1601B |  All Inf Spot Instance Requests                                    |  32.0   |
+|  True      |  L-7212CCBC |  All P Spot Instance Requests                                      |  32.0   |
+|  True      |  L-34B43A08 |  All Standard (A, C, D, H, I, M, R, T, Z) Spot Instance Requests   |  512.0  |
+|  True      |  L-E3A00192 |  All X Spot Instance Requests                                      |  0.0    |
+|  True      |  L-949445B0 |  Running Dedicated a1 Hosts                                        |  2.0    |
+|  True      |  L-8D142A2E |  Running Dedicated c3 Hosts                                        |  2.0    |
+|  True      |  L-E4BF28E0 |  Running Dedicated c4 Hosts                                        |  2.0    |
+|  True      |  L-81657574 |  Running Dedicated c5 Hosts                                        |  2.0    |
+|  True      |  L-C93F66A2 |  Running Dedicated c5d Hosts                                       |  2.0    |
+|  True      |  L-20F13EBD |  Running Dedicated c5n Hosts                                       |  1.0    |
+|  True      |  L-A749B537 |  Running Dedicated c6g Hosts                                       |  2.0    |
+|  True      |  L-545AED39 |  Running Dedicated c6gd Hosts                                      |  2.0    |
+|  True      |  L-8B27377A |  Running Dedicated d2 Hosts                                        |  2.0    |
+|  True      |  L-74BBB7CB |  Running Dedicated g2 Hosts                                        |  2.0    |
+|  True      |  L-4FB7FF5D |  Customer gateways per region                                      |  50.0   |
+|  True      |  L-CEED54BB |  EC2-Classic Elastic IPs                                           |  5.0    |
+|  True      |  L-0263D0A3 |  EC2-VPC Elastic IPs                                               |  5.0    |
+|  True      |  L-D0B7243C |  New Reserved Instances per month                                  |  20.0   |
+|  True      |  L-DE82EABA |  Running Dedicated g3 Hosts                                        |  2.0    |
+|  True      |  L-CAE24619 |  Running Dedicated g4dn Hosts                                      |  2.0    |
+|  True      |  L-6222C1B6 |  Running Dedicated i2 Hosts                                        |  2.0    |
+|  True      |  L-8E60B0B1 |  Running Dedicated i3 Hosts                                        |  2.0    |
+|  True      |  L-77EE2B11 |  Running Dedicated i3en Hosts                                      |  2.0    |
+|  True      |  L-5480EFD2 |  Running Dedicated inf Hosts                                       |  2.0    |
+|  True      |  L-3C82F907 |  Running Dedicated m3 Hosts                                        |  2.0    |
+|  True      |  L-EF30B25E |  Running Dedicated m4 Hosts                                        |  2.0    |
+|  True      |  L-8B7BF662 |  Running Dedicated m5 Hosts                                        |  2.0    |
+|  True      |  L-B10F70D6 |  Running Dedicated m5a Hosts                                       |  2.0    |
+|  True      |  L-74F41837 |  Running Dedicated m5ad Hosts                                      |  2.0    |
+|  True      |  L-8CCBD91B |  Running Dedicated m5d Hosts                                       |  2.0    |
+|  True      |  L-DA07429F |  Running Dedicated m5dn Hosts                                      |  2.0    |
+|  True      |  L-24D7D4AD |  Running Dedicated m5n Hosts                                       |  2.0    |
+|  True      |  L-D50A37FA |  Running Dedicated m6g Hosts                                       |  2.0    |
+|  True      |  L-84FB37AA |  Running Dedicated m6gd Hosts                                      |  2.0    |
+|  True      |  L-A8448DC5 |  Running Dedicated mac1 Hosts                                      |  3.0    |
+|  True      |  L-2753CF59 |  Running Dedicated p2 Hosts                                        |  2.0    |
+|  True      |  L-A0A19F79 |  Running Dedicated p3 Hosts                                        |  1.0    |
+|  True      |  L-B7208018 |  Running Dedicated r3 Hosts                                        |  2.0    |
+|  True      |  L-313524BA |  Running Dedicated r4 Hosts                                        |  2.0    |
+|  True      |  L-EA4FD6CF |  Running Dedicated r5 Hosts                                        |  2.0    |
+|  True      |  L-8FE30D52 |  Running Dedicated r5a Hosts                                       |  2.0    |
+|  True      |  L-EC7178B6 |  Running Dedicated r5ad Hosts                                      |  2.0    |
+|  True      |  L-A2D59C67 |  Running Dedicated r5b Hosts                                       |  1.0    |
+|  True      |  L-8814B54F |  Running Dedicated r5d Hosts                                       |  2.0    |
+|  True      |  L-4AB14223 |  Running Dedicated r5dn Hosts                                      |  2.0    |
+|  True      |  L-52EF324A |  Running Dedicated r5n Hosts                                       |  2.0    |
+|  True      |  L-B6D6065D |  Running Dedicated r6g Hosts                                       |  2.0    |
+|  True      |  L-EF284EFB |  Running Dedicated r6gd Hosts                                      |  2.0    |
+|  True      |  L-D6994875 |  Running Dedicated u-12tb1 Hosts                                   |  0.0    |
+|  True      |  L-89870E8E |  Running Dedicated u-6tb1 Hosts                                    |  0.0    |
+|  True      |  L-98E1FFAC |  Running Dedicated u-9tb1 Hosts                                    |  0.0    |
+|  True      |  L-DE3D9563 |  Running Dedicated x1 Hosts                                        |  1.0    |
+|  True      |  L-DEF8E115 |  Running Dedicated x1e Hosts                                       |  0.0    |
+|  True      |  L-F035E935 |  Running Dedicated z1d Hosts                                       |  2.0    |
+|  True      |  L-74FC7D96 |  Running On-Demand F instances                                     |  128.0  |
+|  True      |  L-DB2E81BA |  Running On-Demand G instances                                     |  32.0   |
+|  True      |  L-43DA4232 |  Running On-Demand High Memory instances                           |  0.0    |
+|  True      |  L-1945791B |  Running On-Demand Inf instances                                   |  32.0   |
+|  True      |  L-417A185B |  Running On-Demand P instances                                     |  32.0   |
+|  True      |  L-1216C47A |  Running On-Demand Standard (A, C, D, H, I, M, R, T, Z) instances  |  512.0  |
+|  True      |  L-7295265B |  Running On-Demand X instances                                     |  0.0    |
+|  True      |  L-B91E5754 |  VPN connections per VGW                                           |  10.0   |
+|  True      |  L-3E6EC3A3 |  VPN connections per region                                        |  50.0   |
+|  True      |  L-7029FAB6 |  Virtual private gateways per region                               |  5.0    |
++------------+-------------+--------------------------------------------------------------------+---------+
+region ap-south-1
+-----------------------------------------------------------------------------------------------------------
+|                                            ListServiceQuotas                                            |
++------------+-------------+--------------------------------------------------------------------+---------+
+| Adjustable |    Code     |                               Name                                 |  Value  |
++------------+-------------+--------------------------------------------------------------------+---------+
+|  True      |  L-88CF9481 |  All F Spot Instance Requests                                      |  128.0  |
+|  True      |  L-3819A6DF |  All G Spot Instance Requests                                      |  32.0   |
+|  True      |  L-B5D1601B |  All Inf Spot Instance Requests                                    |  32.0   |
+|  True      |  L-7212CCBC |  All P Spot Instance Requests                                      |  32.0   |
+|  True      |  L-34B43A08 |  All Standard (A, C, D, H, I, M, R, T, Z) Spot Instance Requests   |  512.0  |
+|  True      |  L-E3A00192 |  All X Spot Instance Requests                                      |  0.0    |
+|  True      |  L-949445B0 |  Running Dedicated a1 Hosts                                        |  2.0    |
+|  True      |  L-E4BF28E0 |  Running Dedicated c4 Hosts                                        |  2.0    |
+|  True      |  L-81657574 |  Running Dedicated c5 Hosts                                        |  2.0    |
+|  True      |  L-C93F66A2 |  Running Dedicated c5d Hosts                                       |  2.0    |
+|  True      |  L-20F13EBD |  Running Dedicated c5n Hosts                                       |  1.0    |
+|  True      |  L-A749B537 |  Running Dedicated c6g Hosts                                       |  2.0    |
+|  True      |  L-8B27377A |  Running Dedicated d2 Hosts                                        |  2.0    |
+|  True      |  L-CAE24619 |  Running Dedicated g4dn Hosts                                      |  2.0    |
+|  True      |  L-6222C1B6 |  Running Dedicated i2 Hosts                                        |  2.0    |
+|  True      |  L-8E60B0B1 |  Running Dedicated i3 Hosts                                        |  2.0    |
+|  True      |  L-77EE2B11 |  Running Dedicated i3en Hosts                                      |  2.0    |
+|  True      |  L-4FB7FF5D |  Customer gateways per region                                      |  50.0   |
+|  True      |  L-0263D0A3 |  EC2-VPC Elastic IPs                                               |  5.0    |
+|  True      |  L-D0B7243C |  New Reserved Instances per month                                  |  20.0   |
+|  True      |  L-5480EFD2 |  Running Dedicated inf Hosts                                       |  2.0    |
+|  True      |  L-EF30B25E |  Running Dedicated m4 Hosts                                        |  2.0    |
+|  True      |  L-8B7BF662 |  Running Dedicated m5 Hosts                                        |  2.0    |
+|  True      |  L-B10F70D6 |  Running Dedicated m5a Hosts                                       |  2.0    |
+|  True      |  L-74F41837 |  Running Dedicated m5ad Hosts                                      |  2.0    |
+|  True      |  L-8CCBD91B |  Running Dedicated m5d Hosts                                       |  2.0    |
+|  True      |  L-D50A37FA |  Running Dedicated m6g Hosts                                       |  2.0    |
+|  True      |  L-2753CF59 |  Running Dedicated p2 Hosts                                        |  2.0    |
+|  True      |  L-B7208018 |  Running Dedicated r3 Hosts                                        |  2.0    |
+|  True      |  L-313524BA |  Running Dedicated r4 Hosts                                        |  2.0    |
+|  True      |  L-EA4FD6CF |  Running Dedicated r5 Hosts                                        |  2.0    |
+|  True      |  L-8FE30D52 |  Running Dedicated r5a Hosts                                       |  2.0    |
+|  True      |  L-EC7178B6 |  Running Dedicated r5ad Hosts                                      |  2.0    |
+|  True      |  L-8814B54F |  Running Dedicated r5d Hosts                                       |  2.0    |
+|  True      |  L-52EF324A |  Running Dedicated r5n Hosts                                       |  2.0    |
+|  True      |  L-B6D6065D |  Running Dedicated r6g Hosts                                       |  2.0    |
+|  True      |  L-DE3D9563 |  Running Dedicated x1 Hosts                                        |  1.0    |
+|  True      |  L-DEF8E115 |  Running Dedicated x1e Hosts                                       |  0.0    |
+|  True      |  L-F035E935 |  Running Dedicated z1d Hosts                                       |  2.0    |
+|  True      |  L-74FC7D96 |  Running On-Demand F instances                                     |  128.0  |
+|  True      |  L-DB2E81BA |  Running On-Demand G instances                                     |  32.0   |
+|  True      |  L-43DA4232 |  Running On-Demand High Memory instances                           |  0.0    |
+|  True      |  L-1945791B |  Running On-Demand Inf instances                                   |  32.0   |
+|  True      |  L-417A185B |  Running On-Demand P instances                                     |  32.0   |
+|  True      |  L-1216C47A |  Running On-Demand Standard (A, C, D, H, I, M, R, T, Z) instances  |  512.0  |
+|  True      |  L-7295265B |  Running On-Demand X instances                                     |  0.0    |
+|  True      |  L-B91E5754 |  VPN connections per VGW                                           |  10.0   |
+|  True      |  L-3E6EC3A3 |  VPN connections per region                                        |  50.0   |
+|  True      |  L-7029FAB6 |  Virtual private gateways per region                               |  5.0    |
++------------+-------------+--------------------------------------------------------------------+---------+
+region ap-northeast-2
+-----------------------------------------------------------------------------------------------------------
+|                                            ListServiceQuotas                                            |
++------------+-------------+--------------------------------------------------------------------+---------+
+| Adjustable |    Code     |                               Name                                 |  Value  |
++------------+-------------+--------------------------------------------------------------------+---------+
+|  True      |  L-88CF9481 |  All F Spot Instance Requests                                      |  128.0  |
+|  True      |  L-3819A6DF |  All G Spot Instance Requests                                      |  32.0   |
+|  True      |  L-B5D1601B |  All Inf Spot Instance Requests                                    |  32.0   |
+|  True      |  L-7212CCBC |  All P Spot Instance Requests                                      |  32.0   |
+|  True      |  L-34B43A08 |  All Standard (A, C, D, H, I, M, R, T, Z) Spot Instance Requests   |  512.0  |
+|  True      |  L-E3A00192 |  All X Spot Instance Requests                                      |  0.0    |
+|  True      |  L-E4BF28E0 |  Running Dedicated c4 Hosts                                        |  2.0    |
+|  True      |  L-81657574 |  Running Dedicated c5 Hosts                                        |  2.0    |
+|  True      |  L-C93F66A2 |  Running Dedicated c5d Hosts                                       |  2.0    |
+|  True      |  L-20F13EBD |  Running Dedicated c5n Hosts                                       |  1.0    |
+|  True      |  L-A749B537 |  Running Dedicated c6g Hosts                                       |  2.0    |
+|  True      |  L-8B27377A |  Running Dedicated d2 Hosts                                        |  2.0    |
+|  True      |  L-DE82EABA |  Running Dedicated g3 Hosts                                        |  2.0    |
+|  True      |  L-9675FDCD |  Running Dedicated g3s Hosts                                       |  2.0    |
+|  True      |  L-CAE24619 |  Running Dedicated g4dn Hosts                                      |  2.0    |
+|  True      |  L-6222C1B6 |  Running Dedicated i2 Hosts                                        |  2.0    |
+|  True      |  L-8E60B0B1 |  Running Dedicated i3 Hosts                                        |  2.0    |
+|  True      |  L-4FB7FF5D |  Customer gateways per region                                      |  50.0   |
+|  True      |  L-0263D0A3 |  EC2-VPC Elastic IPs                                               |  5.0    |
+|  True      |  L-D0B7243C |  New Reserved Instances per month                                  |  20.0   |
+|  True      |  L-77EE2B11 |  Running Dedicated i3en Hosts                                      |  2.0    |
+|  True      |  L-5480EFD2 |  Running Dedicated inf Hosts                                       |  2.0    |
+|  True      |  L-EF30B25E |  Running Dedicated m4 Hosts                                        |  2.0    |
+|  True      |  L-8B7BF662 |  Running Dedicated m5 Hosts                                        |  2.0    |
+|  True      |  L-B10F70D6 |  Running Dedicated m5a Hosts                                       |  2.0    |
+|  True      |  L-74F41837 |  Running Dedicated m5ad Hosts                                      |  2.0    |
+|  True      |  L-8CCBD91B |  Running Dedicated m5d Hosts                                       |  2.0    |
+|  True      |  L-D50A37FA |  Running Dedicated m6g Hosts                                       |  2.0    |
+|  True      |  L-2753CF59 |  Running Dedicated p2 Hosts                                        |  2.0    |
+|  True      |  L-A0A19F79 |  Running Dedicated p3 Hosts                                        |  1.0    |
+|  True      |  L-86A789C3 |  Running Dedicated p4d Hosts                                       |  0.0    |
+|  True      |  L-B7208018 |  Running Dedicated r3 Hosts                                        |  2.0    |
+|  True      |  L-313524BA |  Running Dedicated r4 Hosts                                        |  2.0    |
+|  True      |  L-EA4FD6CF |  Running Dedicated r5 Hosts                                        |  2.0    |
+|  True      |  L-8FE30D52 |  Running Dedicated r5a Hosts                                       |  2.0    |
+|  True      |  L-EC7178B6 |  Running Dedicated r5ad Hosts                                      |  2.0    |
+|  True      |  L-8814B54F |  Running Dedicated r5d Hosts                                       |  2.0    |
+|  True      |  L-52EF324A |  Running Dedicated r5n Hosts                                       |  2.0    |
+|  True      |  L-B6D6065D |  Running Dedicated r6g Hosts                                       |  2.0    |
+|  True      |  L-DE3D9563 |  Running Dedicated x1 Hosts                                        |  1.0    |
+|  True      |  L-DEF8E115 |  Running Dedicated x1e Hosts                                       |  0.0    |
+|  True      |  L-F035E935 |  Running Dedicated z1d Hosts                                       |  2.0    |
+|  True      |  L-74FC7D96 |  Running On-Demand F instances                                     |  128.0  |
+|  True      |  L-DB2E81BA |  Running On-Demand G instances                                     |  32.0   |
+|  True      |  L-43DA4232 |  Running On-Demand High Memory instances                           |  0.0    |
+|  True      |  L-1945791B |  Running On-Demand Inf instances                                   |  32.0   |
+|  True      |  L-417A185B |  Running On-Demand P instances                                     |  32.0   |
+|  True      |  L-1216C47A |  Running On-Demand Standard (A, C, D, H, I, M, R, T, Z) instances  |  512.0  |
+|  True      |  L-7295265B |  Running On-Demand X instances                                     |  0.0    |
+|  True      |  L-B91E5754 |  VPN connections per VGW                                           |  10.0   |
+|  True      |  L-3E6EC3A3 |  VPN connections per region                                        |  50.0   |
+|  True      |  L-7029FAB6 |  Virtual private gateways per region                               |  5.0    |
++------------+-------------+--------------------------------------------------------------------+---------+
+region ap-northeast-1
+-----------------------------------------------------------------------------------------------------------
+|                                            ListServiceQuotas                                            |
++------------+-------------+--------------------------------------------------------------------+---------+
+| Adjustable |    Code     |                               Name                                 |  Value  |
++------------+-------------+--------------------------------------------------------------------+---------+
+|  True      |  L-88CF9481 |  All F Spot Instance Requests                                      |  128.0  |
+|  True      |  L-3819A6DF |  All G Spot Instance Requests                                      |  32.0   |
+|  True      |  L-B5D1601B |  All Inf Spot Instance Requests                                    |  32.0   |
+|  True      |  L-7212CCBC |  All P Spot Instance Requests                                      |  32.0   |
+|  True      |  L-34B43A08 |  All Standard (A, C, D, H, I, M, R, T, Z) Spot Instance Requests   |  512.0  |
+|  True      |  L-E3A00192 |  All X Spot Instance Requests                                      |  0.0    |
+|  True      |  L-949445B0 |  Running Dedicated a1 Hosts                                        |  2.0    |
+|  True      |  L-8D142A2E |  Running Dedicated c3 Hosts                                        |  2.0    |
+|  True      |  L-E4BF28E0 |  Running Dedicated c4 Hosts                                        |  2.0    |
+|  True      |  L-81657574 |  Running Dedicated c5 Hosts                                        |  2.0    |
+|  True      |  L-C93F66A2 |  Running Dedicated c5d Hosts                                       |  2.0    |
+|  True      |  L-20F13EBD |  Running Dedicated c5n Hosts                                       |  1.0    |
+|  True      |  L-A749B537 |  Running Dedicated c6g Hosts                                       |  2.0    |
+|  True      |  L-545AED39 |  Running Dedicated c6gd Hosts                                      |  2.0    |
+|  True      |  L-5E3A299D |  Running Dedicated c6gn Hosts                                      |  2.0    |
+|  True      |  L-8B27377A |  Running Dedicated d2 Hosts                                        |  2.0    |
+|  True      |  L-4FB7FF5D |  Customer gateways per region                                      |  50.0   |
+|  True      |  L-CEED54BB |  EC2-Classic Elastic IPs                                           |  5.0    |
+|  True      |  L-0263D0A3 |  EC2-VPC Elastic IPs                                               |  5.0    |
+|  True      |  L-D0B7243C |  New Reserved Instances per month                                  |  20.0   |
+|  True      |  L-74BBB7CB |  Running Dedicated g2 Hosts                                        |  2.0    |
+|  True      |  L-DE82EABA |  Running Dedicated g3 Hosts                                        |  2.0    |
+|  True      |  L-9675FDCD |  Running Dedicated g3s Hosts                                       |  2.0    |
+|  True      |  L-CAE24619 |  Running Dedicated g4dn Hosts                                      |  2.0    |
+|  True      |  L-6222C1B6 |  Running Dedicated i2 Hosts                                        |  2.0    |
+|  True      |  L-8E60B0B1 |  Running Dedicated i3 Hosts                                        |  2.0    |
+|  True      |  L-77EE2B11 |  Running Dedicated i3en Hosts                                      |  2.0    |
+|  True      |  L-5480EFD2 |  Running Dedicated inf Hosts                                       |  2.0    |
+|  True      |  L-3C82F907 |  Running Dedicated m3 Hosts                                        |  2.0    |
+|  True      |  L-EF30B25E |  Running Dedicated m4 Hosts                                        |  2.0    |
+|  True      |  L-8B7BF662 |  Running Dedicated m5 Hosts                                        |  2.0    |
+|  True      |  L-B10F70D6 |  Running Dedicated m5a Hosts                                       |  2.0    |
+|  True      |  L-74F41837 |  Running Dedicated m5ad Hosts                                      |  2.0    |
+|  True      |  L-8CCBD91B |  Running Dedicated m5d Hosts                                       |  2.0    |
+|  True      |  L-DA07429F |  Running Dedicated m5dn Hosts                                      |  2.0    |
+|  True      |  L-24D7D4AD |  Running Dedicated m5n Hosts                                       |  2.0    |
+|  True      |  L-BD9BD803 |  Running Dedicated m5zn Hosts                                      |  2.0    |
+|  True      |  L-D50A37FA |  Running Dedicated m6g Hosts                                       |  2.0    |
+|  True      |  L-84FB37AA |  Running Dedicated m6gd Hosts                                      |  2.0    |
+|  True      |  L-2753CF59 |  Running Dedicated p2 Hosts                                        |  2.0    |
+|  True      |  L-A0A19F79 |  Running Dedicated p3 Hosts                                        |  1.0    |
+|  True      |  L-B601B3B6 |  Running Dedicated p3dn Hosts                                      |  2.0    |
+|  True      |  L-86A789C3 |  Running Dedicated p4d Hosts                                       |  0.0    |
+|  True      |  L-B7208018 |  Running Dedicated r3 Hosts                                        |  2.0    |
+|  True      |  L-313524BA |  Running Dedicated r4 Hosts                                        |  2.0    |
+|  True      |  L-EA4FD6CF |  Running Dedicated r5 Hosts                                        |  2.0    |
+|  True      |  L-8FE30D52 |  Running Dedicated r5a Hosts                                       |  2.0    |
+|  True      |  L-EC7178B6 |  Running Dedicated r5ad Hosts                                      |  2.0    |
+|  True      |  L-A2D59C67 |  Running Dedicated r5b Hosts                                       |  1.0    |
+|  True      |  L-8814B54F |  Running Dedicated r5d Hosts                                       |  2.0    |
+|  True      |  L-4AB14223 |  Running Dedicated r5dn Hosts                                      |  2.0    |
+|  True      |  L-52EF324A |  Running Dedicated r5n Hosts                                       |  2.0    |
+|  True      |  L-B6D6065D |  Running Dedicated r6g Hosts                                       |  2.0    |
+|  True      |  L-EF284EFB |  Running Dedicated r6gd Hosts                                      |  2.0    |
+|  True      |  L-DE3D9563 |  Running Dedicated x1 Hosts                                        |  1.0    |
+|  True      |  L-DEF8E115 |  Running Dedicated x1e Hosts                                       |  0.0    |
+|  True      |  L-F035E935 |  Running Dedicated z1d Hosts                                       |  2.0    |
+|  True      |  L-74FC7D96 |  Running On-Demand F instances                                     |  128.0  |
+|  True      |  L-DB2E81BA |  Running On-Demand G instances                                     |  32.0   |
+|  True      |  L-43DA4232 |  Running On-Demand High Memory instances                           |  0.0    |
+|  True      |  L-1945791B |  Running On-Demand Inf instances                                   |  32.0   |
+|  True      |  L-417A185B |  Running On-Demand P instances                                     |  32.0   |
+|  True      |  L-1216C47A |  Running On-Demand Standard (A, C, D, H, I, M, R, T, Z) instances  |  512.0  |
+|  True      |  L-7295265B |  Running On-Demand X instances                                     |  0.0    |
+|  True      |  L-B91E5754 |  VPN connections per VGW                                           |  10.0   |
+|  True      |  L-3E6EC3A3 |  VPN connections per region                                        |  50.0   |
+|  True      |  L-7029FAB6 |  Virtual private gateways per region                               |  5.0    |
++------------+-------------+--------------------------------------------------------------------+---------+
