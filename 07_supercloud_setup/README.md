@@ -165,10 +165,12 @@ export PYTHONPATH=$PYTHONPATH:/state/partition1/user/$USER/mujoco-py
    ```
 
 2.  Then add the following into your `setup` config
+
    ```bash
    startup: | 
        export MUJOCO_GL=egl;
        export CUDA_VISIBLE_DEVICES=0;
        export LD_PRELOAD=$HOME/vendor/glew/lib/libGLEW.so.2.2.0:/usr/lib/libGL.so.1;
    ```
+
 
