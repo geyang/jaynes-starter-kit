@@ -153,6 +153,16 @@ export PYTHONPATH=$PYTHONPATH:/state/partition1/user/$USER/mujoco-py
        echo "finished";
    ```
 
+## To Render with `dmc` domains
+
+Add the following to your `setup` config
+
+```yaml
+startup: | 
+    export MUJOCO_GL=egl;
+    export CUDA_VISIBLE_DEVICES=0;
+```
+
 
 
 ## Archived Setup Instructions
@@ -176,7 +186,7 @@ These steps are no-longer needed because of the availability of default packages
 
 2.  Then add the following into your `setup` config
 
-   ```bash
+   ```yaml
    startup: | 
        export MUJOCO_GL=egl;
        export CUDA_VISIBLE_DEVICES=0;
