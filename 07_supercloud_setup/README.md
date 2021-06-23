@@ -12,7 +12,10 @@
    
    
    ```bash
-   export PROXY_PORT=5000
+   # manually add the local path
+   export PATH=$HOME/.local/bin:$PATH
+   
+   export PROXY_PORT=5090
    export http_proxy=http://$HOSTNAME:$PROXY_PORT
    export https_proxy=http://$HOSTNAME:$PROXY_PORT
    # This line runs the proxy in a screen session in the background
@@ -150,7 +153,14 @@ export PYTHONPATH=$PYTHONPATH:/state/partition1/user/$USER/mujoco-py
        echo "finished";
    ```
 
-## Setting up GPU Accelerated Rendering with `mujoco-py`
+
+
+## Archived Setup Instructions
+
+These steps are no-longer needed because of the availability of default packages through the `anaconda/2021a` module. However, we keep these here in case you need a custom environment.
+
+
+### Setting up GPU Accelerated Rendering with `mujoco-py`
 
 1. You need to install `glew` with the following script
 
@@ -172,5 +182,4 @@ export PYTHONPATH=$PYTHONPATH:/state/partition1/user/$USER/mujoco-py
        export CUDA_VISIBLE_DEVICES=0;
        export LD_PRELOAD=$HOME/vendor/glew/lib/libGLEW.so.2.2.0:/usr/lib/libGL.so.1;
    ```
-
 
