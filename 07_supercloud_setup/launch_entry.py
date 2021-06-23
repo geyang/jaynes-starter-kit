@@ -18,22 +18,29 @@ def gym_dmc_render():
     logger.print(f"dmc:Cartpole renders <{img.shape}>", color="green")
 
 
-def launch():
+def launch(domain):
     from ml_logger import logger
 
     logger.print("this is running", color="yellow")
 
-    gym_dmc_render()
-
-    gym_render()
+    if domain == 'dmc':
+        gym_dmc_render()
+    elif domain == 'mujoco':
+        gym_render()
 
     logger.print("success", color="green")
 
 
 if __name__ == "__main__":
     import jaynes
+    import argparse
+    from functools import partial
+
+    argparser = argparse.ArgumentParser()
+    argparser.add_argument('--domain', type=str, choices=['mujoco', 'dmc'], default='mujoco')
+    args = argparser.parse_args()
 
     jaynes.config(launch=dict(timeout=0))
     for i in range(1):
-        jaynes.run(launch)
+        jaynes.run(partial(launch, domain=args.domain))
     jaynes.listen()
