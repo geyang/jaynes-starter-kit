@@ -169,8 +169,9 @@ startup: |
 
 These steps are no-longer needed because of the availability of default packages through the `anaconda/2021a` module. However, we keep these here in case you need a custom environment.
 
-
 ### Setting up GPU Accelerated Rendering with DeepMind Control suite domains
+
+**Update**: this is no longer needed because the supercloud admins made `libglew ` available directly. You will still need to add the `egl` setting to get accelerated rendering. See the steps above.
 
 1. You need to install `glew` with the following script
 
