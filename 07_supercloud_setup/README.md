@@ -170,7 +170,7 @@ startup: |
 These steps are no-longer needed because of the availability of default packages through the `anaconda/2021a` module. However, we keep these here in case you need a custom environment.
 
 
-### Setting up GPU Accelerated Rendering with `mujoco-py`
+### Setting up GPU Accelerated Rendering with DeepMind Control suite domains
 
 1. You need to install `glew` with the following script
 
