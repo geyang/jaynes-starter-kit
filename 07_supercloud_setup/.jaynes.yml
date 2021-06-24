@@ -32,6 +32,7 @@ run:
       cp -r /home/gridsan/$USER/mujoco-py /state/partition1/user/$USER/;
       echo "finished";
       export MUJOCO_GL=egl;
+      export CUDA_VISIBLE_DEVICES=0;
     pypath: "{mounts[0].host_path}"
     work_dir: "{mounts[0].host_path}"
     # exclude: d-7-11-2,d-10-1-2

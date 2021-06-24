@@ -18,14 +18,13 @@ def gym_dmc_render():
     logger.print(f"dmc:Cartpole renders <{img.shape}>", color="green")
 
 
-def launch():
+def both():
     from ml_logger import logger
 
     logger.print("this is running", color="yellow")
 
-    gym_dmc_render()
-
     gym_render()
+    gym_dmc_render()
 
     logger.print("success", color="green")
 
@@ -33,7 +32,8 @@ def launch():
 if __name__ == "__main__":
     import jaynes
 
-    jaynes.config(launch=dict(timeout=0))
-    for i in range(1):
-        jaynes.run(launch)
+    jaynes.config()
+    jaynes.run(gym_render)
+    jaynes.run(gym_dmc_render)
+    jaynes.run(both)
     jaynes.listen()
