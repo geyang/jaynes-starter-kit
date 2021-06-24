@@ -97,7 +97,7 @@ Details of the s3api could be found @[create  bucket](https://docs.aws.amazon.co
 3. If you want to make the upload faster, you can enable the `accelerate_endpoint`.
 
     ```bash
-    aws s3api put-bucket-accelerate-configuration --bucket your_bucket_name --accelerate-configuration Status=Enabled
+    aws s3api put-bucket-accelerate-configuration --bucket $USER-jaynes-$AWS_PROFILE --accelerate-configuration Status=Enabled
     ```
 
     Note that this endpoint takes a while to spin up. Before it finishes spinning up, uploading and s3api using the accelerated endpoint would result into the following **S3 Upload Failure**:
@@ -145,8 +145,8 @@ We include these detailed setup and expectations as a list.
    export ML_LOGGER_TOKEN=""
    
    export AWS_PROFILE=<your-org>
-   export JYNS_AWS_S3_BUCKET=$USER-jaynes-<your-org>
-   export JYNS_AWS_INSTANCE_PROFILE=arn:aws:iam::<your-org-account>:instance-profile/ge-jaynes-worker
+   export JYNS_AWS_S3_BUCKET=$USER-jaynes-$AWS_PROFILE
+   export JYNS_AWS_INSTANCE_PROFILE=arn:aws:iam::$AWS_PROFILE:instance-profile/ge-jaynes-worker
    ```
 
 2. A list of Deep Learning AMI `image_ids`, one for each region is listed [./setup/ec2_image_ids.csv](./setup/ec2_image_ids.csv)
