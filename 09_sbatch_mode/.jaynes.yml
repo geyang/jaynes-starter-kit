@@ -25,7 +25,6 @@ run:
       source $HOME/.bashrc
       module load cuda/10.2
       module load anaconda/2021a
-      module load mpi/openmpi-4.0
       source $HOME/proxy.sh
     startup: >-
       echo "copying mujoco-py";
