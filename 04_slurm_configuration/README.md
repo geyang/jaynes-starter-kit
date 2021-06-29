@@ -9,7 +9,14 @@ In this tutorial, we will provide guide on the [ssh] launch model. For the clien
 
 # Using Python on the Cluster
 
-The shared network drive fabric might seem magic, it is not. In fact NFS fileIO can become a major bottleneck for an HPC network. This is why the recomended way to use python is to load python modules that the admin has setup.
+The shared network drive fabric might seem magic, it is not. In fact NFS fileIO can become a major bottleneck for an HPC network. This is why the recomended way to use python is to load python modules that the admin has setup. One one of the clusters for example, custom conda environments makes `import torch` take 87 seconds. Using system modules is faster because the admins can cache those files locally within each worker instance.
+
+Basical module commands are:
+
+- to see all available modules: `module avail`
+- to load a module: `module load <module name>`
+- to list all of the module you have loaded `module list`
+- and to remove all modules: `module purge`
 
 With jaynes, we can put this type of setup commands in the `runner.setup` field.
 
