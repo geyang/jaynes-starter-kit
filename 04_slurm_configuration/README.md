@@ -7,9 +7,23 @@ Depending on your cluster's admin policy and access configuration, one of these 
 
 In this tutorial, we will provide guide on the [ssh] launch model. For the client/server launch model, refer to [../05_client_server](../05_client_server) instead.
 
+# Using Python on the Cluster
+
+The shared network drive fabric might seem magic, it is not. In fact NFS fileIO can become a major bottleneck for an HPC network. This is why the recomended way to use python is to load python modules that the admin has setup.
+
+With jaynes, we can put this type of setup commands in the `runner.setup` field.
+
+```bash
+# to make the `module` command available
+# source /etc/profile.d/modules.sh
+module load cuda/10.2
+module load anaconda/2021a
+module load mpi/openmpi-4.0
+```
+
 ## Getting Started
 
-This example assumes that you can access a remote SLURM cluster via ssh. **First let's make sure ssh works**:
+This example assumes that you can access a remote SLURM cluster via ssh. **First, make sure** ssh works:
 
 ```bash
 ssh $JYNS_USERNAME@$JYNS_SLURM_HOST -i $JYNS_SLURM_PEM
@@ -25,8 +39,6 @@ export JYNS_SLURM_DIR=/home/gridsan/geyang/jaynes-mount
 ```
 
 > password login are usually disabled on managed SLURM clusters.
-
-###  
 
 **Second, install `jaynes`.** This tutorial is written w.r.t version: [0.7.0](https://github.com/geyang/jaynes/releases/tag/0.7.0).
 
