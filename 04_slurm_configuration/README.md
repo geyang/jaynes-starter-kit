@@ -52,10 +52,11 @@ The launch `.jaynes.yml` file contains the following values for configuring the 
   envs: >-
     LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US
   startup: >-
-    source ~/.bashrc;
-    module load cuda/11.0;
-    module load anaconda/2020b;
-    source activate base;
+    source /etc/profile.d/modules.sh
+    source $HOME/.bashrc
+    module load cuda/10.2
+    module load anaconda/2021a
+    module load mpi/openmpi-4.0
 ```
 
 This folder is structured as:

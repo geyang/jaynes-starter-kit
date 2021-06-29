@@ -2,6 +2,8 @@
 
 **Note** outbound HTTP requests are blocked on the workers nodes, which means you can not run pip install or send logging request to our ec2 instrumentation server. See [[link]](proxy_setup.md)
 
+**Frist, take a looka the [04 slurm setup guide](/Users/ge/mit/jaynes-starter-kit/04_slurm_configuration/README.md)**. That guide tells you how to get up and running with python. The following steps cover specific libraries needed for reinforcement learning.
+
 ## Setting up MuJoCo-py (for gym)
 
 **Summary:** First install mujoco (step 1 below), and then add the following to your `~/.bashrc` 
