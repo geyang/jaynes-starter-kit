@@ -47,10 +47,10 @@ export JYNS_SLURM_DIR=/home/gridsan/geyang/jaynes-mount
 
 > password login are usually disabled on managed SLURM clusters.
 
-**Second, install `jaynes`.** This tutorial is written w.r.t version: [0.7.1](https://github.com/geyang/jaynes/releases/tag/0.7.1).
+**Second, install `jaynes`.** This tutorial is written w.r.t version: [0.7.2](https://github.com/geyang/jaynes/releases/tag/0.7.2).
 
 ```bash
-pip install jaynes==0.7.1
+pip install jaynes==0.7.2
 ```
 
 ## Managing Python Environment on A SLURM Cluster
@@ -61,7 +61,7 @@ First, let's installl `jaynes`, this is because jaynes use the `jaynes.entry` mo
 
 ```bash
 conda activate base
-pip install --user jaynes==0.7.1
+pip install --user jaynes==0.7.2
 ```
 
 The launch `.jaynes.yml` file contains the following values for configuring the remote python runtime. You can tweak this until your code runs.
