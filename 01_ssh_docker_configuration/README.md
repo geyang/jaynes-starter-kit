@@ -10,7 +10,7 @@ result looks like:
 
 [will finish after lunch]
 
-1. install `jaynes==0.7.0`, cloudpickle on both your local computer (where you run jaynes), and the docker image. This script installs these automatically, but you can comment that out if it is already installed.
+1. install `jaynes==0.7.1`, cloudpickle on both your local computer (where you run jaynes), and the docker image. This script installs these automatically, but you can comment that out if it is already installed.
 2. run `lanch_entry.py`. 
 
 When you run the [./example_launch.py](launch_entry.py) script, it generates two pieces of script:
