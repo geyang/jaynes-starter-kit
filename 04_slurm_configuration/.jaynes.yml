@@ -32,6 +32,7 @@ run:
     time_limit: "0:0:20"
     n_cpu: 2
     n_gpu: 0
+    n_seq_jobs: 1
   launch: !ENV
     type: ssh
     ip: "{env.JYNS_SLURM_HOST}"

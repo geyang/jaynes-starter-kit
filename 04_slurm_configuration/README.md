@@ -168,6 +168,36 @@ Running inside worker
 [seed: 0] Finished!
 ```
 
+## Launching sequential jobs with sbatch
+To submit a sequence of jobs with sbatch, specify `n_seq_jobs` to be > 1 (default: 1).
+For example, `.jaynes.yml` may look like:
+```yaml
+- !runners.Slurm &slurm
+  envs: >-
+    LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US
+  startup: >-
+    source /etc/profile.d/modules.sh
+    source $HOME/.bashrc
+  n_seq_jobs: 3
+```
+
+Then, just call `jaynes.run(train_fn)` once:
+```python
+#! ./seq_jobs_launch.py
+import jaynes
+from launch_entry import train_fn
+
+if __name__ == "__main__":
+    jaynes.config(verbose=False)
+    jaynes.run(train_fn)
+    jaynes.listen(200)
+
+```
+This runs `sbatch -J [your-job-name] -d singleton ...` for `n_seq_jobs` times, which requests sequential jobs.
+
+Note that when `n_seq_jobs` is set to 1, it uses `srun` to launch the job.
+
+
 ## Issues and Questions?
 
 Please report issues or error messages in the issues page of the main `jaynes` repo: [jaynes/issues](https://github.com/geyang/jaynes/issues). 
