@@ -1,0 +1,44 @@
+version: 0
+run:
+  mounts:
+  - !mounts.GCPCode
+    prefix: "{env.JYNS_GCP_BUCKET}/jaynes-debug"
+    local_path: .
+    host_path: "/home/ubuntu/jaynes-mounts/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
+    pypath: true
+    excludes: >-
+      --exclude='*__pycache__' --exclude='*.git' --exclude='*.idea' --exclude='*.egg-info'
+      --exclude='*.pkl'
+    compress: true
+  runner: !runners.Docker
+    name: "jaynes-demo"  # only for docker
+    image: "episodeyang/jaynes"
+    # Install Docker like this.
+    # setup: |
+    #   sudo yum update -y
+    #   sudo amazon-linux-extras install docker
+    #   sudo yum install docker
+    #   sudo service docker start
+    #   sudo usermod -a -G docker $USER
+    # docker_cmd: sudo docker
+    startup: yes | pip install jaynes ml-logger -q
+    envs: LANG=utf-8
+    pypath: "{mounts[0].container_path}"
+    work_dir: "{mounts[0].container_path}"
+    ipc: host
+  launch: !ENV
+    # Needed for the S3 code mount
+    setup: pip install -q awscli ml-logger params-proto
+    type: gce
+    launch_dir: /home/ec2-user/jaynes-mounts
+    project_id: "{env.JYNS_GCP_PROJECT}"
+    zone: us-east1-b
+    image_project: deeplearning-platform-release
+    image_family: pytorch-latest-gpu
+#    instance_type: a2-highgpu-1g
+    instance_type: n1-standard-1
+    accelerator_type: 'nvidia-tesla-t4'
+    accelerator_count: 1
+    preemptible: true
+    terminate_after: true
+
