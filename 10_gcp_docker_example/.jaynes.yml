@@ -30,7 +30,7 @@ run:
     # Needed for the S3 code mount
     setup: pip install -q awscli ml-logger params-proto
     type: gce
-    launch_dir: /home/ec2-user/jaynes-mounts
+    launch_dir: "$HOME/jaynes-mounts"
     project_id: "{env.JYNS_GCP_PROJECT}"
     zone: us-east1-b
     image_project: deeplearning-platform-release
