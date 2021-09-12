@@ -19,6 +19,8 @@ for seed in [100, 200, 300]:
 
 ## Before You Begin
 
+A bit confusingly, Google Cloud Platform (GCP) to the Google compute engine (GCE) is AWS to EC2. Therefore we launch using the `gce` mode, but the overall support is targeting GCP.
+
 ### Step 1: Installing `jaynes`
 
 You need to have `gcloud` and `gsutil` installed on your computer, as well as `jaynes`. 
@@ -125,13 +127,9 @@ Remember, turn on the  `verbose=True` flag, to see the script being generated an
 
 
 
-
-
-
-
 ## Config Examples and Values
 
-Here is an example configuration for launching on GCP:
+Here is an example configuration for launching via the Google Compute Engine (GCE) service:
 
 ```yaml
 launch: !ENV
