@@ -19,7 +19,7 @@ for seed in [100, 200, 300]:
 
 ## Before You Begin
 
-A bit confusingly, Google Cloud Platform (GCP) to the Google compute engine (GCE) is AWS to EC2. Therefore we launch using the `gce` mode, but the overall support is targeting GCP.
+A bit confusingly, Google Cloud Platform (GCP) to the Google compute engine (GCE) is AWS to EC2. Therefore we launch using the `gce` mode, but the overall support is targeting GCP.
 
 ### Step 1: Installing `jaynes`
 
@@ -124,6 +124,7 @@ Remember, turn on the  `verbose=True` flag, to see the script being generated an
 ### Common Errors
 
 - error: **name already exists**: This means that the name you are using already exists as an VM instance. You should use a different instance name.
+- **\$HOME directory in GCE VM instances** depends on the user that is logging in. You can just `ubuntu` as a generic user name so that we can share the same `.jaynes.yml` configuration file between multiple users.
 
 
 

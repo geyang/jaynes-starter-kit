@@ -1,3 +1,5 @@
+from time import sleep
+
 import jaynes
 
 
@@ -7,6 +9,8 @@ def launch(root, prefix, seed):
     logger.configure(root_dir=root, prefix=prefix, register_experiment=True)
     logger.print(f"this has be ran {seed}")
     logger.flush()
+
+    sleep(600)
 
 
 if __name__ == "__main__":
