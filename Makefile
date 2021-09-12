@@ -1,5 +1,7 @@
 VERSION=`< VERSION`
 
+default: bump release
+	git push
 bump:
 	pip show jaynes | grep Version | sed 's/Version:\ //g' > VERSION
 	git add VERSION

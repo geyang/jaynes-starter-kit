@@ -11,7 +11,7 @@ cloud:
 
 mounts: # mount configurations Available keys: NOW, UUID,
   - !mounts.S3Code &code_mount
-    s3_prefix: s3://ge-bair/jaynes-debug
+    prefix: s3://ge-bair/jaynes-debug
     local_path: .
     host_path: /home/ubuntu/jaynes-mounts/{now:%Y-%m-%d}/{now:%H%M%S.%f}
     # container_path: /Users/geyang/learning-to-learn
@@ -19,7 +19,7 @@ mounts: # mount configurations Available keys: NOW, UUID,
     excludes: "--exclude='*__pycache__' --exclude='*.git' --exclude='*.idea' --exclude='*.egg-info' --exclude='*.pkl'"
     compress: true
   - !mounts.S3Code &fair_code_mount
-    s3_prefix: s3://ge-bair/jaynes-debug
+    prefix: s3://ge-bair/jaynes-debug
     local_path: .
     host_path: /private/home/geyang/jaynes-mounts/{now:%Y-%m-%d}/{now:%H%M%S.%f}
     pypath: true

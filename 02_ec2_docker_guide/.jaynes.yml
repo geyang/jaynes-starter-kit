@@ -2,7 +2,7 @@ version: 0
 run:
   mounts:
   - !mounts.S3Code
-    s3_prefix: "s3://{env.JYNS_AWS_S3_BUCKET}/jaynes-debug"
+    prefix: "s3://{env.JYNS_AWS_S3_BUCKET}/jaynes-debug"
     local_path: .
     host_path: "/home/ubuntu/jaynes-mounts/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
     pypath: true
