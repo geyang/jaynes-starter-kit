@@ -13,7 +13,7 @@ for seed in [100, 200, 300]:
     jaynes.run(train, seed=seed)
 ```
 
-**Note**: The example config currently uses an S3 mount for the code upload. We currently do not have support for gce buckets, but that is an easy to implement. To add this support, submit a PR.
+**Note**: The example config currently uses an S3 mount for the code upload. We currently do not have support for GCP buckets, but that is an easy to implement. To add this support, submit a PR.
 
 
 
@@ -79,9 +79,9 @@ gsutil rb gs://$USER-jaynes-$ORGANIZATION
 gsutil rb gs://$USER-data-$ORGANIZATION
 ```
 
-#### Using AWS S3 with GCE instances
+#### Using AWS S3 with GCP instances
 
-The `aws cli` is not pre-installed on the machine learning GCE VM images. Therefore to download from AWS S3, you need to install the commandline tool as part of the `setup` step of your `.jaynes.runner` configuration. 
+The `aws cli` is not pre-installed on the machine learning GCP VM images. Therefore to download from AWS S3, you need to install the commandline tool as part of the `setup` step of your `.jaynes.runner` configuration. 
 
 ```yaml
 launch: !ENVS
@@ -131,13 +131,13 @@ Remember, turn on the  `verbose=True` flag, to see the script being generated an
 
 ## Config Examples and Values
 
-Here is an example configuration for launching on GCE:
+Here is an example configuration for launching on GCP:
 
 ```yaml
 launch: !ENV
     type: gce
     launch_dir: /home/ec2-user/jaynes-mounts
-    project_id: "{env.JYNS_GCE_PROJECT}"
+    project_id: "{env.JYNS_GCP_PROJECT}"
     zone: us-east1-b
     image_project: deeplearning-platform-release
     image_family: pytorch-latest-gpu
@@ -220,7 +220,7 @@ comes in a 12:1 vCPU/A100 ratio. A2 VMs are only available on the [Cascade Lake 
 
 
 
-## Further Readings on GCE VM with Accelerators
+## Further Readings on GCP VM with Accelerators
 
 To create a VM with attached GPUs, complete the following steps:
 
