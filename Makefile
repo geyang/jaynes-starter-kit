@@ -3,5 +3,5 @@ bump:
 	git add VERSION
 	git ci -m "bump version"
 release:
-	git tag v$(VERSION) -m '$(msg)'
+	git tag v$(`< VERSION`)
 	git push origin --tags

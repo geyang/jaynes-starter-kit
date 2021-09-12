@@ -25,6 +25,7 @@ For detailed documentation on each usecases, refer to the in-dept tutorial bello
 5. [**Advanced Multi-mode Example**](05_muti-mode_advanced_config)
 4. [**SSH Docker Configuration**](01_ssh_docker_configuration)
 5. [**EC2 Docker Configuration**](02_ec2_docker_configuration)
+6. [**GCP Docker Example**](10_gcp_docker_example)
 
 In this folder, we provide a collection of example configurations. Each example sits
 within its own folder. To run, follow the instruction in the README in that example
@@ -97,5 +98,4 @@ Below are a few areas that current stands in need to contributions:
 - [**Pure SSH Host Support** issue #4](issues/4)
 - [**SLURM SBatch Support** issue #5](issues/5)
 - [**SLURM Singularity Support** issue #6](issues/6)
-
 
