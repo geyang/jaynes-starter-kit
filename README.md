@@ -1,6 +1,6 @@
-# Jaynes Examples: Cross-Provider Computation at Scale
+# [Jaynes Examples: Cross-Provider Computation at Scale](https://github.com/geyang/jaynes-starter-kit)
 
-This repository is an up-to-date collection of minimal jaynes usage examples. You can mix and match configurations between these included usecases for your particular infrastructure.
+This repository is an up-to-date collection of minimal jaynes usage examples. You can mix and match configurations between these included usecases for your particular infrastructure. You can find the up-to-date copy of this guide here: https://github.com/geyang/jaynes-starter-kit
 
 ## To Get Started
 
