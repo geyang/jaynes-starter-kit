@@ -16,9 +16,9 @@ Basical module commands are:
 - to see all available modules: `module avail`
 - to load a module: `module load <module name>`
 - to list all of the module you have loaded `module list`
-- and to remove all modules: `module purge`
+- and to remove all modules: `module purge`
 
-With jaynes, we can put this type of setup commands in the `runner.setup` field.
+With jaynes, we can put this type of setup commands in the `runner.setup` field.
 
 ```bash
 # to make the `module` command available
@@ -115,7 +115,11 @@ when you run this script, it should print out
 
 <p><img src="./figures/slurm_stdout_single.png" alt="slurm_stdout_single" width="900px" style="top:20px"></p>
 
-## Launching Multiple Jobs
+## Interactive vs Batch Jobs
+
+When the `interactive` flag is `true`, we launch via the `srun` command. Otherwise, we pipe the bash script into a file, and launch using `sbatch`.
+
+## Launching Multiple Jobs (Interactive)
 
 Just call `jaynes.run` with multiple copies of the function:
 
@@ -168,9 +172,15 @@ Running inside worker
 [seed: 0] Finished!
 ```
 
-## Launching sequential jobs with sbatch
-To submit a sequence of jobs with sbatch, specify `n_seq_jobs` to be > 1 (default: 1).
+## Launching Sequential Jobs with `SBatch`
+To submit a sequence of jobs with sbatch, 
+
+1. turn off the `interactive` mode by setting it to `false`. 
+2. specify `n_seq_jobs` to be > 1 (default: `null`).
+3. make sure you set a job name, because otherwise, all of your `sbatch` calls will be sequentially ordered.
+
 For example, `.jaynes.yml` may look like:
+
 ```yaml
 - !runners.Slurm &slurm
   envs: >-
@@ -178,6 +188,7 @@ For example, `.jaynes.yml` may look like:
   startup: >-
     source /etc/profile.d/modules.sh
     source $HOME/.bashrc
+  interactive: false
   n_seq_jobs: 3
 ```
 
@@ -188,14 +199,11 @@ import jaynes
 from launch_entry import train_fn
 
 if __name__ == "__main__":
-    jaynes.config(verbose=False)
-    jaynes.run(train_fn)
-    jaynes.listen(200)
-
+    for index in range(10):
+        jaynes.config(verbose=False, launch=dict(job_name=f"unique-job-{index}"))
+        jaynes.run(train_fn)
 ```
-This runs `sbatch -J [your-job-name] -d singleton ...` for `n_seq_jobs` times, which requests sequential jobs.
-
-Note that when `n_seq_jobs` is set to 1, it uses `srun` to launch the job.
+This runs `sbatch --job-name unique-job-0 -d singleton ...` for `n_seq_jobs=3` times, which requests sequential jobs.
 
 
 ## Issues and Questions?
