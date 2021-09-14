@@ -7,7 +7,7 @@ def train_fn(seed=100):
     from time import sleep
 
     print(f'[seed: {seed}] See real-time pipe-back from the server:')
-    for i in range(3):
+    for i in range(300):
         print(f"[seed: {seed}] step: {i}")
         sleep(0.1)
 
