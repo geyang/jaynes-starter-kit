@@ -20,9 +20,9 @@ run:
       LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US
     setup: |
       source /etc/profile.d/modules.sh
-      source ~/.bashrc
-      # module load cuda/10.2
-      # module load anaconda/2021a
+      source $HOME/.bashrc
+      module load cuda/10.2
+      module load anaconda/2021a
       # source ~/proxy.sh
     startup: >-
       pip install --user jaynes -q
@@ -33,7 +33,6 @@ run:
     n_cpu: 2
     n_gpu: 0
     interactive: true
-    n_seq_jobs: null
   launch: !ENV
     type: ssh
     ip: "{env.JYNS_SLURM_HOST}"
