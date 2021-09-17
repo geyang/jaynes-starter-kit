@@ -10,6 +10,9 @@ SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 REPO_DIR = os.path.dirname(SCRIPT_DIR)
 CONFIG_DIR = REPO_DIR
 
+AWS_PROFILE = os.environ['AWS_PROFILE']
+print(f'You are using the AWS profile {AWS_PROFILE}')
+
 USER = os.environ['USER']
 PREFIX = f"{USER}-jaynes"
 SECURITY_GROUP_NAME = f"{PREFIX}-sg"
@@ -123,7 +126,7 @@ def setup_key_pairs(region, key_name):
         else:
             raise e
 
-    key_pair_folder_path = os.path.join(CONFIG_DIR, ".secrete")
+    key_pair_folder_path = os.path.join(CONFIG_DIR, f"{AWS_PROFILE}.secrete")
     file_name = os.path.join(key_pair_folder_path, "%s.pem" % key_name)
 
     cprint(f"Saving key pair {key_name}", "green", end="\r")

@@ -1,4 +1,5 @@
 .EXPORT_ALL_VARIABLES:
+AWS_PROFILE=ttic-bstadie
 #AWS_PROFILE=improbable
 #AWS_PAGER=""
 ROLE_NAME=${USER}-jaynes-worker-role
