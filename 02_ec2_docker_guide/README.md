@@ -35,6 +35,13 @@ aws-cli/2.2.4 Python/3.8.8 Darwin/20.3.0 exe/x86_64 prompt/off
 ```
 
 ## AWS Profile and Credentials
+If you haven't created an IAM user and user group, follow this https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html and create them.
+> I set username to my name but not "Administrator" as instructed
+> For the group, I chose "AdministratorAccess" policy (I'm not sure if that's alright)
+
+Make sure to download the credential file (csv). You'll need it to login to the console in the future.
+
+Visit https://console.aws.amazon.com/iamv2/home to confirm the user and group is created.
 
 Now to configure your aws credentials, follow the tutorials here: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html. You need to obtain your access key and secrete access key from your ec2 dashboard through this guide https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html.
 
@@ -45,12 +52,13 @@ AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 Default region name [None]: us-west-2
 Default output format [None]: json
 ```
+These information will be saved at `~/.aws/credentials` and `~/.aws/config`.
 
 ### Supporting Multiple AWS CLI Profiles
 
 Most of the time, you have multiple `aws` accounts that you use for work vs home projects. The best way to manage these different access credentials is to use **"profiles"**. You can set the `AWS_PROFILE` flag in your environment to select one as your default.
 
-1. Inside your 
+1. Inside your `~/.aws/config`
 
     ```ini
     [default]
@@ -145,9 +153,12 @@ We include these detailed setup and expectations as a list.
    export ML_LOGGER_TOKEN=""
    
    export AWS_PROFILE=<your-org>
+   export AWS_ACCOUNT_ID=<your-account-id>
    export JYNS_AWS_S3_BUCKET=$USER-jaynes-$AWS_PROFILE
-   export JYNS_AWS_INSTANCE_PROFILE=arn:aws:iam::$AWS_PROFILE:instance-profile/ge-jaynes-worker
+   export JYNS_AWS_INSTANCE_PROFILE=arn:aws:iam::$AWS_ACCOUNT_ID:instance-profile/$USER-jaynes-worker
    ```
+   `AWS_ACCOUNT_ID` can be confirmed at the top right of AWS console (hint: it's a 12 digit number).
+   `JYNS_AWS_INSTANCE_PROFILE` should match "Instance Profile ARNs" found at IAM dashboard --> Roles --> ge-jaynes-role
 
 2. A list of Deep Learning AMI `image_ids`, one for each region is listed [./setup/ec2_image_ids.csv](./setup/ec2_image_ids.csv)
 
@@ -172,15 +183,18 @@ We include these detailed setup and expectations as a list.
     cd ec2_setup
     python setup_aws.py
     ```
-    This should **first generate a set of access key pairs**, inside the [./private](./private) folder.
+    This should **first generate a set of access key pairs**, inside the [./.secrete](./secrete) folder.
     Second, it should also generates an ec2 instance profile. Write down the instance profile's name, go to the next step.
-4. Add `JYNS_AWS_INSTANCE_PROFILE` to your [~/.profile](file://~/.profile), using the value of the instance profile you generated in the previous step.
 
 ## Docker Image
 
 We include an example docker image in the [./docker/Dockerfile](./docker) file. You need to install `jaynes` via `RUN pip install jaynes` in the docker image, to make the jaynes entry script available.
 
 ## Launch
+Edit `.jaynes.yml` to reflect the configuration.
+- `launch.security_group`: (ge-jaynes-sg) You can always check it on EC2 Console
+- `launch.key_name`: (ge-us-east-2) This should match one of the generated pem keys. Also confirm that this matches `launch.region`
+- `launch.image_id`: (ami-067146664e0b80d8b) choose the right image by looking at ec2_image_ids.csv
 
 Now the launch is as simple as running
 ```bash
@@ -189,6 +203,25 @@ python launch_entry.py
 Remember, turn on the  `verbose=True` flag, to see the script being generated and details of the request.
 
 ### Common Errors
+- Max spot instance count exceeded:
+```
+botocore.exceptions.ClientError: An error occurred (MaxSpotInstanceCountExceeded) when calling the RequestSpotInstances operation: Max spot instance count exceeded
+```
+First, confirm that the instance you're trying to use is correct (`launch.instance_type` in `.jaynes.yml`).  
+If first time, you need to request an increase of the limit from "Limits" tab on your EC2 console. It may take a day until the request is accepted by AWS team.
+You may want to request the increase for the all regions you will use.
+
+In the first request, it's possible that a large increase is not allowed.  
+NOTE: If the limit (vCPU) is set to a small value (e.g., vCPU=4), you cannot launch a large instance. Not even a single instance (e.g., `g4dn.4xlarge` has vCPU = 16 > 4).
+
+You can check instance types and specs [here](https://aws.amazon.com/ec2/instance-types/).
+
+- The key pair does not exist
+```
+botocore.exceptions.ClientError: An error occurred (InvalidKeyPair.NotFound) when calling the RequestSpotInstances operation: The key pair 'yoneda-us-east-2' does not exist
+```
+Make sure that `launch.region` and `launch.key_name` in `.jaynes.yml` match.
+
 
 - error: **bad-parameters** that occurs during spot instance request contains a short message after that explains the specific parameter at fault. You can use `aws ec2 describe-spot-instance-requests` command to inspect the details.
 
