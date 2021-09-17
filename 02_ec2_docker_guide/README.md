@@ -35,7 +35,12 @@ aws-cli/2.2.4 Python/3.8.8 Darwin/20.3.0 exe/x86_64 prompt/off
 ```
 
 ## AWS Profile and Credentials
-If you haven't created an IAM user and user group, follow this https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html and create them.
+
+To use the aws cli, you need to first configure it with your user credentials. These are credential files located locally on your mac. The guide can be found here -- go through this tutorial first and make sure that you can run the `awscli`. The recommended way is to create an "admin IAM", instead of using the credentials of your root user, which exposes you security wise.
+
+- https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html
+- https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html
+
 > I set username to my name but not "Administrator" as instructed
 > For the group, I chose "AdministratorAccess" policy (I'm not sure if that's alright)
 
