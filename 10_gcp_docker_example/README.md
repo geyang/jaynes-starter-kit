@@ -124,7 +124,33 @@ Remember, turn on the  `verbose=True` flag, to see the script being generated an
 ### Common Errors
 
 - error: **name already exists**: This means that the name you are using already exists as an VM instance. You should use a different instance name.
-- **\$HOME directory in GCE VM instances** depends on the user that is logging in. You can just `ubuntu` as a generic user name so that we can share the same `.jaynes.yml` configuration file between multiple users.
+
+- **\$HOME directory in GCE VM instances** depends on the user that is logging in. You can just `ubuntu` as a generic user name so that we can share the same `.jaynes.yml` configuration file between multiple users.
+
+- **gsutil import error** can occur when you use `jaynes` with pyCharm, where `gsutil` uses a wrong python binary that contains outdated versions of cloud sdk dependencies. A typpical error looks like the following:
+
+  ```shell
+  Traceback (most recent call last):
+    File "/Users/dario/Downloads/google-cloud-sdk/bin/bootstrapping/gsutil.py", line 13, in <module>
+      import bootstrapping
+    File "/Users/dario/Downloads/google-cloud-sdk/bin/bootstrapping/bootstrapping.py", line 32, in <module>
+      import setup  # pylint:disable=g-import-not-at-top
+    File "/Users/dario/Downloads/google-cloud-sdk/bin/bootstrapping/setup.py", line 55, in <module>
+      from googlecloudsdk.core import properties
+    File "/Users/dario/Downloads/google-cloud-sdk/lib/googlecloudsdk/core/properties.py", line 34, in <module>
+      from googlecloudsdk.core.util import times
+    File "/Users/dario/Downloads/google-cloud-sdk/lib/googlecloudsdk/core/util/times.py", line 55, in <module>
+      from dateutil.tz import _common as tz_common
+  ImportError: cannot import name _common
+  ```
+
+  To fix this, you just need to specify the `CLOUDSDK_PYTHON`  version
+
+  ```
+  export CLOUDSDK_PYTHON=<what-ever-python-distro-you-want>
+  ```
+
+  This is documented in this SO reply: https://stackoverflow.com/a/69232033/1560241
 
 
 
