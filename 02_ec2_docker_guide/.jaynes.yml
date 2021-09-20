@@ -1,15 +1,15 @@
 version: 0
 run:
   mounts:
-  - !mounts.S3Code
-    prefix: "s3://{env.JYNS_AWS_S3_BUCKET}/jaynes-debug"
-    local_path: .
-    host_path: "/home/ubuntu/jaynes-mounts/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
-    pypath: true
-    excludes: >-
-      --exclude='*__pycache__' --exclude='*.git' --exclude='*.idea' --exclude='*.egg-info'
-      --exclude='*.pkl'
-    compress: true
+    - !mounts.S3Code
+      prefix: "s3://{env.JYNS_AWS_S3_BUCKET}/jaynes-debug"
+      local_path: .
+      host_path: "/home/ubuntu/jaynes-mounts/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
+      pypath: true
+      excludes: >-
+        --exclude='*__pycache__' --exclude='*.git' --exclude='*.idea' --exclude='*.egg-info'
+        --exclude='*.pkl'
+      compress: true
   runner: !runners.Docker
     name: "jaynes-demo"  # only for docker
     image: "episodeyang/jaynes"
