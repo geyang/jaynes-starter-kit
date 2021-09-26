@@ -16,7 +16,6 @@ if __name__ == "__main__":
 
     for seed in range(4):
         # set the verbose to True to see everything
-        jaynes.config(verbose=False,
-                      launch=dict(name=f"test-jaynes-launch-{seed}"))
+        jaynes.config(launch=dict(name=f"test-jaynes-launch-{seed}"))
         jaynes.run(launch, root=logger_server, seed=seed)
     jaynes.listen(100)
