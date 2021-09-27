@@ -191,9 +191,21 @@ launch: !ENV
     accelerator_count: 1
     preemptible: true
     terminate_after: true
+    tags:
+      # needed to install silently. Needs sleep at startup, otherwise may fail.
+      install-nvidia-driver: True
 ```
 
 For the `instance_type`, you can only attach GPUs to [general-purpose N1 VMs](https://cloud.google.com/compute/docs/general-purpose-machines#n1_machines) or [accelerator-optimized A2 VMs](https://cloud.google.com/compute/docs/accelerator-optimized-machines#a2_machines). GPUs are not supported by other machine families. 
+
+
+
+## Important Notes
+
+1. **How Do I install Nvidia Drivers?** the deep learning images require manual confirmation to install the nvidia drivers on the first log in. To install silently, you need to enable the `install-nvidia-driver` tag. All tag values are string type, so using boolean True fails. For this reason, in the `gce` mode of Jayens, we cast the tag values into string type, so that you don't have to be aware of this.
+2. **Why does my nvidia-docker fail with `driver can not be loaded`?**  you can add a `sleep 60` after the initial bootup, to give it some time. 
+
+
 
 ### general purpose machine types 
 
