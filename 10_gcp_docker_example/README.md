@@ -67,6 +67,8 @@ The following are supported in `jaynes>=v0.7.7` and above. See https://pypi.org/
 
 ### Part 1: Creating A GCP Bucket for Your Code and Data
 
+**Important Note:** the prefix, `gs://` is required for `gsutil cp` to target the Google storage (GS) bucket as opposed to your local file system. For this reason, the `GSCode` mount type in jaynes also requires that prefix. Otherwise you might copy locally as opposed to sending it to the bucket.
+
 First make sure that you are able to run the `gsutil` command. Now, create two buckets using the following command:
 
 ```bash
@@ -155,6 +157,24 @@ Remember, turn on the  `verbose=True` flag, to see the script being generated an
 
 
 ## Config Examples and Values
+
+Here is an example of the GS based code mount.
+
+**Important Note:** the prefix, `gs://` is required for `gsutil cp` to target the Google storage (GS) bucket as opposed to your local file system. For this reason, the `GSCode` mount type in jaynes also requires that prefix. Otherwise you might copy locally as opposed to sending it to the bucket.
+
+**Important Note 2:** GCP instances tend to use your email as the username, which makes guessing the file path a bit tricky. We can use local environment variables in the path to avoid having to specify those paths manually. This also makes the generated script username agnostic, hence easier to use during debugging. 
+
+```python
+mounts:
+  - !mounts.GSCode
+    prefix: "gs://{env.JYNS_AWS_S3_BUCKET}/model-free"
+    local_path: "$HOME/.mujoco/mjkey.txt"
+    host_path: "$HOME/jaynes-mounts/{now:%Y-%m-%d}/{now:%H%M%S.%f}/mjkey.txt"
+    container_path: /root/.mujoco/mjkey.txt
+    compress: true
+```
+
+
 
 Here is an example configuration for launching via the Google Compute Engine (GCE) service:
 

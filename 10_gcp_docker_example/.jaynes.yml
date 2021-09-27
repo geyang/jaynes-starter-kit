@@ -2,7 +2,7 @@ version: 0
 run:
   mounts:
   - !mounts.GSCode
-    prefix: "{env.JYNS_GS_BUCKET}/jaynes-debug"
+    prefix: "gs://{env.JYNS_GS_BUCKET}/jaynes-debug"
     local_path: .
     host_path: "/home/ubuntu/jaynes-mounts/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
     pypath: true
