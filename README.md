@@ -91,11 +91,11 @@ to see the error messages.
 Machine Learning infrastructure is an evolving problem, and would take
 the rest of the community to maintain, adopt and standardize.
 
-Below are a few areas that current stands in need to contributions:
+Below are a few areas that current stands in need to contributions: (now mostly done)
 
-- [**Documentation on Configuration Schema** issue #2](issues/2)
-- [**GCE Support** issue #3](issues/3)
-- [**Pure SSH Host Support** issue #4](issues/4)
-- [**SLURM SBatch Support** issue #5](issues/5)
+- [**done**] - [**Documentation on Configuration Schema** issue #2](issues/2)
+- [**done**] - [**GCE Support** issue #3](issues/3)
+- [**done**] - [**Pure SSH Host Support** issue #4](issues/4)
+- [**done**] - [**SLURM SBatch Support** issue #5](issues/5)
 - [**SLURM Singularity Support** issue #6](issues/6)
 
