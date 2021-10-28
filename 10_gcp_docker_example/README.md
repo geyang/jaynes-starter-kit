@@ -59,7 +59,23 @@ To set the active account, run:
 $ gcloud config set account <account>
 ```
 
+## Mental Model for Using Multiple GCP Accounts
 
+Typically, if you sign up to multiple organizations using the same email, you can distinguish between accounts via projects. Each project has its own billing and organizational affiliation. 
+
+So I typically setup the following environment variables in my `~/.profile` , 
+
+```bash
+# environment variables for Google Compute Engine
+export JYNS_GCP_PROJECT=lab-mit-1234
+export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.gce/lab-mit.json
+
+export JYNS_GS_BUCKET=some-bucket-lab-mit
+# export JYNS_GCP_PROJECT=some-org-1234
+# export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.gce/some-org-1234-somehash.json
+```
+
+Note that each project would require a different application credentials `json` file. 
 
 ## Machine Learning At Scale with `jaynes` on GCP
 
