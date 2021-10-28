@@ -18,7 +18,7 @@ if __name__ == "__main__":
 
     logger_server = os.environ.get("ML_LOGGER_ROOT")
 
-    for seed in range(20):
+    for seed in range(10):
         # set the verbose to True to see everything
         jaynes.config(launch=dict(name=f"test-jaynes-launch-{seed}"), verbose=True)
         prefix = f"geyang/jaynes-demo/seed-{seed}"
