@@ -37,8 +37,11 @@ run:
     image_family: pytorch-latest-gpu
 #    instance_type: a2-highgpu-1g
     instance_type: n1-standard-1
-    accelerator_type: 'nvidia-tesla-t4'
+    accelerator_type: nvidia-tesla-t4
     accelerator_count: 1
     preemptible: true
     terminate_after: true
+    tags:
+      install-nvidia-driver: True
+
 

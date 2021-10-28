@@ -98,6 +98,8 @@ To reuse the S3 code mount, you can copy and pasting the `S3Mount` config from t
 
 ### Part 2: Double-Check Your Environment Variables
 
+google.auth.exceptions.DefaultCredentialsError: Could not automatically determine credentials. Please set GOOGLE_APPLICATION_CREDENTIALS or explicitly create credentials and re-run the application. For more information, please see https://cloud.google.com/docs/authentication/getting-started
+
 you need to have these in your [~/.profile](file://~/.profile).
 
 ```bash
@@ -203,7 +205,7 @@ For the `instance_type`, you can only attach GPUs to [general-purpose N1 VMs](ht
 ## Important Notes
 
 1. **How Do I install Nvidia Drivers?** the deep learning images require manual confirmation to install the nvidia drivers on the first log in. To install silently, you need to enable the `install-nvidia-driver` tag. All tag values are string type, so using boolean True fails. For this reason, in the `gce` mode of Jayens, we cast the tag values into string type, so that you don't have to be aware of this.
-2. **Why does my nvidia-docker fail with `driver can not be loaded`?**  you can add a `sleep 60` after the initial bootup, to give it some time. 
+2. **Why does my nvidia-docker fail with `driver can not be loaded`?**  you can add a `sleep 60` after the initial bootup, to give it some time. 
 
 
 
