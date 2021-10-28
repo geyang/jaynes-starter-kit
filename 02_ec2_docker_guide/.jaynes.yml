@@ -24,7 +24,7 @@ run:
     startup: yes | pip install jaynes ml-logger -q
     envs: LANG=utf-8
     pypath: "{mounts[0].container_path}"
-    launch_directory: "{mounts[0].container_path}"
+    workdir: "{mounts[0].container_path}"
     ipc: host
   launch: !ENV
     # use AWS_PROFILE to select the access key and access .secrete.
