@@ -32,7 +32,7 @@ run:
     type: gce
     launch_dir: "$HOME/jaynes-mounts"
     project_id: "{env.JYNS_GCP_PROJECT}"
-    zone: us-east1-b
+    zone: us-west4-b
     image_project: deeplearning-platform-release
     image_family: pytorch-latest-gpu
 #    instance_type: a2-highgpu-1g
