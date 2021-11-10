@@ -13,15 +13,51 @@ for seed in [100, 200, 300]:
     jaynes.run(train, seed=seed)
 ```
 
-**Note**: The example config currently uses an S3 mount for the code upload. We currently do not have support for GCP buckets, but that is an easy to implement. To add this support, submit a PR.
+**Note**: The example config currently uses an a GCP bucket for the code mount. To use an S3 code mount, one would need to add AWS key/screte pairs as environment variables in the `launch.startup` field.
 
 
 
 ## Before You Begin
 
-A bit confusingly, Google Cloud Platform (GCP) to the Google compute engine (GCE) is AWS to EC2. Therefore we launch using the `gce` mode, but the overall support is targeting GCP.
+The Google compute engine (GCE) is the EC2 equivalent under the Google Cloud Platform (GCP). The Google storage (GS) is the S3 equivalent. 
 
-### Step 1: Installing `jaynes`
+### Step 1: Adding the compute service account to the storage bucket
+
+The virtual machines you instantiate inherets the access of your account. A typical error is for machines to have no access to the google storage bucket, therefore unable to download the code mounts and other payloads. The error typically looks like this:
+
+```bash
+$ gsutil cp gs://geyang-jaynes-improbable-ai/jaynes-debug/c86d66df-4017-460e-bf69-28b82543e3d0.tar /tmp/c86d66df-4017-460e-bf69-28b82543e3d0.tar
+
+AccessDeniedException: 403 1045709174286-compute@developer.gserviceaccount.com does not have storage.objects.list a
+ccess to the Google Cloud Storage bucket.
+```
+
+#### The Fix: Adding the service account to the bucket
+
+To allow your virtual machines to access the google storage, you would need to add the service account to the google storage bucket. 
+
+1. **Find the name of the compute service account** by going to [IAM & Admin] > [Service Accouonts] and find the [Compute Engine Default Service Account] in the list below:
+
+   ![Screen Shot 2021-11-09 at 1.57.48 PM](figures/Screen Shot 2021-11-09 at 1.57.48 PM.png)
+
+2. **Adding the service account IAM to the bucket**: via
+
+	```bash
+	gsutil iam ch serviceAccount:1234567890123-compute@developer.gserviceaccount.com:roles/storage.objectViewer gs://geyang-jaynes-improbable-ai
+	```
+
+#### Storage Role Overview
+
+Storage Object Viewer (`roles/storage.objectViewer`) includes these permissions:
+
+```text
+resourcemanager.projects.get
+resourcemanager.projects.list
+storage.objects.get
+storage.objects.list
+```
+
+### Step 2: Installing `jaynes`
 
 You need to have `gcloud` and `gsutil` installed on your computer, as well as `jaynes`. 
 
@@ -29,7 +65,7 @@ You need to have `gcloud` and `gsutil` installed on your computer, as well as `j
 pip install jaynes
 ```
 
-### Step 2: Installing the Cloud SDK (Google)
+### Step 3: Installing the Cloud SDK (Google)
 
 Then install and configure your `gcloud` and `gsutil` command line utilities according the these guides:
 
@@ -59,11 +95,17 @@ To set the active account, run:
 $ gcloud config set account <account>
 ```
 
+### Step 4: Setting Up Service Account for Google Storage
+
+In order to access google storage from within docker instances running inside a virtual machine, you need to setup a disposible service IAM with access limited to just read and write to the bucket. For details, follow the guide here: [[Setting Up Google Storage Service Account]](./setting_up_gcp_service_account.md).
+
 ## Mental Model for Using Multiple GCP Accounts
 
-Typically, if you sign up to multiple organizations using the same email, you can distinguish between accounts via projects. Each project has its own billing and organizational affiliation. 
+Typically, if you sign up to multiple organizations using the same email, you can distinguish between accounts via projects. Each project has its own billing and organizational affiliation. The google cloud api python module is separate from the `gcloud` command line utility when it comes to managing confugrations for different projects. Therefore you need to double check what project `gcloud` and `gsutil` is using. Suppose you want to setup a service account for accessing the gs bucket in one project, but your `gcloud` utility is using a different active configuration, you might inadvertly create an account under that project instead.
 
-So I typically setup the following environment variables in my `~/.profile` , 
+### Environment Variables for Google Cloud Python API and Jaynes
+
+Jaynes uses the google cloud api python module internally. I typically setup the following environment variables in my `~/.profile` , 
 
 ```bash
 # environment variables for Google Compute Engine
@@ -75,7 +117,9 @@ export JYNS_GS_BUCKET=some-bucket-lab-mit
 # export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.gce/some-org-1234-somehash.json
 ```
 
-Note that each project would require a different application credentials `json` file. 
+Note that each project would require a different application credentials `json` file.
+
+
 
 ## Machine Learning At Scale with `jaynes` on GCP
 

@@ -15,14 +15,13 @@ def launch(root, prefix, seed):
 
 if __name__ == "__main__":
     import os
-
-    logger_server = os.environ.get("ML_LOGGER_ROOT")
+    from ml_logger import USER, ROOT
 
     for seed in range(10):
-        # set the verbose to True to see everything
-        jaynes.config(launch=dict(name=f"test-jaynes-launch-{seed}"), verbose=True)
-        prefix = f"geyang/jaynes-demo/seed-{seed}"
+        prefix = f"{USER}/jaynes-demo/gcp/launch_entry/seed-{seed}"
         print(f'logging to {prefix}')
-        instances = jaynes.run(launch, root=logger_server, prefix=prefix, seed=seed)
+
+        jaynes.config(launch=dict(name=prefix), verbose=True)
+        instances = jaynes.run(launch, root=ROOT, prefix=prefix, seed=seed)
 
     jaynes.listen(100)

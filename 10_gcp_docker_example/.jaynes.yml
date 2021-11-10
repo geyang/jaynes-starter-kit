@@ -4,11 +4,18 @@ run:
   - !mounts.GSCode
     prefix: "gs://{env.JYNS_GS_BUCKET}/jaynes-debug"
     local_path: .
-    host_path: "/home/ubuntu/jaynes-mounts/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
+    host_path: "$HOME/jaynes-mounts/{now:%Y-%m-%d}/{now:%H%M%S.%f}/code-mount"
     pypath: true
     excludes: >-
       --exclude='*__pycache__' --exclude='*.git' --exclude='*.idea' --exclude='*.egg-info'
       --exclude='*.pkl'
+    compress: true
+  - !mounts.GSCode
+    prefix: "gs://{env.JYNS_GS_BUCKET}/.gce"
+    local_path: "$HOME/.gce"
+    host_path: "$HOME/jaynes-mounts/{now:%Y-%m-%d}/{now:%H%M%S.%f}/.gce"
+    file_mask: ge-improbable-gs-service.json
+    container_path: /root/.gce
     compress: true
   runner: !runners.Docker
     name: "jaynes-demo"  # only for docker
@@ -21,6 +28,8 @@ run:
     #   sudo service docker start
     #   sudo usermod -a -G docker $USER
     # docker_cmd: sudo docker
+    setup: |
+      chmod -R 777 $HOME/jaynes-mounts/{now:%Y-%m-%d}/{now:%H%M%S.%f}/
     startup: yes | pip install jaynes ml-logger -q
     envs: LANG=utf-8
     pypath: "{mounts[0].container_path}"
@@ -28,7 +37,8 @@ run:
     ipc: host
   launch: !ENV
     # Needed for the S3 code mount
-    setup: pip install -q awscli ml-logger params-proto
+    setup: |
+      pip install -q awscli ml-logger params-proto
     type: gce
     launch_dir: "$HOME/jaynes-mounts"
     project_id: "{env.JYNS_GCP_PROJECT}"
@@ -36,11 +46,11 @@ run:
     image_project: deeplearning-platform-release
     image_family: pytorch-latest-gpu
 #    instance_type: a2-highgpu-1g
-    instance_type: n1-standard-1
+    instance_type: n1-standard-4
     accelerator_type: nvidia-tesla-t4
     accelerator_count: 1
     preemptible: true
-    terminate_after: true
+    terminate_after: false
     tags:
       install-nvidia-driver: True
 
