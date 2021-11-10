@@ -15,15 +15,13 @@ for seed in [100, 200, 300]:
 
 **Note**: The example config currently uses an a GCP bucket for the code mount. To use an S3 code mount, one would need to add AWS key/screte pairs as environment variables in the `launch.startup` field.
 
-
-
 ## Before You Begin
 
 The Google compute engine (GCE) is the EC2 equivalent under the Google Cloud Platform (GCP). The Google storage (GS) is the S3 equivalent. 
 
 ### Step 1: Adding the compute service account to the storage bucket
 
-The virtual machines you instantiate inherets the access of your account. A typical error is for machines to have no access to the google storage bucket, therefore unable to download the code mounts and other payloads. The error typically looks like this:
+The virtual machines needs access to the GS bucket in order to download the code payload. A typical error is for machines to have no access to the google storage bucket, therefore unable to download the code mounts and other payloads. The error typically looks like this when the launch script runs inside the VM:
 
 ```bash
 $ gsutil cp gs://geyang-jaynes-improbable-ai/jaynes-debug/c86d66df-4017-460e-bf69-28b82543e3d0.tar /tmp/c86d66df-4017-460e-bf69-28b82543e3d0.tar
@@ -173,14 +171,14 @@ export JYNS_GCP_BUCKET=<your-bucket-name>
 
 ### Part 3: Docker Image
 
-We include an example docker image in the [./docker/Dockerfile](./docker) file. You need to install `jaynes` via `RUN pip install jaynes` in the docker image, to make the jaynes entry script available.
+We include an example docker image in the [./docker/Dockerfile](./docker) file. If you are using your own docker image, you need either pre-package `jaynes`, or install `jaynes` via `RUN pip install jaynes` during setup, to make available the jaynes entry script.
 
 ### Part 4: Launch!
 
 Now the launch is as simple as running
 
 ```bash
-python launch_entry.py
+python launch_advanced.py
 ```
 
 Remember, turn on the  `verbose=True` flag, to see the script being generated and details of the request.
