@@ -185,6 +185,8 @@ Remember, turn on the  `verbose=True` flag, to see the script being generated an
 
 ### Common Errors
 
+- How to debug: you set `launch.termination` to `false`, so that the machines would not terminate after the startup script finishes running. This way you can `ssh` into the VM, and debug by copy and pasting the script generated in `verbose=True` mode, to debug the launch step by step.
+
 - error: **name already exists**: This means that the name you are using already exists as an VM instance. You should use a different instance name.
 
 - **\$HOME directory in GCE VM instances** depends on the user that is logging in. You can just `ubuntu` as a generic user name so that we can share the same `.jaynes.yml` configuration file between multiple users.
