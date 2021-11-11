@@ -166,7 +166,7 @@ you need to have these in your [~/.profile](file://~/.profile).
 # environment variables for Google Compute Engine
 export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.gce/<your-project>.json
 export JYNS_GCP_PROJECT=<your-project-id-1234>
-export JYNS_GCP_BUCKET=<your-bucket-name>
+export JYNS_GS_BUCKET=<your-bucket-name>
 ```
 
 ### Part 3: Docker Image
