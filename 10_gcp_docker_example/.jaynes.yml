@@ -14,7 +14,7 @@ run:
     prefix: "gs://{env.JYNS_GS_BUCKET}/.gce"
     local_path: "$HOME/.gce"
     host_path: "$HOME/jaynes-mounts/{now:%Y-%m-%d}/{now:%H%M%S.%f}/.gce"
-    file_mask: ge-improbable-gs-service.json
+    file_mask: "$USER-improbable-gs-service.json"
     container_path: /root/.gce
     compress: true
   runner: !runners.Docker

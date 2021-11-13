@@ -1,11 +1,11 @@
 # Setting up GCP Service Account
 
-In order for docker to access the Google storage bucket (GS), it needs the credentials of a service account for reading from and writing to the bucket. 
+In order for docker to access the Google storage bucket (GS), it needs the credentials of a service account for reading from and writing to the bucket. Note that this is **within** the docker instance.
 
 1. Setting up the service account:
 
   ```bash
-  gcloud iam service-accounts create ge-improbable-gs-service \
+  gcloud iam service-accounts create $USER-improbable-gs-service \
       --description="GS Service Account for improbable-ai" \
       --display-name="gs-service"
   ```
