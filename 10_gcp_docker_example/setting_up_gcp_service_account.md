@@ -4,21 +4,21 @@ In order for docker to access the Google storage bucket (GS), it needs the crede
 
 1. Setting up the service account:
 
-  ```bash
-  gcloud iam service-accounts create $USER-improbable-gs-service \
-      --description="GS Service Account for improbable-ai" \
-      --display-name="gs-service"
-  ```
+	```bash
+	gcloud iam service-accounts create $USER-improbable-gs-service \
+	  --description="GS Service Account for improbable-ai" \
+	  --display-name="gs-service"
+	```
 
 2. Granting the service account read and write access to the bucket
 
-  ```bash
-  gsutil iam ch serviceAccount:$USER-improbable-gs-service@improbable-ai-4682.iam.gserviceaccount.com:roles/storage.objectAdmin gs://geyang-jaynes-improbable-a
-  ```
+	```bash
+	gsutil iam ch serviceAccount:$USER-improbable-gs-service@improbable-ai-4682.iam.gserviceaccount.com:roles/storage.objectAdmin gs://geyang-jaynes-improbable-a
+	```
 
-  The detailed API docs can be found here [[gsutil iam ch]](https://cloud.google.com/storage/docs/gsutil/commands/iam).
+	The detailed API docs can be found here [[gsutil iam ch]](https://cloud.google.com/storage/docs/gsutil/commands/iam).
 
-  To grant write access, use `storage.objectAdmin`. For read-only access, use `storage.objectViewer`. For detailed description over the available roles, refer to [[access-control/iam]](https://cloud.google.com/storage/docs/access-control/iam).
+	To grant write access, use `storage.objectAdmin`. For read-only access, use `storage.objectViewer`. For detailed description over the available roles, refer to [[access-control/iam]](https://cloud.google.com/storage/docs/access-control/iam).
 
 3. Setting up and downloading the json key file
 
