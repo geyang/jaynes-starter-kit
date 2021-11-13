@@ -13,7 +13,7 @@ In order for docker to access the Google storage bucket (GS), it needs the crede
 2. Granting the service account read and write access to the bucket
 
   ```bash
-  gsutil iam ch serviceAccount:ge-improbable-gs-service@improbable-ai-4682.iam.gserviceaccount.com:roles/storage.objectAdmin gs://geyang-jaynes-improbable-a
+  gsutil iam ch serviceAccount:$USER-improbable-gs-service@improbable-ai-4682.iam.gserviceaccount.com:roles/storage.objectAdmin gs://geyang-jaynes-improbable-a
   ```
 
   The detailed API docs can be found here [[gsutil iam ch]](https://cloud.google.com/storage/docs/gsutil/commands/iam).
@@ -23,8 +23,8 @@ In order for docker to access the Google storage bucket (GS), it needs the crede
 3. Setting up and downloading the json key file
 
    ```bash
-   gcloud iam service-accounts keys create ~/.gce/ge-improbable-gs-service.json \
-       --iam-account=ge-improbable-gs-service@improbable-ai-4682.iam.gserviceaccount.com
+   gcloud iam service-accounts keys create ~/.gce/$USER-improbable-gs-service.json \
+       --iam-account=$USER-improbable-gs-service@improbable-ai-4682.iam.gserviceaccount.com
    ```
 
 ## Common Errors
