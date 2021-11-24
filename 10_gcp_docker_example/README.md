@@ -337,6 +337,21 @@ comes in a 12:1 vCPU/A100 ratio. A2 VMs are only available on the [Cascade Lake 
 
 
 
+# N1 Standard Machine Type Pricing
+
+Below is the price in Iowa (us-central-1). Prices in other regions are similar.
+
+| Machine type   | Virtual CPUs | Memory | Price (USD) | Spot price* (USD) |
+| -------------- | ------------ | ------ | ----------- | ----------------- |
+| n1-standard-1  | 1            | 3.75GB | $0.04749975 | $0.01             |
+| n1-standard-2  | 2            | 7.5GB  | $0.0949995  | $0.02             |
+| n1-standard-4  | 4            | 15GB   | $0.189999   | $0.04             |
+| n1-standard-8  | 8            | 30GB   | $0.379998   | $0.08             |
+| n1-standard-16 | 16           | 60GB   | $0.759996   | $0.16             |
+| n1-standard-32 | 32           | 120GB  | $1.519992   | $0.32             |
+| n1-standard-64 | 64           | 240GB  | $3.039984   | $0.64             |
+| n1-standard-96 | 96           | 360GB  | $4.559976   | $0.96             |
+
 
 
 ## Further Readings on GCP VM with Accelerators
