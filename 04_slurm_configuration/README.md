@@ -24,7 +24,7 @@ With jaynes, we can put this type of setup commands in the `runner.setup` field.
 # to make the `module` command available
 # source /etc/profile.d/modules.sh
 module load cuda/10.2
-module load anaconda/2021a
+module load anaconda/2021b
 module load mpi/openmpi-4.0
 ```
 
@@ -117,7 +117,7 @@ when you run this script, it should print out
 
 ## Interactive vs Batch Jobs
 
-When the `interactive` flag is `true`, we launch via the `srun` command. Otherwise, we pipe the bash script into a file, and launch using `sbatch`.
+When the `interactive` flag is `true`, we launch via the `srun` command. Otherwise, we pipe the bash script into a file, and launch using `sbatch`.
 
 ## Launching Multiple Jobs (Interactive)
 
@@ -177,7 +177,7 @@ To submit a sequence of jobs with sbatch,
 
 1. turn off the `interactive` mode by setting it to `false`. 
 2. specify `n_seq_jobs` to be > 1 (default: `null`).
-3. make sure you set a job name, because otherwise, all of your `sbatch` calls will be sequentially ordered.
+3. make sure you set a job name, because otherwise, all of your `sbatch` calls will be sequentially ordered.
 
 For example, `.jaynes.yml` may look like:
 
