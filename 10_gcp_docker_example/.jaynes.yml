@@ -18,7 +18,7 @@ run:
     container_path: /root/.gce
     compress: true
   runner: !runners.Docker
-    name: "jaynes-demo"  # only for docker
+    name: "jaynes-demo-{now:%H%M%S}-{RUN.count}"  # only for docker
     image: "episodeyang/jaynes"
     # Install Docker like this.
     # setup: |

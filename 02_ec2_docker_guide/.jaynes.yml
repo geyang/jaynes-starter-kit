@@ -1,4 +1,5 @@
 version: 0
+verbose: true
 run:
   mounts:
     - !mounts.S3Code

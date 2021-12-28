@@ -19,8 +19,6 @@ if __name__ == "__main__":
 
     for seed in range(10):
         prefix = f"{USER}/jaynes-demo/gcp/launch_entry/seed-{seed}"
-        print(f'logging to {prefix}')
-
         jaynes.config(launch=dict(name=prefix), verbose=True)
         instances = jaynes.run(launch, root=ROOT, prefix=prefix, seed=seed)
 

@@ -9,7 +9,6 @@ def launch(lr, model_name="LeNet"):
 
     print(logger)
 
-
     print('now inspec the RUN object: RUN', vars(RUN))
     assert RUN.prefix == "set_from_outside"
     assert RUN.job_name == "ml-logger-test-job"
