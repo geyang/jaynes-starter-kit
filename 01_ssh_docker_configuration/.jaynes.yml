@@ -17,12 +17,12 @@ mounts: # mount configurations Available keys: NOW, UUID,
 runner:
   !runners.Docker &ssh-docker
   # you want to remove this, so that the container uses uuid4
-  name: "jaynes-docker-demo"
+  name: "jaynes-docker-demo-{now:%H%M%S}-{RUN.count}"
   image: python:3.8
   setup: |
     # export PATH=/usr/local/bin/:$PATH  # this is needed on mac osx hosts.
     echo `which docker`
-  startup: yes | pip install jaynes==0.6.9 ml-logger cloudpickle==1.3.0 -q
+  startup: yes | pip install jaynes==0.8.1 ml-logger cloudpickle==1.3.0 -q
   envs: LANG=utf-8
   pypath: "{mounts[0].container_path}"
   work_dir: "{mounts[0].container_path}"
@@ -34,7 +34,7 @@ run:
   runner: *ssh-docker
   launch: !ENV
     type: ssh
-    ip: "visiongpu50"
+    ip: "visiongpu53"
     username: "{env.JYNS_USERNAME}"
     password: "{env.JYNS_PASSWORD}"
     launch_dir: "{env.JYNS_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}"

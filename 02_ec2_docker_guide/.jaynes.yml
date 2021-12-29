@@ -12,7 +12,7 @@ run:
         --exclude='*.pkl'
       compress: true
   runner: !runners.Docker
-    name: "jaynes-demo"  # only for docker
+    name: "jaynes-docker-demo-{now:%H%M%S}-{RUN.count}"
     image: "episodeyang/jaynes"
     # Install Docker like this.
     # setup: |

@@ -47,7 +47,7 @@ hosts:
     pem: ~/.ssh/incrementium-berkeley
 runners:
   - !runners.Docker &ssh_docker
-    name: "some-job"  # only for docker
+    name: "jaynes-docker-demo-{now:%H%M%S}-{RUN.count}"
     image: "episodeyang/super-expert"
     startup: yes | pip install jaynes ml-logger -q
     envs: "LANG=utf-8"

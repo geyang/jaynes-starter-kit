@@ -1,3 +1,5 @@
+
+
 def launch(lr, model_name="LeNet"):
     print(f"training model {model_name} with {lr}")
     print('...')

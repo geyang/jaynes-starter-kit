@@ -17,7 +17,7 @@ mounts: # mount configurations Available keys: NOW, UUID,
     compress: true
 runners:
   - !runners.Simple &ssh_runner
-    name: "jaynes-demo"  # only for docker
+    name: "jaynes-docker-demo-{now:%H%M%S}-{RUN.count}"
     setup: |
       . $HOME/.bashrc
       conda activate

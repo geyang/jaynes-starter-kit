@@ -22,7 +22,7 @@ run:
       source /etc/profile.d/modules.sh
       source $HOME/.bashrc
       module load cuda/10.2
-      module load anaconda/2021a
+      module load anaconda/2021b
       # source ~/proxy.sh
     startup: >-
       pip install --user jaynes -q
