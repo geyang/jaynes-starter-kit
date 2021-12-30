@@ -1,9 +1,9 @@
 import jaynes
-from jaynes import run
 
 
 def install_ml_logger():
-    run("pip install ml-logger".split(' '))
+    from jaynes.shell import run
+    run("pip install munch".split(' '))
 
 
 if __name__ == '__main__':
