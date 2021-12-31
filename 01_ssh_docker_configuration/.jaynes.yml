@@ -37,4 +37,5 @@ run:
     ip: "visiongpu53"
     username: "{env.JYNS_USERNAME}"
     password: "{env.JYNS_PASSWORD}"
+    root_config: "source $HOME/public/.bashrc"
     launch_dir: "{env.JYNS_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
