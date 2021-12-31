@@ -363,3 +363,35 @@ To create a VM with attached GPUs, complete the following steps:
    - To create a VM with any other available model, see [Creating VMs with attached GPUs (other GPU types)](https://cloud.google.com/compute/docs/gpus/create-vm-with-gpus#create-new-gpu-vm).
 2. For the VM to use the GPU, you need to [install the GPU driver on your VM](https://cloud.google.com/compute/docs/gpus/install-drivers-gpu).
 3. If you enabled NVIDIA® GRID virtual workstations, [install GRID® drivers for virtual workstations](https://cloud.google.com/compute/docs/gpus/install-grid-drivers).
+
+
+
+
+
+## Notes on Traning Speed
+
+Now with the `chaining` mode added to jaynes, we have a way to pack multiple jobs onto the same GPU/VM instance.
+
+Using the pytorch SAC code base, here are the rough number of inference speed for different hardwares and amount of parallelization. This shows that V100 is by far 4x faster than the T4 that we use for inference, and we can pack 5x more jobs on the V100 and still run faster for the entire batch, in comparison to the GCP T4 instances.
+
+In the future we want to experiment with packing multiple runs in T4 and see how it impacts the wall time.
+
+
+
+**V100**
+
+| **Parallelization** | **Time/Episode** | **Wall Time (hours)** |
+| ------------------- | ---------------- | --------------------- |
+| 1                   | 6.7              | 1.86                  |
+| 2                   | 9                | 2.50                  |
+| 4                   | 13               | 3.61                  |
+| 5                   | 19               | 5.28                  |
+| 8                   | 24               | 6.67                  |
+| 10                  | 50               | 13.89                 |
+
+**T4**
+
+| **Parallelization** | **Time/Episode** | **Wall Time (hours)** |
+| ------------------- | ---------------- | --------------------- |
+| 1                   | 20               | 5.56                  |
+|                     |                  |                       |
