@@ -12,11 +12,22 @@ The easiest way to setup is to download ngrok and use that to build a reverse tu
     python -m jaynes.server --port <your-jaynes.server-port> --host 0.0.0.0
     ```
     
+    The `--host 0.0.0.0` option allows the sanic server to accept request from all ip addresses.
+    
+    If you want this server to run in the background, you can use screen's daemon mode:
+    
+    ```bash
+    screen -dm python -m jaynes.server --port <jaynes.server-port> --host 0.0.0.0
+    ```
+    
+    To learn how to use screen, try to google for common screen commands.
+    
 3. Now run `ngrok`:
     
     ```bash
     ngrok tcp <your-jaynes.server-port>
     ```
+    
 
 ## Method 2: Reverse Tunneling to Your Own EC2 Server
 
