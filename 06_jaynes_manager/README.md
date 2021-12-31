@@ -1,6 +1,6 @@
 # 06 Setting Up Jaynes Manager [Experimental]
 
-From within a firewall protected server, launch the manager server `jaynes.server` then use ssh reverse tunnel to expose the local point via a public IP.
+From within a firewall protected server, launch the manager server `jaynes.server` then use ssh reverse tunnel to expose the local point via a public IP. The easiest way to do this is to ngrok. Look up how to install and run ngrok -- use it to listen to the running manager process.
 
 1. On aws server: modify the ssh deamon's config file, to expose the local tunnel directly as public gateways
 
