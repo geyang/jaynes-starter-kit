@@ -134,7 +134,7 @@ These steps are no-longer needed because of the availability of default packages
 **Update**: this is no longer needed because the supercloud admins made `libglew ` available directly. You will still need to add the `egl` setting to get accelerated rendering. See the steps above.
 
 1. You need to install `glew` with the following script
-
+   
    ```bash
    mkdir ~/vendor
    cd ~/vendor
@@ -146,11 +146,11 @@ These steps are no-longer needed because of the availability of default packages
    ```
 
 2.  Then add the following into your `setup` config
-
+    
    ```yaml
    startup: | 
        export MUJOCO_GL=egl;
        export CUDA_VISIBLE_DEVICES=0;
-       export LD_PRELOAD=$HOME/vendor/glew/lib/libGLEW.so.2.2.0:/usr/lib/libGL.so.1;
+       export LD_PRELOAD=$HOME/vendor/glew/lib/libGLEW.so.2.2.0;
    ```
 
