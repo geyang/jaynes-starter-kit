@@ -395,3 +395,10 @@ In the future we want to experiment with packing multiple runs in T4 and see how
 | ------------------- | ---------------- | --------------------- |
 | 1                   | 20               | 5.56                  |
 |                     |                  |                       |
+
+
+| dt episode | (env=quadrauped): |          
+| ---------- | ----------------- |    
+| 1 process: | 11.2sec           |
+| 2 process: | 20.3sec           |
+| 5 process: | 49.4sec           |
