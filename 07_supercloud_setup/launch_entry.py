@@ -8,6 +8,11 @@ def gym_render():
     logger.print(f"Reacher-v2 renders <{img.shape}>", color="green")
 
 
+def mujoco_gpu_render():
+    import mujoco_py
+    assert 'gpu' in str(mujoco_py.cymj).split('/')[-1], "mujoco is not using GPU rendering"
+
+
 def gym_dmc_render():
     import gym
     from ml_logger import logger
@@ -33,7 +38,9 @@ if __name__ == "__main__":
     import jaynes
 
     jaynes.config()
-    jaynes.run(gym_render)
-    jaynes.run(gym_dmc_render)
-    jaynes.run(both)
+    jaynes.add(gym_render)
+    jaynes.chain(mujoco_gpu_render)
+    jaynes.chain(gym_dmc_render)
+    jaynes.chain(both)
+    jaynes.execute()
     jaynes.listen()

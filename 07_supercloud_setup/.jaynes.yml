@@ -16,15 +16,20 @@ run:
         --exclude='checkpoints' --exclude='log'
       compress: true
   runner: !runners.Slurm
+    # these should go into your ~/.bashrc, so that you can remove these
     envs: >-
       LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US
-      LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.mujoco/mujoco200/bin
-      LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.mujoco/mujoco200_linux/bin
+      LD_LIBRARY_PATH=$HOME/.mujoco/mujoco210/bin:$LD_LIBRARY_PATH
+      MJLIB_PATH=$HOME/.mujoco/mujoco-2.1.1/lib/libmujoco.so
+      PYTHONPATH=$PYTHONPATH:/state/partition1/user/$USER/mujoco-py
+      MUJOCO_GL=egl
+      C_INCLUDE_PATH=$C_INCLUDE_PATH:$HOME/vendor/glew/include
+      LD_PRELOAD=$HOME/vendor/glew/lib/libGLEW.so.2.2.0:/usr/lib/x86_64-linux-gnu/libEGL.so
     setup: |
       source /etc/profile.d/modules.sh
       source $HOME/.bashrc
       module load cuda/10.2
-      module load anaconda/2021a
+      module load anaconda/2021b
       module load mpi/openmpi-4.0
       source $HOME/proxy.sh
     startup: >-
