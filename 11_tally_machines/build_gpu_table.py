@@ -4,7 +4,7 @@ import jaynes
 from jaynes.shell import run
 
 # CSV_KEYS = "id", "image", "name", "status", "createdTime"
-QUERY_KEYS = 'memory.free', 'memory.total', 'gpu_name', 'gpu_bus_id'
+QUERY_KEYS = 'memory.free', 'memory.total', 'utilization.gpu', 'utilization.memory', 'gpu_name', 'gpu_bus_id'
 
 PREFIX = "geyang/csail_machines/csail_machines"
 CSV_FILE = "machine_list.csv"
@@ -53,5 +53,5 @@ def main(keys, ip_list):
 if __name__ == "__main__":
     main(keys=QUERY_KEYS,
          ip_list=["improbable208", "improbable005", "improbable006", "improbable009",
-                             "improbablex001", "improbablex002", "improbablex003", "improbablex004",
-                             ] + [f"visiongpu{n:02d}" for n in range(1, 60)])
+                  "improbablex001", "improbablex002", "improbablex003", "improbablex004",
+                  ] + [f"visiongpu{n:02d}" for n in range(1, 60)])
