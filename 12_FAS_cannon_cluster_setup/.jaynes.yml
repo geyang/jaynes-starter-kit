@@ -19,8 +19,9 @@ run:
     # these should go into your ~/.bashrc, so that you can remove these
     envs: >-
       LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US
-    startup: >-
-      module load python/3.8.5-fasrc01 cuda/11.0.3-fasrc01 cudnn/8.0.4.30_cuda11.1-fasrc01 Anaconda3/2020.11
+    # startup: >-
+    # module load python/3.8.5-fasrc01 cuda/11.0.3-fasrc01 cudnn/8.0.4.30_cuda11.1-fasrc01 Anaconda3/2020.11
+    shell: ./srun-singularity.sh singularity/model-free_latest.sif
     pypath: "{mounts[0].host_path}"
     work_dir: "{mounts[0].host_path}"
     # exclude: d-7-11-2,d-10-1-2

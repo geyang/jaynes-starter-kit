@@ -6,9 +6,15 @@ def train_fn(seed=None):
 
     sleep(1)
     if seed:
-        print(f"{logger.slurm_job_id} seed={seed}")
+        print(f"{logger.slurm_job_id} {logger.hostname} seed={seed}")
     else:
         print('done.')
+
+
+def find_torch():
+    import torch
+    assert torch.cuda.is_available(), "cuda should be available"
+    print('cuda is available!')
 
 
 if __name__ == "__main__":
@@ -22,5 +28,13 @@ if __name__ == "__main__":
         .chain(train_fn, seed=500) \
         .chain(train_fn, seed=600)
     out, err, is_err = jaynes.execute()
-    print(out)
+    print("out >>>", out, err)
+    print("err >>>", err)
+    print("is err >>", is_err)
+
+    jaynes.add(find_torch)
+    out, err, is_err = jaynes.execute()
+    print("out >>>", out, err)
+    print("err >>>", err)
+    print("is err >>", is_err)
     jaynes.listen()
