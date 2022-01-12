@@ -14,12 +14,13 @@ def train_fn(seed=None):
 if __name__ == "__main__":
     import jaynes
 
-    jaynes.config()
+    jaynes.config(launch=dict(timeout=100))
     jaynes.add(train_fn, seed=100) \
         .chain(train_fn, seed=200) \
         .chain(train_fn, seed=300) \
         .chain(train_fn, seed=400) \
         .chain(train_fn, seed=500) \
         .chain(train_fn, seed=600)
-    jaynes.execute()
+    out, err, is_err = jaynes.execute()
+    print(out)
     jaynes.listen()

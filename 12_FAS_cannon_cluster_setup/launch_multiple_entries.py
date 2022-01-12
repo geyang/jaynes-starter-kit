@@ -14,7 +14,7 @@ def train_fn(seed=None):
 if __name__ == "__main__":
     import jaynes
 
-    jaynes.config()
+    jaynes.config(launch=dict(timeout=100))
     jaynes.add(train_fn, seed=100) \
         .add(train_fn, seed=200)\
         .add(train_fn, seed=300) \

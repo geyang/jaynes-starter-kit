@@ -1,11 +1,11 @@
 version: 0
 run:
   mounts:
-    - !mounts.SSHCode
+    - !mounts.TarMount
       local_path: .
       local_tar: /tmp/{now:%Y-%m-%d}/{now:%H%M%S.%f}-decision-transformer.tar
-      host_path: "{env.JYNS_SLURM_DIR}/{now:%Y-%m-%d}/{now:%H%M%S.%f}/decision-transformer"
-      remote_tar: "{env.JYNS_SLURM_DIR}/{now:%Y-%m-%d}/{now:%H%M%S.%f}/decision-transformer.tar"
+      host_path: "{secret.MOUNT_DIR}/{now:%Y-%m-%d}/{now:%H%M%S.%f}/decision-transformer"
+      remote_tar: "{secret.MOUNT_DIR}/{now:%Y-%m-%d}/{now:%H%M%S.%f}/decision-transformer.tar"
       pypath: true
       excludes: >-
         --exclude='data' --exclude='samples' --exclude='images' --exclude='videos'
@@ -19,33 +19,18 @@ run:
     # these should go into your ~/.bashrc, so that you can remove these
     envs: >-
       LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US
-      LD_LIBRARY_PATH=$HOME/.mujoco/mujoco210/bin:$LD_LIBRARY_PATH
-      MJLIB_PATH=$HOME/.mujoco/mujoco-2.1.1/lib/libmujoco.so
-      PYTHONPATH=$PYTHONPATH:/state/partition1/user/$USER/mujoco-py
-      MUJOCO_GL=egl
-      C_INCLUDE_PATH=$C_INCLUDE_PATH:$HOME/vendor/glew/include
-      LD_PRELOAD=$HOME/vendor/glew/lib/libGLEW.so.2.2.0:/usr/lib/x86_64-linux-gnu/libEGL.so
-    setup: |
-      source /etc/profile.d/modules.sh
-      source $HOME/.bashrc
-      module load python/3.8.5-fasrc01 cuda/11.0.3-fasrc01 cudnn/8.0.4.30_cuda11.1-fasrc01 Anaconda3/2020.11
-      source $HOME/proxy.sh
     startup: >-
-      echo "copying mujoco-py";
-      mkdir -p /state/partition1/user/$USER;
-      cp -r /home/gridsan/$USER/mujoco-py /state/partition1/user/$USER/;
-      echo "finished";
-      export MUJOCO_GL=egl;
-      export CUDA_VISIBLE_DEVICES=0;
+      module load python/3.8.5-fasrc01 cuda/11.0.3-fasrc01 cudnn/8.0.4.30_cuda11.1-fasrc01 Anaconda3/2020.11
     pypath: "{mounts[0].host_path}"
     work_dir: "{mounts[0].host_path}"
     # exclude: d-7-11-2,d-10-1-2
     # time_limit: "0:0:20"
     mem: 10000
     n_cpu: 8
-    n_gpu: volta:1
+    n_gpu: 1
   launch: !ENV
-    type: ssh
-    ip: "boslogin02.rc.fas.harvard.edu"
-    username: "{env.JYNS_USERNAME}"
-    pem: "geyang"
+    type: manager
+    host: "{secret.LOGIN_NODE}"
+    token: "{secret.USERNAME}"
+    launch_dir: "{secret.WORK_DIR}/jaynes-mount/jaynes_demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
+    timeout: 5
