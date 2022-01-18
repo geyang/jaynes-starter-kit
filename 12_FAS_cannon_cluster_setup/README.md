@@ -91,5 +91,5 @@ This should allow you to run singularity images with `srun`.
 
 ## Final Notes
 
-Using singularity with docker containers greatly simplifies 
+Using singularity with docker containers greatly simplifies the one collaborate on projects, and reduces engineering overhead for the team. 
 

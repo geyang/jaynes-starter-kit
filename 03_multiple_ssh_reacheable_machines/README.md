@@ -27,7 +27,7 @@ conda env
 **Second, install jaynes** and other dependencies you need for your project. This tutorial is written w.r.t version: [v0.7.2](https://github.com/geyang/jaynes/releases/tag/v0.7.2)
 
 ```bash
-pip install jaynes==0.7.2
+pip install jaynes
 ```
 
 ## Overview of This Example

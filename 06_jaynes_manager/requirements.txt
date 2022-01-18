@@ -180,7 +180,7 @@ isodate==0.6.0
 isort @ file:///tmp/build/80754af9/isort_1628603791788/work
 itsdangerous @ file:///tmp/build/80754af9/itsdangerous_1621432558163/work
 jax==0.2.18
-jaynes==0.7.19
+jaynes
 jdcal==1.4.1
 jedi @ file:///tmp/build/80754af9/jedi_1606932564285/work
 jeepney @ file:///tmp/build/80754af9/jeepney_1627537048313/work

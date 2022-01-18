@@ -45,7 +45,7 @@ modes: # todo: add support to modes.
       setup: |
         # export PATH=/usr/local/bin/:$PATH  # this is needed on mac osx hosts.
         echo `which docker`
-      startup: yes | pip install jaynes==0.8.1 ml-logger cloudpickle==1.3.0 -q
+      startup: yes | pip install jaynes ml-logger cloudpickle==1.3.0 -q
       envs: LANG=utf-8
       pypath: "{mounts[0].container_path}"
       work_dir: "{mounts[0].container_path}"
