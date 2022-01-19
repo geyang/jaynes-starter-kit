@@ -126,7 +126,7 @@ def setup_key_pairs(region, key_name):
         else:
             raise e
 
-    key_pair_folder_path = os.path.join(CONFIG_DIR, f"{AWS_PROFILE}.secrete")
+    key_pair_folder_path = os.path.join(CONFIG_DIR, f"{AWS_PROFILE}.secret")
     file_name = os.path.join(key_pair_folder_path, "%s.pem" % key_name)
 
     cprint(f"Saving key pair {key_name}", "green", end="\r")

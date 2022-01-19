@@ -23,17 +23,26 @@ The easiest way to setup is to download ngrok and use that to build a reverse tu
     To learn how to use screen, try to google for common screen commands.
     
 3. Now run `ngrok`:
-    
+   
     ```bash
     ngrok tcp <your-jaynes.server-port>
     ```
     
 
+We can package everything into the following script:
+
+```bash
+export JYNS_MANAGER_PORT=$RANDOM
+screen -dm python -m jaynes.server --port $JYNS_MANAGER_PORT --host 0.0.0.0
+screen -dm ngrok http --region=us --hostname=<your-domain> $JYNS_MANAGER_PORT
+```
+
+
 ## Method 2: Reverse Tunneling to Your Own EC2 Server
 
 1. On aws server: modify the ssh deamon's config file, to expose the local tunnel directly as public gateways
-    
-    
+   
+   
     ```bash
     $ sudo vim /etc/ssh/sshd_config
     # /etc/ssh/sshd_config

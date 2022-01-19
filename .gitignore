@@ -3,7 +3,8 @@ build
 __pycache__
 
 .idea
-*.secrete
+*.secret
+*.secret.yml
 private
 
 

@@ -4,8 +4,8 @@ run:
   - !mounts.TarMount
     local_path: .
     local_tar: /tmp/{now:%Y-%m-%d}/{now:%H%M%S.%f}-geometric_vision.tar
-    host_path: "{env.JYNS_MANAGER_HOME}/jaynes-mount/jaynes_demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}/jaynes_manager"
-    remote_tar: "{env.JYNS_MANAGER_HOME}/jaynes-mount/jaynes_demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}/jaynes_manager.tar"
+    host_path: "{secret.HOME}/jaynes-mount/jaynes_demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}/jaynes_manager"
+    remote_tar: "{secret.HOME}/jaynes-mount/jaynes_demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}/jaynes_manager.tar"
     pypath: true
     excludes: --exclude=.git --exclude=.idea --exclude='checkpoints' --exclude='__pycache__'
     compress: true
@@ -13,16 +13,16 @@ run:
     name: dmcgen
     envs: >-
       LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8 LANGUAGE=en_US
-    startup: >-
-      source ~/.bashrc;
-      conda activate torch;
+    # startup: >-
+    #   source ~/.bashrc;
+    #   conda activate torch;
     pypath: "{mounts[0].host_path}"
     work_dir: "{mounts[0].host_path}"
     mem: 100000
     n_cpu: 8
-    n_gpu: 1
+    n_gpu: volta:1
   launch: !ENV
     type: manager
-    host: "{env.JYNS_MANAGER_HOST}"
-    launch_dir: "{env.JYNS_MANAGER_HOME}/jaynes-mount/jaynes_demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
+    host: "{secret.HOST}"
+    launch_dir: "{secret.HOME}/jaynes-mount/jaynes_demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
     timeout: 5

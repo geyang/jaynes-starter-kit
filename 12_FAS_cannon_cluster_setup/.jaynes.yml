@@ -22,10 +22,12 @@ run:
     # startup: >-
     # module load python/3.8.5-fasrc01 cuda/11.0.3-fasrc01 cudnn/8.0.4.30_cuda11.1-fasrc01 Anaconda3/2020.11
     shell: ./srun-singularity.sh singularity/model-free_latest.sif
+    job_name: "jaynes-demo-$RANDOM"
     pypath: "{mounts[0].host_path}"
     work_dir: "{mounts[0].host_path}"
     # exclude: d-7-11-2,d-10-1-2
     # time_limit: "0:0:20"
+    partition: gpu
     mem: 10000
     n_cpu: 8
     n_gpu: 1

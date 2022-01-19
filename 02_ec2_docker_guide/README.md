@@ -48,7 +48,7 @@ Make sure to download the credential file (csv). You'll need it to login to the 
 
 Visit https://console.aws.amazon.com/iamv2/home to confirm the user and group is created.
 
-Now to configure your aws credentials, follow the tutorials here: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html. You need to obtain your access key and secrete access key from your ec2 dashboard through this guide https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html.
+Now to configure your aws credentials, follow the tutorials here: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html. You need to obtain your access key and secret access key from your ec2 dashboard through this guide https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html.
 
 ```bash
 $ aws configure
@@ -188,7 +188,7 @@ We include these detailed setup and expectations as a list.
     cd ec2_setup
     python setup_aws.py
     ```
-    This should **first generate a set of access key pairs**, inside the [./.secrete](./secrete) folder.
+    This should **first generate a set of access key pairs**, inside the [./.secret](./secret) folder.
     Second, it should also generates an ec2 instance profile. Write down the instance profile's name, go to the next step.
 
 ## Docker Image

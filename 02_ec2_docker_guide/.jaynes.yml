@@ -28,7 +28,7 @@ run:
     workdir: "{mounts[0].container_path}"
     ipc: host
   launch: !ENV
-    # use AWS_PROFILE to select the access key and access .secrete.
+    # use AWS_PROFILE to select the access key and access .secret.
     # post a feature request under issues, if you want more ways to customize this.
     type: ec2
     launch_dir: /home/ec2-user/jaynes-mounts
