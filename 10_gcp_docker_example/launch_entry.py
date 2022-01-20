@@ -14,7 +14,6 @@ def launch(root, prefix, seed):
 
 
 if __name__ == "__main__":
-    import os
     from ml_logger import USER, ROOT
 
     for seed in range(10):
