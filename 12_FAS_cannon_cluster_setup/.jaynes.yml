@@ -35,5 +35,5 @@ run:
     type: manager
     host: "{secret.LOGIN_NODE}"
     token: "{secret.USERNAME}"
-    launch_dir: "{secret.WORK_DIR}/jaynes-mount/jaynes_demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
+    launch_dir: "{secret.WORK_DIR}/jaynes-mounts/jaynes_demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
     timeout: 5

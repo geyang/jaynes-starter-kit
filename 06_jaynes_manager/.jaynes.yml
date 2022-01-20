@@ -4,8 +4,8 @@ run:
   - !mounts.TarMount
     local_path: .
     local_tar: /tmp/{now:%Y-%m-%d}/{now:%H%M%S.%f}-geometric_vision.tar
-    host_path: "{secret.HOME}/jaynes-mount/jaynes_demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}/jaynes_manager"
-    remote_tar: "{secret.HOME}/jaynes-mount/jaynes_demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}/jaynes_manager.tar"
+    host_path: "{secret.HOME}/jaynes-mounts/jaynes_demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}/jaynes_manager"
+    remote_tar: "{secret.HOME}/jaynes-mounts/jaynes_demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}/jaynes_manager.tar"
     pypath: true
     excludes: --exclude=.git --exclude=.idea --exclude='checkpoints' --exclude='__pycache__'
     compress: true
@@ -24,5 +24,5 @@ run:
   launch: !ENV
     type: manager
     host: "{secret.HOST}"
-    launch_dir: "{secret.HOME}/jaynes-mount/jaynes_demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
+    launch_dir: "{secret.HOME}/jaynes-mounts/jaynes_demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
     timeout: 5

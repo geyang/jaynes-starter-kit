@@ -32,7 +32,6 @@ run:
     # post a feature request under issues, if you want more ways to customize this.
     type: ec2
     launch_dir: /home/ec2-user/jaynes-mounts
-
     # These are usually updated as a group
     region: us-east-1
     availability_zone: us-east-1a
