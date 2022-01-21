@@ -1,5 +1,4 @@
 version: 0
-verbose: true
 mounts: # mount configurations Available keys: NOW, UUID,
   - !mounts.SSHCode &code_mount
     local_path: .
@@ -27,7 +26,7 @@ runner:
   pypath: "{mounts[0].container_path}"
   work_dir: "{mounts[0].container_path}"
   ipc: host
-  # gpus: all
+  gpus: all # Needed for accessing the GPU.
 run:
   mounts:
     - *code_mount
