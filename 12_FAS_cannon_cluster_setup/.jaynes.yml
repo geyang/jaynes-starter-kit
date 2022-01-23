@@ -27,7 +27,7 @@ run:
     work_dir: "{mounts[0].host_path}"
     # exclude: d-7-11-2,d-10-1-2
     # time_limit: "0:0:20"
-    partition: gpu
+    partition: gpu_test
     mem: 10000
     n_cpu: 8
     n_gpu: 1
