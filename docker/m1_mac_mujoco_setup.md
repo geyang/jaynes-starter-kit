@@ -1,6 +1,9 @@
 # Getting `mujoco-py` to work on M1 Mac
 
-Issue [#662](https://github.com/openai/mujoco-py/issues/662)  is getting a big mangled, so here is a working script that worked for me.
+Issue [#662](https://github.com/openai/mujoco-py/issues/662) is getting a bit mangled, so here is a working script that worked for me.  A copy of this guide can be found at [jaynes-starter-kit/docker/m1_mac_setup](https://github.com/geyang/jaynes-starter-kit/blob/master/docker/m1_mac_mujoco_setup.md). This is adapted from @wookayin's script. The most crucial part for me is to use `sudo` to link the framework to the `/usr/local/lib` folder. Without this step, it did not work. @nikhilweee's comment confirms this.
+
+Another key step is to remove the mujoco-py installation with a clean `rm -rf .../site-packages/mujoco-py`. This way the compiled binaries can be removed.
+
 
 ## Background
 
