@@ -26,7 +26,7 @@ The Google compute engine (GCE) is the EC2 equivalent under the Google Cloud Pla
 This **default account** should have the name "Compute Engine default service account" under "IAM & Admin > IAM > Permissions" in the GCP console. **Do NOT** use your custom service account because it often lack the right permissions.
 
 1. CLick on this entry, then click on "Create New Key"
-2. Download that key to your local machine at `~/.gce/123456789-compute@developer.gserviceaccount.com.json`, or something alike
+2. Download that key to your local machine at `~/.gce/<gce-org-name>-<id>-1234567891234.json`, or something alike
 3. Set up you environment variables as the following:
     ```bash
     # environment variables for Google Compute Engine
