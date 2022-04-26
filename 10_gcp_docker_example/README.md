@@ -19,7 +19,21 @@ for seed in [100, 200, 300]:
 
 The Google compute engine (GCE) is the EC2 equivalent under the Google Cloud Platform (GCP). The Google storage (GS) is the S3 equivalent. 
 
-### Step 1: Adding the compute service account to the storage bucket
+**There are two GCE accounts. The first is what you use to launch instances. This is the default GCE service account.** The second is a service account you setup for the VM workers. This second account does not have the permission to launch instances. Below, we are talking about the _first account_, that you use to launch instances.
+
+### Step 1: Setting up Google Cloud API access via the **default** service acount
+
+This **default account** should have the name "Compute Engine default service account" under "IAM & Admin > IAM > Permissions" in the GCP console. **Do NOT** use your custom service account because it often lack the right permissions.
+
+1. CLick on this entry, then click on "Create New Key"
+2. Download that key to your local machine at `~/.gce/123456789-compute@developer.gserviceaccount.com.json`, or something alike
+3. Set up you environment variables as the following:
+    ```bash
+    # environment variables for Google Compute Engine
+    export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.gce/<gce-org-name>-<id>-1234567891234.json
+    ```
+
+### Step 2: Adding the **default** _compute service_ account to the storage bucket
 
 The virtual machines needs access to the GS bucket in order to download the code payload. A typical error is for machines to have no access to the google storage bucket, therefore unable to download the code mounts and other payloads. The error typically looks like this when the launch script runs inside the VM:
 
@@ -55,7 +69,7 @@ storage.objects.get
 storage.objects.list
 ```
 
-### Step 2: Installing `jaynes`
+### Step 3: Installing `jaynes`
 
 You need to have `gcloud` and `gsutil` installed on your computer, as well as `jaynes`. 
 
@@ -63,7 +77,7 @@ You need to have `gcloud` and `gsutil` installed on your computer, as well as `j
 pip install jaynes
 ```
 
-### Step 3: Installing the Cloud SDK (Google)
+### Step 4: Installing the Cloud SDK (Google)
 
 Then install and configure your `gcloud` and `gsutil` command line utilities according the these guides:
 
@@ -87,13 +101,14 @@ ACTIVE ACCOUNT
 ```
 
 To set the active account, run:
-    
 
 ```
 $ gcloud config set account <account>
 ```
 
-### Step 4: Setting Up Service Account for Google Storage
+### Step 4: Setting Up Access for VM workers to upload to Google Storage
+
+**This is the second account type mentioned before**. This service account can not launch instances.
 
 In order to access google storage from within docker instances running inside a virtual machine, you need to setup a disposible service IAM with access limited to just read and write to the bucket. For details, follow the guide here: [[Setting Up Google Storage Service Account]](./setting_up_gcp_service_account.md).
 
@@ -108,7 +123,7 @@ Jaynes uses the google cloud api python module internally. I typically setup the
 ```bash
 # environment variables for Google Compute Engine
 export JYNS_GCP_PROJECT=lab-mit-1234
-export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.gce/lab-mit.json
+export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.gce/<gce-org-name>-<id>-1234567891234.json
 
 export JYNS_GS_BUCKET=some-bucket-lab-mit
 # export JYNS_GCP_PROJECT=some-org-1234
