@@ -19,8 +19,7 @@ def tally_gpu_csv(keys):
 
     logger.configure(root="http://44.241.150.228:8080", prefix=PREFIX)
 
-    cmd = f"/usr/bin/nvidia-smi --query-gpu={','.join(keys)} --format=csv".split(
-        ' ')
+    cmd = f"/usr/bin/nvidia-smi --query-gpu={','.join(keys)} --format=csv".split(' ')
 
     csv_output, err = run(cmd)
     csv_output = clean(csv_output.decode('utf-8'))
