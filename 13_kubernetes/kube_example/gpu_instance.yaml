@@ -1,0 +1,34 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ge-gpu-test
+spec:
+  template:
+    spec:
+      containers:
+      - name: demo
+        image: gitlab-registry.nrp-nautilus.io/prp/jupyter-stack/prp
+        command:
+        - "python"
+        args:
+        - "-c"
+        - "print('hello world')"
+        volumeMounts:
+        - name: data
+          mountPath: /mnt/data
+        resources:
+          limits:
+            memory: 8Gi
+            cpu: "6"
+            nvidia.com/gpu: "1"
+            ephemeral-storage: 100Gi
+          requests:
+            memory: 4Gi
+            cpu: "1"
+            nvidia.com/gpu: "1"
+            ephemeral-storage: 100Gi
+      volumes:
+      - name: data
+        emptyDir: {}
+      restartPolicy: Never
+  backoffLimit: 5

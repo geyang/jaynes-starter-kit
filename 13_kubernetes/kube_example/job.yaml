@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ge-test-job
+spec:
+  template:
+    spec:
+      volumes:
+      - name: ge-pvc
+        persistentVolumeClaim:
+          claimName: ge-pvc
+      initContainers:
+      - name: ge-test-1
+        image: alpine:latest
+        command: ["perl", "-Mbignum=bpi", "-wle", "print 1"]
+        resources:
+          requests:
+            memory: 50Mi
+            cpu: 500m
+        volumeMounts:
+        - mountPath: /mnt/jaynes-mounts
+          name: ge-pvc
+      containers:
+      - name: ge-test-1
+        image: improbableailab/model-free
+        command: ["perl", "-Mbignum=bpi", "-wle", "print 1"]
+        resources:
+          limits:
+            memory: 200Mi
+            cpu: 1000m
+          requests:
+            memory: 50Mi
+            cpu: 500m
+        volumeMounts:
+        - mountPath: /mnt/jaynes-mounts
+          name: ge-pvc
+      restartPolicy: Never
+  backoffLimit: 4
+  ttlSecondsAfterFinished: 10

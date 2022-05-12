@@ -23,7 +23,7 @@ run:
       source $HOME/.bashrc
       module load cuda/10.2
       module load anaconda/2021b
-      # source ~/proxy.sh
+      source ~/proxy.sh
     startup: >-
       pip install --user jaynes -q
     pypath: "{mounts[0].host_path}/rl:{mounts[0].host_path}/imitation:{mounts[0].host_path}/rl_maml_tf"

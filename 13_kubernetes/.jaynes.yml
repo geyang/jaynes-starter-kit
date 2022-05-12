@@ -1,0 +1,40 @@
+version: 0
+run:
+  mounts:
+  - !mounts.S3Code
+    prefix: "s3://{secret.JYNS_AWS_S3_BUCKET}/jaynes-debug"
+    local_path: .
+    volume: jaynes-mounts
+    mount_path: /mnt/jaynes-mounts
+    sub_path: "{now:%Y-%m-%d}/{now:%H%M%S.%f}"
+    init_image: "episodeyang/jaynes"
+    pypath: true
+    # needed for credential-less access
+    acl: public-read
+    # needed for credential-less download
+    no_signin: true
+    excludes: >-
+      --exclude='*__pycache__' --exclude='*.git' --exclude='*.idea' --exclude='*.egg-info'
+      --exclude='*.pkl'
+    compress: true
+
+  runner: !runners.Container
+    # node_selector: null
+    name: "jaynes-docker-demo-{now:%H%M%S}-{RUN.count}"
+    image: "episodeyang/jaynes"
+    envs: LANG=utf-8
+    startup: yes | pip install jaynes ml-logger -q
+    pypath: "{mounts[0].container_path}"
+    workdir: "{mounts[0].container_path}"
+    ipc: host
+    n_gpu: 1
+    volumes:
+    - name: jaynes-mounts
+      emptyDir:
+        medium: Memory
+    ttl_seconds_after_finished: 60
+#      persistentVolumeClaim:
+#        claimName: jaynes-mounts-volume
+  launch: !ENV
+    type: Kube
+    namespace: rl-dev
