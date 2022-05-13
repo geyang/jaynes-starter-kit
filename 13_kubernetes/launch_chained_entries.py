@@ -16,5 +16,8 @@ if __name__ == "__main__":
 
     jaynes.config()
     jaynes.add(train_fn, seed=100).chain(train_fn, seed=200).chain(train_fn, seed=300).chain(train_fn, seed=400)
-    jaynes.execute()
-    jaynes.listen()
+    jaynes.add(train_fn, seed=100).chain(train_fn, seed=200).chain(train_fn, seed=300).chain(train_fn, seed=400)
+    job_ids = jaynes.execute()
+    jaynes.listen(command=f"/bin/bash -c 'kubectl logs {job_ids[0]} --follow --all-containers'", backoff_limit=3)
+    jaynes.listen(command=f"/bin/bash -c 'kubectl logs {job_ids[1]} --follow --all-containers'", backoff_limit=3)
+    # jaynes.listen(interval=1)

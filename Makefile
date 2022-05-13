@@ -9,3 +9,6 @@ bump:
 release:
 	git tag v$(VERSION)
 	git push origin --tags
+revert:
+	git tag -d v$(VERSION)
+	git push origin :refs/tags/v$(VERSION)
