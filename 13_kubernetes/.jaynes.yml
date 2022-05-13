@@ -32,7 +32,7 @@ run:
     - name: jaynes-mounts
       emptyDir:
         medium: Memory
-    ttl_seconds_after_finished: 60
+    ttl_seconds_after_finished: 360
 #      persistentVolumeClaim:
 #        claimName: jaynes-mounts-volume
   launch: !ENV
