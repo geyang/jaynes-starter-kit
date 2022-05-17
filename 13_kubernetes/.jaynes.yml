@@ -33,8 +33,6 @@ run:
       emptyDir:
         medium: Memory
     ttl_seconds_after_finished: 360
-#      persistentVolumeClaim:
-#        claimName: jaynes-mounts-volume
   launch: !ENV
     type: Kube
     namespace: rl-dev
