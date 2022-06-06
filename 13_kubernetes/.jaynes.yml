@@ -28,6 +28,7 @@ run:
     workdir: "{mounts[0].container_path}"
     ipc: host
     n_gpu: 1
+    gpu_type: "NVIDIA-GeForce-RTX-3090"
     volumes:
     - name: jaynes-mounts
       emptyDir:

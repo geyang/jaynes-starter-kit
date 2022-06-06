@@ -7,5 +7,5 @@ run:
 test-aws:
 	docker run -it jaynes aws --version
 release:
-	docker image tag jaynes episodeyang/jaynes
-	docker push episodeyang/jaynes
+	docker image tag jaynes episodeyang/jaynes:$(VERSION)
+	docker push episodeyang/jaynes:$(VERSION)

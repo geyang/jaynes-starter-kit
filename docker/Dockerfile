@@ -5,5 +5,6 @@ RUN unzip awscliv2.zip
 RUN bash ./aws/install
 
 ENV PIP_NO_CACHE_DIR=1
+RUN pip3 install -U pip
 RUN pip3 install ipython
 RUN pip3 install ml-logger jaynes cloudpickle==1.3.0
