@@ -8,6 +8,7 @@ run:
     mount_path: /mnt/jaynes-mounts
     sub_path: "{now:%Y-%m-%d}/{now:%H%M%S.%f}"
     init_image: "episodeyang/jaynes"
+    init_image_pull_policy: "IfNotPresent"
     pypath: true
     # needed for credential-less access
     acl: public-read
@@ -21,14 +22,18 @@ run:
   runner: !runners.Container
     # node_selector: null
     name: "jaynes-docker-demo-{now:%H%M%S}-{RUN.count}"
-    image: "episodeyang/jaynes"
+    image: "episodeyang/pytorch"
+    image_pull_secret: "dockerhub"
     envs: LANG=utf-8
-    startup: yes | pip install jaynes ml-logger -q
+    # startup: yes | pip install jaynes ml-logger -q
     pypath: "{mounts[0].container_path}"
     workdir: "{mounts[0].container_path}"
     ipc: host
-    n_gpu: 1
+    cpu: 1
+    gpu: 1
     gpu_type: "NVIDIA-GeForce-RTX-3090"
+    mem: 8Gi
+    mem_limit: 8Gi
     volumes:
     - name: jaynes-mounts
       emptyDir:

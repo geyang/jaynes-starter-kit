@@ -33,7 +33,7 @@ run:
   runner: *ssh-docker
   launch: !ENV
     type: ssh
-    ip: "visiongpu53"
+    ip: "visiongpu54"
     username: "{env.JYNS_USERNAME}"
     password: "{env.JYNS_PASSWORD}"
     root_config: "source $HOME/public/.bashrc"

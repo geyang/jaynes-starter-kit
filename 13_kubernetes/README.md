@@ -94,3 +94,14 @@ Use `desribe` to inspect the error messages.
 ```bash
 kubectl describe pods <pod-id>
 ```
+
+## Setting up secret for dockerhub login
+
+Create a secret using this with a name `<secret-nam>` and put the secret under `image_pull_secret` field.
+
+```bash
+kubectl create secret docker-registry <secret-name> \
+     --docker-server=docker.io --docker-username=<usernam> \
+     --docker-password <your password>  \
+     --docker-email <your email>
+```

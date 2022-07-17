@@ -1,14 +1,18 @@
 from time import sleep
 
 
+
 def train_fn(seed=None):
     from ml_logger import logger
+    import torch.cuda
 
     sleep(1)
     if seed:
         print(f"{logger.hostname} seed={seed}")
     else:
         print('done.')
+
+    print(f'torch cuda {torch.cuda.is_available()}')
 
 
 if __name__ == "__main__":
