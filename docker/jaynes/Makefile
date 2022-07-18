@@ -14,3 +14,5 @@ test-aws:
 release:
 	docker image tag jaynes episodeyang/jaynes:$(version)
 	docker push episodeyang/jaynes:$(version)
+	docker image tag jaynes episodeyang/jaynes:latest
+	docker push episodeyang/jaynes:latest

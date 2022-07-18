@@ -1,29 +1,24 @@
-def launch(lr, model_name="LeNet"):
-    print(f"training model {model_name} with {lr}")
-    print('...')
-    print('This is working!!')
+def train_fn(seed=None):
+    from time import sleep
+    from ml_logger import logger
 
-    print('now try to import ml-logger')
-    from ml_logger import logger, RUN
-    print('import succeeded')
+    logger.print('this is running')
+    logger.print(f"The exp seed is: {seed}", color="green")
 
-    print(logger)
-
-    print('now inspec the RUN object: RUN', vars(RUN))
-    assert RUN.prefix == "set_from_outside"
-    assert RUN.job_name == "ml-logger-test-job"
+    logger.print('This is sleeping...', color="yellow")
+    sleep(5)
+    logger.print('done!')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import jaynes
-    from ml_logger import RUN, instr
+    from ml_logger import logger, instr
 
-    RUN.prefix = "set_from_outside"
-    # need to set the job name too
-    RUN.job_name = "ml-logger-test-job"
     jaynes.config()
-    thunk = instr(launch)
-    jaynes.run(thunk, lr=1e-3)
 
-    # this line allows you to keep the pipe open and hear back from the remote instance.
-    jaynes.listen(200)
+    for i in range(5):
+        thunk = instr(train_fn)
+        jaynes.add(thunk, seed=i * 100)
+
+    jaynes.execute()
+    jaynes.listen()

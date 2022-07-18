@@ -9,3 +9,5 @@ run:
 release:
 	docker tag pytorch episodeyang/pytorch:$(version)
 	docker push episodeyang/pytorch:$(version)
+	docker tag pytorch episodeyang/pytorch:latest
+	docker push episodeyang/pytorch:latest
