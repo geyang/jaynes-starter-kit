@@ -7,7 +7,7 @@ def train_fn(seed=None, log_interval=5):
     logger.print(f"The exp seed is: {seed}", color="green")
 
     steps = np.arange(100)
-    losses = np.exp(-steps)
+    losses = np.exp(-steps / 100)
     for step, loss in zip(steps, losses):
         logger.store_metrics(loss=loss)
         sleep(0.01)
