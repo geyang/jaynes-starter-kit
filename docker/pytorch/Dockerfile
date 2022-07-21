@@ -1,7 +1,10 @@
-FROM nvidia/cudagl:11.4.0-devel-ubuntu20.04
+FROM nvidia/cudagl:11.2.0-devel-ubuntu18.04
 
-ENV PIP_NO_CACHE_DIR=1
-RUN apt update
+RUN apt update && yes | apt install software-properties-common
+
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt update && yes | apt install python3.8
+
 RUN yes | apt install \
     tree \
     zsh  \
@@ -26,7 +29,9 @@ RUN yes | apt install \
 
 RUN yes | apt install libcgal-qt5-dev
 RUN pip install --upgrade pip
+
+ENV PIP_NO_CACHE_DIR=1
 RUN pip install pytest pytest-forked lz4 pyyaml
-RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
+RUN pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu112
 RUN pip install datasets einops sklearn torchinfo tqdm
 RUN pip install jaynes ml-logger waterbear params-proto functional-notations

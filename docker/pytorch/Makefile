@@ -4,6 +4,8 @@ default: build release
 build:
 	echo $(version)
 	docker build -t pytorch .
+clean-build:
+	docker build -t pytorch . --no-cache=true
 run:
 	docker run pytorch
 release:
