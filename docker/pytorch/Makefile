@@ -3,7 +3,7 @@ version=$(shell cat VERSION)
 default: build release
 build:
 	echo $(version)
-	docker build -t pytorch .
+	docker build --progress plain -t pytorch .
 clean-build:
 	docker build -t pytorch . --no-cache=true
 run:
