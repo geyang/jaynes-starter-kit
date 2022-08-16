@@ -157,7 +157,7 @@ RuntimeError: Unable to acquire lock on `b'/home/gridsan/geyang/.local/lib/pytho
 
 ---
 
-Your should add the following to your `~/.bashrc` file:
+Your should add the following to your `~/.bashrc` file in supercloud at the **beginning** of the file (the first command in the default bash is to not execute anything when not in an interactive session):
 ```bash
 export PYTHONPATH=$PYTHONPATH:/state/partition1/user/$USER/mujoco-py
 # These are needed for mujoco-py to compile
@@ -174,10 +174,10 @@ Full script:
 
 ```bash
 mkdir /state/partition1/user/$USER -p
-rm -rf /state/partition1/$USER/mujoco-py
+rm -rf /state/partition1/user/$USER/mujoco-py
 
 wget https://github.com/openai/mujoco-py/archive/refs/tags/v2.1.2.14.tar.gz
-tar -xf v2.1.2.14.tar.gz -C /state/partition1/$USER/mujoco-py
+tar -xf v2.1.2.14.tar.gz -C /state/partition1/user/$USER/mujoco-py
 
 cd /state/partition1/user/$USER/mujoco-py
 module load anaconda/2021b
