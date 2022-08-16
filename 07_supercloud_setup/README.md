@@ -157,7 +157,8 @@ RuntimeError: Unable to acquire lock on `b'/home/gridsan/geyang/.local/lib/pytho
 
 ---
 
-Your should add the following to your `~/.bashrc` file:
+**Important Note**: 
+Your should add the following to your `~/.bashrc` file in supercloud at the **beginning** of the file, **before** the non-interactive session escape (which is the first few lines). This is because the default `bashrc` default to not doing anything and exists after the first command, as soon as it detects a non-interactive session.
 ```bash
 export PYTHONPATH=$PYTHONPATH:/state/partition1/user/$USER/mujoco-py
 # These are needed for mujoco-py to compile
