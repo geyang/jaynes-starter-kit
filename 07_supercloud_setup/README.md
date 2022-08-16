@@ -174,10 +174,10 @@ Full script:
 
 ```bash
 mkdir /state/partition1/user/$USER -p
-rm -rf /state/partition1/$USER/mujoco-py
+rm -rf /state/partition1/user/$USER/mujoco-py
 
 wget https://github.com/openai/mujoco-py/archive/refs/tags/v2.1.2.14.tar.gz
-tar -xf v2.1.2.14.tar.gz -C /state/partition1/$USER/mujoco-py
+tar -xf v2.1.2.14.tar.gz -C /state/partition1/user/$USER/mujoco-py
 
 cd /state/partition1/user/$USER/mujoco-py
 module load anaconda/2021b
