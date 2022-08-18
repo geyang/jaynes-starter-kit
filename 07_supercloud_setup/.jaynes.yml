@@ -31,7 +31,7 @@ run:
       module load cuda/10.2
       module load anaconda/2021b
       module load mpi/openmpi-4.0
-      source $HOME/proxy.sh
+      source $HOME/proxy.env
     startup: >-
       echo "copying mujoco-py";
       mkdir -p /state/partition1/user/$USER;

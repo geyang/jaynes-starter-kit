@@ -2,6 +2,8 @@ def gym_render():
     import gym
     from ml_logger import logger
 
+    print(logger)
+
     env = gym.make("Reacher-v2")
     logger.print("gym Reacher-v2 is working!", color="green")
     img = env.render('rgb_array')
