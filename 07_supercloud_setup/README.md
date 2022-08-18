@@ -1,15 +1,12 @@
 # Setup Guide on MIT Supercloud
 
 ### Before You Start
-Frist, take a look at the [04 slurm setup guide](../04_slurm_configuration/README.md)**. That guide tells you how to get up and running with python. The following steps cover specific libraries needed for reinforcement learning.
+Frist, take a look at the [04 slurm setup guide](../04_slurm_configuration/README.md). That guide tells you how to get up and running with python. The following steps cover specific libraries needed for reinforcement learning.
 
 ### Note on Proxy
 Outbound HTTP requests are blocked on the workers nodes, which means you can not run pip install or send logging request to our ec2 instrumentation server. The admins have kindly offered us a way to setup proxy servers. [[Proxy Setup Supercloud]](proxy_setup_supercloud.md)
 
-### Old Note (pre 20220818)
-Outbound HTTP requests are blocked on the workers nodes, which means you can not run pip install or send logging request to our ec2 instrumentation server. See [[link]](proxy_setup.md)
-
-
+**Old Note (pre 20220818)** Outbound HTTP requests are blocked on the workers nodes, which means you can not run pip install or send logging request to our ec2 instrumentation server. See [[link]](proxy_setup.md)
 
 
 ## High-level Guidelines

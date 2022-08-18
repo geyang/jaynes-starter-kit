@@ -1,6 +1,6 @@
 # Supercloud Proxy Setup
 
-Supercloud admin has kindly offered a way for us to use proxy for outbound requests. 
+Supercloud admin has kindly offered a way for us to use proxy for outbound requests such as logging and requestiong pre-trained weights. An older version of this guide can be found [[here]](proxy_setup.md).
 
 Where “PORT” is your desired port number. This will create a proxy.env file in your home directory containing the environment variables you need to use the proxy. You can then source this file at the beginning of your job that needs the proxy. For example:
 
