@@ -5,8 +5,8 @@ run:
       local_path: .
       # host_path: $JYNMNT/latent-planning/latent-planning
       local_tar: /tmp/{now:%Y-%m-%d}/{now:%H%M%S.%f}-jaynes-demo.tar
-      host_path: "{env.JYNS_SLURM_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}-jaynes_demo"
-      remote_tar: "{env.JYNS_SLURM_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}-jaynes_demo.tar"
+      host_path: "{secret.JYNS_SLURM_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}-jaynes_demo"
+      remote_tar: "{secret.JYNS_SLURM_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}-jaynes_demo.tar"
       pypath: true
       excludes: >-
         --exclude='data' --exclude='samples' --exclude='images' --exclude='videos'
@@ -21,20 +21,20 @@ run:
     setup: |
       source /etc/profile.d/modules.sh
       source $HOME/.bashrc
-      module load cuda/10.2
-      module load anaconda/2021b
-      source ~/proxy.sh
+      module load cuda/11.3
+      module load anaconda/2022b
+      source ~/proxy.env
     startup: >-
       pip install --user jaynes -q
     pypath: "{mounts[0].host_path}/rl:{mounts[0].host_path}/imitation:{mounts[0].host_path}/rl_maml_tf"
     work_dir: "{mounts[0].host_path}"
-    partition: normal # not clear what the partition is like
+    # partition: normal # not clear what the partition is like
     time_limit: "0:0:20"
     n_cpu: 2
     n_gpu: 0
     interactive: true
   launch: !ENV
     type: ssh
-    ip: "{env.JYNS_SLURM_HOST}"
-    username: "{env.JYNS_USERNAME}"
-    pem: "{env.JYNS_SLURM_PEM}"
+    ip: "{secret.JYNS_SLURM_HOST}"
+    username: "{secret.JYNS_USERNAME}"
+    pem: "{secret.JYNS_SLURM_PEM}"

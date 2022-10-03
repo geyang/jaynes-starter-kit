@@ -8,6 +8,13 @@ Outbound HTTP requests are blocked on the workers nodes, which means you can not
 
 **Old Note (pre 20220818)** Outbound HTTP requests are blocked on the workers nodes, which means you can not run pip install or send logging request to our ec2 instrumentation server. See [[link]](proxy_setup.md)
 
+## Before You Start
+
+Hopefully you have already followed the tutorial in [04_slurm_configurations](../04_slurm_configuration). You need to make the changes to the `.secret.yml` file again here:
+```bash
+cp .secret.yml .secret.template.yml
+```
+Then edit the secret file with your own configurations. Refer to that guide for instructions.
 
 ## High-level Guidelines
 
@@ -39,8 +46,6 @@ export LD_PRELOAD=$HOME/vendor/glew/lib/libGLEW.so.2.2.0:/usr/lib/x86_64-linux-g
 # Needed for DeepMind control (dm_control)
 export MJLIB_PATH=$HOME/.mujoco/mujoco-2.1.1/lib/libmujoco.so
 ```
-
-
 
 ## Setting up DeepMind Control
 

@@ -4,8 +4,8 @@ run:
     - !mounts.SSHCode
       local_path: .
       local_tar: /tmp/{now:%Y-%m-%d}/{now:%H%M%S.%f}-decision-transformer.tar
-      host_path: "{env.JYNS_SLURM_DIR}/{now:%Y-%m-%d}/{now:%H%M%S.%f}/decision-transformer"
-      remote_tar: "{env.JYNS_SLURM_DIR}/{now:%Y-%m-%d}/{now:%H%M%S.%f}/decision-transformer.tar"
+      host_path: "{secret.JYNS_SLURM_DIR}/{now:%Y-%m-%d}/{now:%H%M%S.%f}/decision-transformer"
+      remote_tar: "{secret.JYNS_SLURM_DIR}/{now:%Y-%m-%d}/{now:%H%M%S.%f}/decision-transformer.tar"
       pypath: true
       excludes: >-
         --exclude='data' --exclude='samples' --exclude='images' --exclude='videos'
@@ -48,6 +48,6 @@ run:
     n_gpu: volta:1
   launch: !ENV
     type: ssh
-    ip: "{env.JYNS_SLURM_HOST}"
-    username: "{env.JYNS_USERNAME}"
-    pem: "{env.JYNS_SLURM_PEM}"
+    ip: "{secret.JYNS_SLURM_HOST}"
+    username: "{secret.JYNS_USERNAME}"
+    pem: "{secret.JYNS_SLURM_PEM}"
