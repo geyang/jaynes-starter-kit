@@ -8,11 +8,17 @@ Where “PORT” is your desired port number. This will create a proxy.env file 
 
 You can set this up once per month (it gets killed during downtime).
 
-1. first run on the login node, their proxy setup script:
+1. first run on the login node the proxy setup script that we got from the supercloud admins. **Pick a random port number that is different from other people. Do NOT use the same port**
 
    ```bash
+   export PORT=<your-random-port-do-not-use-the-same-port!!!>
    /usr/local/bin/start_squid_proxy.sh PORT > ~/proxy.env
    ```
+   You need to do this once per month after the scheduled downtime.
+   
+   If you run into issues with your outbound http requests (like `ml-logger` raising `host not reachable` errors), it could be an issue with the proxy setup. In this case, you should delete the `~/proxy.env` file, and run the script above again, potentially with a different port.
+   
+   You could also do this every single time in your jaynes config's setup section.
 
 2. Now, source the generated `.env` file in the `.jaynes.yml` config
 
