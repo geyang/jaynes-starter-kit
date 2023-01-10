@@ -6,12 +6,21 @@ result looks like:
 
 ![running instance screenshot](./figures/jaynes-output-ssh.png)
 
+## Temp Note:
+
+jaynes```` uses gnu-tar and an updated version of rsyn on Mac OS. To install these, run
+```bash
+brew install gnu-tar
+brew install rsync
+```
+
 ## Getting Started
 
 [will finish after lunch]
 
 1. install `jaynes` and `cloudpickle==1.3.0` on both your local computer (where you run jaynes), and the docker image. This script installs these automatically, but you can comment that out if it is already installed.
 2. run `lanch_entry.py`. 
+3. go to [./secret.yml](.secret.yml) file and edit the user names and addresses of the remote workstation you are trying to connect and run scripts on
 
 When you run the [./launch_entry.py](launch_entry.py) script, it generates two pieces of script:
 
