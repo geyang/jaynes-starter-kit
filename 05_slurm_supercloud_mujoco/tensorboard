@@ -1,0 +1,15 @@
+#!/state/partition1/llgrid/pkg/anaconda/anaconda3-2021b/bin/python
+# -*- coding: utf-8 -*-
+import re
+import sys
+from proxy import entry_point
+
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.argv += [
+            '--hostname', '0.0.0.0',
+            '--timeout', '3600',
+            '--client-recvbuf-size', '131072',
+            '--server-recvbuf-size', '131072',
+            '--num-workers', '1']
+    sys.exit(entry_point())

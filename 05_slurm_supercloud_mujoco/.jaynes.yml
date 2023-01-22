@@ -31,15 +31,19 @@ run:
       module load cuda/10.2
       module load anaconda/2021b
       module load mpi/openmpi-4.0
-      source $HOME/proxy.env
+      make &
     startup: >-
+      make --directory $HOME worker;
+      sleep 0.1;
+      . $HOME/.worker_export;
       echo "copying mujoco-py";
       mkdir -p /state/partition1/user/$USER;
       cp -r /home/gridsan/$USER/mujoco-py /state/partition1/user/$USER/;
       echo "finished";
       export MUJOCO_GL=egl;
       export CUDA_VISIBLE_DEVICES=0;
-    pypath: "{mounts[0].host_path}"
+    pypath: >-
+      {mounts[0].host_path} http_proxy=http://localhost:$(cat $HOME/WORKER_PORT) https_proxy=http://localhost:$(cat $HOME/WORKER_PORT)
     work_dir: "{mounts[0].host_path}"
     # exclude: d-7-11-2,d-10-1-2
     # time_limit: "0:0:20"
