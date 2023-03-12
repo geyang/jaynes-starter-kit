@@ -8,11 +8,9 @@ if __name__ == "__main__":
     import jaynes
     from ml_logger import RUN, instr
 
-
-
     jaynes.config()
 
-    RUN.CUDA_VISIBLE_DEVICES = 0
+    RUN.CUDA_VISIBLE_DEVICES = "0"
     thunk = instr(launch)
     jaynes.run(thunk, lr=1e-3)
 

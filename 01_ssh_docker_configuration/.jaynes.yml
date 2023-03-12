@@ -3,8 +3,8 @@ mounts: # mount configurations Available keys: NOW, UUID,
   - !mounts.SSHCode &code_mount
     local_path: .
     local_tar: /tmp/{now:%Y-%m-%d}/{now:%H%M%S.%f}-jaynes-demo.tar
-    host_path: "{env.JYNS_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}-jaynes_demo"
-    remote_tar: "{env.JYNS_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}-jaynes_demo.tar"
+    host_path: "{secret.JYNS_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}-jaynes_demo"
+    remote_tar: "{secret.JYNS_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}-jaynes_demo.tar"
     pypath: true
     excludes: >-
       --exclude='data' --exclude='samples' --exclude='images' --exclude='videos'
@@ -34,8 +34,7 @@ run:
   runner: *ssh-docker
   launch: !ENV
     type: ssh
-    ip: "visiongpu54"
-    username: "{env.JYNS_USERNAME}"
-    password: "{env.JYNS_PASSWORD}"
-    root_config: "source $HOME/public/.bashrc"
-    launch_dir: "{env.JYNS_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
+    ip: "visiongpu55"
+    username: "{secret.JYNS_USERNAME}"
+    password: "{secret.JYNS_PASSWORD}"
+    launch_dir: "{secret.JYNS_DIR}/jaynes-demo/{now:%Y-%m-%d}/{now:%H%M%S.%f}"
