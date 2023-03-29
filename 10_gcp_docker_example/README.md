@@ -23,19 +23,41 @@ The Google compute engine (GCE) is the EC2 equivalent under the Google Cloud Pla
 
 ### Step 1: Setting up Google Cloud API access via the **default** service acount
 
-This **default account** should have the name "Compute Engine default service account" under "IAM & Admin > IAM > Permissions" in the GCP console. **Do NOT** use your custom service account because it often lack the right permissions.
+You need to first create a service account for managing and launching GCE resources with the CLI tool. Do so by 
 
-1. CLick on this entry, then click on "Create New Key"
-2. Download that key to your local machine at `~/.gce/<gce-org-name>-<id>-1234567891234.json`, or something alike
-3. Set up you environment variables as the following:
+1. First, create a new service account called `ge-jaynes-<labname>`
+2. CLick on this entry, then click on "Create New Key"
+3. Download that key to your local machine at `~/.gce/<gce-org-name>-<id>-1234567891234.json`, or something alike
+4. Set up you environment variables as the following:
     ```bash
     # environment variables for Google Compute Engine
     export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.gce/<gce-org-name>-<id>-1234567891234.json
     ```
+   
+**To Test Your Setup**, first add this to your `~/.profile`:
+```bash
+export JYNS_GCP_PROJECT=<your-gcp-project-name>
+```
+Then run
+```bash
+gcloud compute instances create test-debug-ge-7 \
+   --project $JYNS_GCP_PROJECT \
+   --zone us-west4-b \
+   --machine-type n1-standard-4 \
+   --maintenance-policy TERMINATE --restart-on-failure \
+   --image-family tf2-ent-2-3-cu110 \
+   --image-project deeplearning-platform-release \
+   --boot-disk-size 200GB \
+   --metadata "install-nvidia-driver=True,proxy-mode=project_editors" \
+   --scopes https://www.googleapis.com/auth/cloud-platform \
+--accelerator type=nvidia-tesla-t4,count=1
+```
 
 ### Step 2: Adding the **default** _compute service_ account to the storage bucket
 
-The virtual machines needs access to the GS bucket in order to download the code payload. A typical error is for machines to have no access to the google storage bucket, therefore unable to download the code mounts and other payloads. The error typically looks like this when the launch script runs inside the VM:
+The virtual machines access GCP resources via a service account. The default service account is called "Compute Engine default service account". In order for the VMs to access the google storage bucket, you need to add the service account to the bucket. When using Jaynes, the VM needs access to the GS bucket in order to download the code payload. 
+
+A typical error is for machines to have no access to the google storage bucket, therefore unable to download the code mounts and other payloads. The error typically looks like this when the launch script runs inside the VM:
 
 ```bash
 $ gsutil cp gs://geyang-jaynes-improbable-ai/jaynes-debug/c86d66df-4017-460e-bf69-28b82543e3d0.tar /tmp/c86d66df-4017-460e-bf69-28b82543e3d0.tar
