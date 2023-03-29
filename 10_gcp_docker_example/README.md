@@ -38,7 +38,7 @@ You need to first create a service account for managing and launching GCE resour
 ```bash
 export JYNS_GCP_PROJECT=<your-gcp-project-name>
 ```
-Then run
+Then run the following, to create a new GCE instance without GPU. This is the `n1-standard-4` type.
 ```bash
 gcloud compute instances create test-debug-ge-7 \
    --project $JYNS_GCP_PROJECT \
