@@ -18,15 +18,17 @@ mounts: # mount configurations Available keys: NOW, UUID,
 runners:
   - !runners.Simple &ssh_runner
     name: "jaynes-docker-demo-{now:%H%M%S}-{RUN.count}"
+    # can use either /bin/sh, or /bin/bash --norc. Somehow making the
+    # process background affects the envs, even though the ~/.profile,
+    # ~/.bashrc, ~/.bash_profile are never sourced. Adding debugging
+    # printouts, even before the interactive break point, yiels no stdout
+    # output.
+    shell: "/bin/bash --norc"
     setup: |
-      . $HOME/.bashrc
-      conda activate
+      . $HOME/.jaynes_bash
+      conda activate torch
       echo running inside `hostname`
-    envs: >-
-      LANG=utf-8
-      LC_CTYPE=en_US.UTF-8
-      LD_LIBRARY_PATH=$HOME/.mujoco/mujoco200/bin:$LD_LIBREARY_PATH
-      PYTHONPATH=`which python`:$PYTHONPATH
+    envs: LANG=utf-8 LC_CTYPE=en_US.UTF-8
     pypath: "{mounts[0].host_path}"
     work_dir: "{mounts[0].host_path}"
 run:

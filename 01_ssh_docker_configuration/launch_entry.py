@@ -6,7 +6,7 @@ def launch(lr, model_name="LeNet"):
 
 if __name__ == "__main__":
     import jaynes
-    from ml_logger import RUN, instr
+    from ml_logger.job import RUN, instr
 
     jaynes.config()
 
