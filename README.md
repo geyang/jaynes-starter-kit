@@ -18,22 +18,7 @@ pip install params-proto waterbear
 
 ## Table of Contents
 
-For detailed documentation on each usecases, refer to the in-dept tutorial bellow: 
-
-1. [**Multiple SSH Reacheable Machines**](03_multiple_ssh_reacheable_machines/README.md)
-2. [**Compute at Scale with SLRUM & Jaynes**](04_slurm_configuration/README.md)
-3. [**Advanced Multi-mode Example**](05_muti-mode_advanced_config/README.md)
-4. [**SSH Docker Configuration**](01_ssh_docker_configuration/README.md)
-5. [**EC2 Docker Configuration**](02_ec2_docker_guide/README.md)
-6. [**GCP Docker Example**](10_gcp_docker_example/README.md)
-7. [**Jaynes Manager Server**](06_jaynes_manager/README.md)
-8. [**Guide for MIT Supercloud**](07_supercloud_setup/README.md)
-9. [**Using SBATCH Mode with SLUR**](09_sbatch_mode/README.md)
-10. [**Using `mpirun`**](08_using_mpirun/README.md)
-
-In this folder, we provide a collection of example configurations. Each example sits
-within its own folder. To run, follow the instruction in the README in that example
-project.
+For detailed documentation on each usecases, refer to the in-dept tutorial bellow. Each folder contains a complete example. To run, follow the instruction in the README.
 
 ```
 01_ssh_docker_configuration
@@ -41,6 +26,27 @@ project.
 ├── launch_entry.py
 └── .jaynes.yml
 ```
+
+- **SSH Launch Modes**
+    0. [**SSH Reachable Workstations**](00_ssh_reachable_machine/README.md)
+    1. [**SSH + Tmux | Persisting Your Runs**](00_ssh_tmux_reachable_machine/README.md)
+    2. [**Switching Between Machines via SSH**](03_multiple_ssh_reacheable_machines/README.md)
+    3. [**Using Docker Container**](01_ssh_docker_configuration/README.md)
+- **Working with Diverse Compute Resources**
+    4. [**Advanced Multi-mode Example**](05_muti-mode_advanced_config/README.md)
+- **SLURM**
+    4. [**Compute at Scale with SLRUM & Jaynes**](04_slurm_configuration/README.md)
+    5. [**Guide for MIT Supercloud**](07_supercloud_setup/README.md)
+    6. [**Using SBATCH Mode with SLUR**](09_sbatch_mode/README.md)
+    7. [**Using `mpirun`**](08_using_mpirun/README.md)
+- **AWS**
+    8. [**SSH Docker Configuration**](01_ssh_docker_configuration/README.md)
+    9. [**EC2 Docker Configuration**](02_ec2_docker_guide/README.md)
+- **GCP**
+    10. [**GCP Docker Example**](10_gcp_docker_example/README.md)
+- **God Mode**
+    11. [**Jaynes Manager Server**](06_jaynes_manager/README.md)
+
 
 ## Reporting Issues (on the [Jaynes Repo/issues](https://github.com/geyang/jaynes/issues))
 
