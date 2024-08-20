@@ -4,19 +4,39 @@ This tutorial contains a working example of using `jaynes` to launch multiple jo
 
 ## Authenticating with Kubernetes
 
-From the cluster admin, you should be able to obtain a `config` file, that you can place under you `~/.kube/config` path. 
+From the cluster admin, you should be able to obtain a `config` file. Nautilus users can find it in [this link](https://portal.nrp-nautilus.io/authConfig).
+
+You should place this file at `~/.kube/config`.
 
 ```bash
 mv ~/Downloads/config ~/.kube/config
 ```
 
-After this, your `kubectl` should just work.
+After this, your `kubectl` should just work. Try:
 
 ```bash
 kubectl get pods
 ```
 
 ## Quick Start
+
+### Setup S3 storage on the local host and Amazon AWS
+
+Jaynes uses S3 as the intermediate storage protocol (e.g., uploading code files). As of this moment, **Jaynes supports only publicly accessible AWS S3 repo for k8s**.
+
+To set it up properly, go to Amazon's AWS console, create a bucket (e.g., named **your-public-bucket**) that explicitly *unblocks* public accesses with ACL (access control list) enabled, then edit the access
+to give *all AWS users list/read access*.
+
+Run the following commands to set up a prefix handle to store generic jaynes file, and to test access
+
+```bash
+aws s3 ls s3://your-public-bucket/
+touch test.txt
+aws s3 cp ./test.txt s3://your-public/bucket/jaynes-debug/test_co.txt
+aws s3 ls s3://your-public-bucket/jaynes-debug/
+```
+
+### Configure AWS access for remote hosts
 
 This is a self-contained example that should work out of the box. First, make sure that your S3 bucket is setup correctly:  Make a copy of the `.secret.template.yml` -> `.secrete.yml` file in this example project. Edit this secret file, to include your S3 bucket name
 
@@ -25,13 +45,50 @@ mv .secret.template.yml .secret.yml
 vim .secret.yml
 ```
 
-Inside [.secrete.yml](.secrete.yml), put in the name of your bucket.
+The `.secret.yml` should look something like this,
 
-Then, run
+```
+JYNS_AWS_S3_BUCKET: your-public-bucket  # put your bucket name here
+```
+
+### Configure kubectl namespace
+
+Change the namespace placeholder `<YOUR NAMESPACE HERE>` in `.jaynes.yml` to match the namespace in your `~/.kube/config`.
+
+### Configure dockerhub access for kubectl
+
+Register an account at [DockerHub](). Create a personal token. Then run
+
+```bash
+kubectl create secret docker-registry dockerhub \
+   --docker-server=docker.io --docker-username=<your-docker-hub-user-name> \
+   --docker-password “<dckr_pat_your_personal_token>” \
+   --docker-email <your_dockerhub_email>
+```
+
+## Test single-pod running
+
+Run
 
 ```bash
 python launch_entry.py
 ```
+
+If it works, you will see logs similar to this
+
+```
+Error from server (BadRequest): container “jaynes-docker-demo-010226-1” in pod “jaynes-docker-demo-010226-1-kt2hf” is waiting to start: PodInitializing
+
+# This error keeps repeating itself until the pod is initialized....
+
+download: s3://roger-public/jaynes-debug/d9279148-e827-4158-b43f-8beb4ef8f2d9.tar to tmp/d9279148-e827-4158-b43f-8beb4ef8f2d9.tar
+Running inside worker jaynes-docker-demo-010226-1-kt2hf
+Training model...
+seed: 100
+Done!
+```
+
+## Test multi-pod running
 
 For an example that launches multiple pods, where multiple training jobs runs within each pod, you can look at 
 
@@ -77,10 +134,6 @@ if __name__ == "__main__":
 
 The [kube_examples](kube_examples) folder contains examples of working kube job config files. For details of the setup and a simple tutorial, refer to https://ucsd-prp.gitlab.io. They offer a very nice collection of examples.
 
-### Setting Up S3 access
-
-We use a publically accessible S3 bucket for uploading and downloading the code snapshot. Using `aws s3 cp` requires setting up local credentials. We by-pass this need by setting the code upload to be publically accessible. For details, refer to the [./jaynes.yml](./jaynes.yml) file in this example project.
-
 ### Getting a list of GPU Types
 
 ```bash
@@ -93,15 +146,4 @@ Use `desribe` to inspect the error messages.
 
 ```bash
 kubectl describe pods <pod-id>
-```
-
-## Setting up secret for dockerhub login
-
-Create a secret using this with a name `<secret-nam>` and put the secret under `image_pull_secret` field.
-
-```bash
-kubectl create secret docker-registry <secret-name> \
-     --docker-server=docker.io --docker-username=<usernam> \
-     --docker-password <your password>  \
-     --docker-email <your email>
 ```
