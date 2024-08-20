@@ -20,11 +20,11 @@ kubectl get pods
 
 ## Quick Start
 
-### Setup S3 storage on the local host and Amazon AWS
+### Setting Up S3 access on AWS
 
-Jaynes uses S3 as the intermediate storage protocol (e.g., uploading code files). As of this moment, **Jaynes supports only publicly accessible AWS S3 repo for k8s**.
+This jaynes tutorial uses a publicly accessible S3 bucket for uploading and downloading the code snapshot. At this moment we do not support custom endpoints or private buckets. PRs on this are welcome.
 
-To set it up properly, go to Amazon's AWS console, create a bucket (e.g., named **your-public-bucket**) that explicitly *unblocks* public accesses with ACL (access control list) enabled, then edit the access
+To set up the S3 bucket, go to Amazon's AWS console, create a bucket (e.g., named **your-public-bucket**) that explicitly *unblocks* public accesses with ACL (access control list) enabled, then edit the access
 to give *all AWS users list/read access*.
 
 Run the following commands to set up a prefix handle to store generic jaynes file, and to test access
@@ -55,16 +55,27 @@ JYNS_AWS_S3_BUCKET: your-public-bucket  # put your bucket name here
 
 Change the namespace placeholder `<YOUR NAMESPACE HERE>` in `.jaynes.yml` to match the namespace in your `~/.kube/config`.
 
-### Configure dockerhub access for kubectl
+### Configuring dockerhub access for kubectl
 
-Register an account at [DockerHub](). Create a personal token. Then run
+As of 2022, dockerhub now require login for pulling images. You will encounter errors with pod initialization if you do not set up dockerhub login correctly.
 
-```bash
-kubectl create secret docker-registry dockerhub \
-   --docker-server=docker.io --docker-username=<your-docker-hub-user-name> \
-   --docker-password “<dckr_pat_your_personal_token>” \
-   --docker-email <your_dockerhub_email>
-```
+![Pod initialization failed.](figures/pod_init_error.png)
+
+To set up dockerhub access
+1. first register an account at [DockerHub](). 
+2. Create a personal token. 
+3. Then create a secret using the following command with a name `<secret-name>`. 
+
+    ```bash
+    kubectl create secret docker-registry dockerhub \
+       --docker-server=docker.io \
+       --docker-username=<your-docker-hub-user-name> \
+       --docker-password “<dckr_pat_your_personal_token>” \
+       --docker-email <your_dockerhub_email>
+    ```
+4. Place the name of your generated secret under `image_pull_secret` field in [`.jaynes.yml`](.jaynes.yml).
+
+    ![place the secret name under image_pull_secret](figures/image_pull_secret.png)
 
 ## Test single-pod running
 
