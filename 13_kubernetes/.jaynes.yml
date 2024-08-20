@@ -41,4 +41,4 @@ run:
     ttl_seconds_after_finished: 360
   launch: !ENV
     type: Kube
-    namespace: rl-dev
+    namespace: <YOUR NAMESPACE HERE>
