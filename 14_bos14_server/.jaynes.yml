@@ -1,0 +1,15 @@
+version: 0
+verbose: false
+
+runners:
+  - !runners.Simple &runner
+    startup: "export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+    entry_script: "uv run python -u -m jaynes.entry"
+    work_dir: /home/yanbing/fortyfive/learning/diffusion-policy-fortyfive
+
+run:
+  runner: *runner
+  launch:
+    type: ssh
+    ip: bos14-ctrl-000
+    username: yanbing
